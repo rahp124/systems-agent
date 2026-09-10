@@ -1,0 +1,63 @@
+{
+  "network": "net3",
+  "results": [
+    {
+      "event_class": "contamination",
+      "runtime_seconds": 0.023,
+      "pressure_shape": [
+        49,
+        4
+      ],
+      "flow_shape": [
+        49,
+        1
+      ],
+      "quality_shape": [
+        49,
+        2
+      ],
+      "pressure_mean": 34.34821701049805,
+      "flow_mean": -0.5988484025001526,
+      "quality_max": 0.0014455934287980199
+    },
+    {
+      "event_class": "leak",
+      "runtime_seconds": 0.021,
+      "pressure_shape": [
+        49,
+        4
+      ],
+      "flow_shape": [
+        49,
+        1
+      ],
+      "quality_shape": [
+        49,
+        2
+      ],
+      "pressure_mean": 34.348751068115234,
+      "flow_mean": -0.5980603098869324,
+      "quality_max": 100.0
+    },
+    {
+      "event_class": "sensor_fault",
+      "runtime_seconds": 0.019,
+      "pressure_shape": [
+        49,
+        4
+      ],
+      "flow_shape": [
+        49,
+        1
+      ],
+      "quality_shape": [
+        49,
+        2
+      ],
+      "pressure_mean": 35.19005584716797,
+      "flow_mean": -0.5988484025001526,
+      "quality_max": 100.0
+    }
+  ],
+  "failures": []
+}

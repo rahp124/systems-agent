@@ -1,0 +1,25 @@
+{
+  "network": "ltown",
+  "results": [
+    {
+      "event_class": "sensor_fault",
+      "runtime_seconds": 0.912,
+      "pressure_shape": [
+        577,
+        4
+      ],
+      "flow_shape": [
+        577,
+        1
+      ],
+      "quality_shape": [
+        577,
+        2
+      ],
+      "pressure_mean": 30.779720306396484,
+      "flow_mean": -0.047294992953538895,
+      "quality_max": 0.0
+    }
+  ],
+  "failures": []
+}
