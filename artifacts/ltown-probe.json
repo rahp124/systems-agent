@@ -3,7 +3,7 @@
   "results": [
     {
       "event_class": "sensor_fault",
-      "runtime_seconds": 0.912,
+      "runtime_seconds": 0.943,
       "pressure_shape": [
         577,
         4

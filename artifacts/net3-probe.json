@@ -3,7 +3,7 @@
   "results": [
     {
       "event_class": "contamination",
-      "runtime_seconds": 0.023,
+      "runtime_seconds": 0.022,
       "pressure_shape": [
         49,
         4
@@ -22,7 +22,7 @@
     },
     {
       "event_class": "leak",
-      "runtime_seconds": 0.021,
+      "runtime_seconds": 0.02,
       "pressure_shape": [
         49,
         4

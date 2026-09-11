@@ -4,3 +4,4 @@ __pycache__/
 .pytest_cache/
 artifacts/*.log
 artifacts/demo-*.txt
+*.egg-info/
