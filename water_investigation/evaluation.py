@@ -20,11 +20,16 @@ MAX_INITIAL_POSTERIOR = 0.70
 MIN_SECOND_INITIAL_POSTERIOR = 0.15
 OUTCOME_SPACES = {
     "initial_telemetry": ("pressure_high", "pressure_low", "unresolved"),
-    "field_chlorine_grab": ("detected", "below_range"),
-    "lab_chlorine_assay": ("detected", "below_sensitivity"),
+    "field_chlorine_grab": ("below_range", "trace", "elevated", "high"),
+    "lab_chlorine_assay": ("below_sensitivity", "trace", "elevated", "high"),
     "portable_pressure_reading": ("higher", "lower", "stable"),
     "wait": ("flow_changed", "steady"),
 }
+
+# These bands are fixed before fitting likelihoods. They preserve the assay's
+# concentration ordering without pretending the source specifications justify
+# a continuous density model from only 20 training scenarios per class.
+ASSAY_BAND_EDGES_MG_L = (0.10, 0.50)
 
 
 @dataclass(frozen=True)
@@ -33,6 +38,16 @@ class TraceScenario:
     outcomes: dict[str, str]
     initial_outcome: str = "unresolved"
     measurements: dict[str, float] | None = None
+
+
+def _assay_band(value: float, lower_limit: float, below_label: str) -> str:
+    if value < lower_limit:
+        return below_label
+    if value < ASSAY_BAND_EDGES_MG_L[0]:
+        return "trace"
+    if value < ASSAY_BAND_EDGES_MG_L[1]:
+        return "elevated"
+    return "high"
 
 
 def _outcomes(spec: ScenarioSpec, pressure, flow, quality, baseline) -> tuple[str, dict[str, str], dict[str, float]]:
@@ -48,8 +63,8 @@ def _outcomes(spec: ScenarioSpec, pressure, flow, quality, baseline) -> tuple[st
     pressure_reading = pressure_delta(spec, "portable_pressure_reading", float(pressure_trace_delta.max()))
     initial = "pressure_high" if initial_reading.value > PRESSURE_HALF_WIDTH_PSI else "pressure_low" if initial_reading.value < -PRESSURE_HALF_WIDTH_PSI else "unresolved"
     outcomes = {
-        "field_chlorine_grab": "detected" if field_reading.value >= FIELD_LOWER_RANGE_MG_L else "below_range",
-        "lab_chlorine_assay": "detected" if lab_reading.value >= LAB_SENSITIVITY_MG_L else "below_sensitivity",
+        "field_chlorine_grab": _assay_band(field_reading.value, FIELD_LOWER_RANGE_MG_L, "below_range"),
+        "lab_chlorine_assay": _assay_band(lab_reading.value, LAB_SENSITIVITY_MG_L, "below_sensitivity"),
         "portable_pressure_reading": "higher" if pressure_reading.value > PRESSURE_HALF_WIDTH_PSI else "lower" if pressure_reading.value < -PRESSURE_HALF_WIDTH_PSI else "stable",
         # At this short horizon, passive waiting is deliberately retained as a
         # low-cost but weak action. It should not dominate an informative sample.
@@ -208,6 +223,7 @@ def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260
             "pressure_half_width_psi": PRESSURE_HALF_WIDTH_PSI,
             "field_lower_range_mg_l": FIELD_LOWER_RANGE_MG_L,
             "lab_sensitivity_mg_l": LAB_SENSITIVITY_MG_L,
+            "assay_band_edges_mg_l": list(ASSAY_BAND_EDGES_MG_L),
         }, "paired_episodes": True, "risk_lambda": risk_lambda, "policies": {},
     }
     # Every policy must face the identical held-out episode sequence. Sampling

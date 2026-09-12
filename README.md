@@ -70,7 +70,9 @@ The ensemble command stores local compressed traces in `artifacts/net3-ensemble.
 
 The evaluation now uses a seeded instrument-level measurement model rather than categorical outcome-flip rates. Its assumptions, bounds, source links, and limitations are documented in [measurement-model-sources.md](docs/research/measurement-model-sources.md).
 
-The report compares four policies: EIG-per-cost, expected post-action classification accuracy, random, and cheapest-first. The expected-accuracy policy is intentionally a cost-insensitive diagnostic baseline; it exposes the accuracy/cost tradeoff rather than replacing the cost-aware policy.
+The report compares five policies: EIG-per-cost, risk-aware expected classification accuracy, cost-insensitive expected classification accuracy, random, and cheapest-first. The expected-accuracy policy is intentionally a diagnostic baseline; it exposes the accuracy/cost tradeoff rather than replacing the cost-aware policy.
+
+Chemical observations retain four pre-specified concentration bands rather than only a binary detection: below the method limit, trace (below 0.10 mg/L), elevated (0.10–0.50 mg/L), and high (at least 0.50 mg/L). The same bands are used when estimating discrete likelihoods from the small training split; this is intentionally more defensible than fitting an unsupported continuous density. The field and lab methods retain their distinct documented detection/sensitivity limits, but the available source material does not support claiming a more precise lab error distribution.
 
 Generate the paired risk-aware frontier with bootstrap intervals:
 

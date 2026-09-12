@@ -121,8 +121,10 @@ The evaluator includes an `expected_accuracy` policy that ranks actions by expec
 
 In the first instrument-level run, EIG-per-cost made most of its errors by choosing the low-cost field assay, receiving a false positive, and classifying a leak as contamination. The expected-accuracy policy instead chooses the lab assay, increasing accuracy from 83% to 88% at mean cost 5.00. Random reached 90% on the same 100 paired episodes. This is an accuracy/cost frontier diagnostic, not evidence that any policy wins.
 
-## Risk-aware frontier
+## Quantitative assay bands and risk-aware frontier
+
+The assay actions no longer collapse every valid concentration into a single `detected` outcome. They use four fixed, ordered outcomes: below the method threshold, trace (<0.10 mg/L), elevated (0.10–0.50 mg/L), and high (≥0.50 mg/L). The empirical likelihood estimator uses Laplace smoothing over these outcomes. This preserves coarse quantitative evidence while avoiding a continuous likelihood fit that the 20-scenario-per-class training split cannot support. The field and lab actions remain mutually exclusive because the harness models them as the same physical sample; the cited sources establish different reporting thresholds but do not establish a distinct lab precision distribution.
 
 The `risk_aware` policy scores an action as expected increase in MAP classification accuracy minus `λ × action cost`; it stops when no available action has positive value. `water_investigation.frontier` evaluates λ values from 0 through 0.20 on the same episodes and uses 1,000 deterministic bootstrap resamples for 95% intervals.
 
-The first frontier is discontinuous: zero penalty selects the lab assay and reaches 88% accuracy at cost 5.00; every tested positive penalty selects the field assay and reaches 83% at cost 1.00. This shows that the present binary action model is too coarse for a useful cost/accuracy frontier. It is evidence to improve the observation/action design, not to search harder for a favorable λ.
+The first frontier remains discontinuous after the banded change: zero penalty selects the lab assay and reaches 88% accuracy at cost 5.00; every tested positive penalty selects the field assay and reaches 83% at cost 1.00. The bands improve EIG-per-cost modestly (83% to 85% on the standard paired evaluation) but do not create a useful cost/accuracy frontier. This is evidence to improve the observation/action design with conditionally distinct evidence, not to search harder for a favorable λ.

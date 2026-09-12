@@ -2,7 +2,8 @@ from random import Random
 
 from water_investigation.evaluation import (TraceScenario, empirical_actions,
                                             empirical_initial_telemetry, is_ambiguous,
-                                            run_episode, split_scenarios, _choose)
+                                            run_episode, split_scenarios, _assay_band,
+                                            _choose)
 from water_investigation.analytic import Action
 from water_investigation.ensemble import ScenarioSpec
 from water_investigation.measurement import (FIELD_SIGMA_MG_L, PRESSURE_HALF_WIDTH_PSI,
@@ -22,13 +23,13 @@ def test_split_is_stratified_and_disjoint() -> None:
 
 def test_selecting_field_assay_excludes_correlated_lab_assay() -> None:
     outcomes = {
-        "field_chlorine_grab": "detected", "lab_chlorine_assay": "detected",
+        "field_chlorine_grab": "trace", "lab_chlorine_assay": "trace",
         "portable_pressure_reading": "stable", "wait": "steady",
     }
     training = [
         _scenario("contamination", 0, outcomes),
-        _scenario("leak", 0, {**outcomes, "field_chlorine_grab": "clear", "lab_chlorine_assay": "clear"}),
-        _scenario("sensor_fault", 0, {**outcomes, "field_chlorine_grab": "clear", "lab_chlorine_assay": "clear", "portable_pressure_reading": "higher"}),
+        _scenario("leak", 0, {**outcomes, "field_chlorine_grab": "below_range", "lab_chlorine_assay": "below_sensitivity"}),
+        _scenario("sensor_fault", 0, {**outcomes, "field_chlorine_grab": "below_range", "lab_chlorine_assay": "below_sensitivity", "portable_pressure_reading": "higher"}),
     ]
     run = run_episode(training[0], empirical_actions(training), empirical_initial_telemetry(training), "eig_per_cost", Random(1).randrange(2**31))
     assert not ({"field_chlorine_grab", "lab_chlorine_assay"} <= set(run["actions"]))
@@ -54,6 +55,13 @@ def test_chlorine_measurement_is_seeded_and_uses_the_documented_precision() -> N
     assert first == second
     assert first.model == "Hach Method 8021 normal approximation"
     assert FIELD_SIGMA_MG_L == 0.05 / 1.96
+
+
+def test_assay_bands_preserve_detection_limit_and_concentration_order() -> None:
+    assert _assay_band(0.019, 0.02, "below_range") == "below_range"
+    assert _assay_band(0.02, 0.02, "below_range") == "trace"
+    assert _assay_band(0.10, 0.02, "below_range") == "elevated"
+    assert _assay_band(0.50, 0.02, "below_range") == "high"
 
 
 def test_risk_aware_policy_stops_when_no_action_improves_risk_adjusted_accuracy() -> None:
