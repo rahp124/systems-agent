@@ -72,6 +72,14 @@ The evaluation now uses a seeded instrument-level measurement model rather than 
 
 The report compares four policies: EIG-per-cost, expected post-action classification accuracy, random, and cheapest-first. The expected-accuracy policy is intentionally a cost-insensitive diagnostic baseline; it exposes the accuracy/cost tradeoff rather than replacing the cost-aware policy.
 
+Generate the paired risk-aware frontier with bootstrap intervals:
+
+```bash
+.venv/bin/python -m water_investigation.frontier --episodes 100 --seed 20260912
+```
+
+This writes `artifacts/net3-risk-frontier.json`. It sweeps the cost penalty in expected reduction of classification risk; it does not tune a penalty against the held-out result.
+
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
 ## Architecture

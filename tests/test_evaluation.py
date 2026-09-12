@@ -2,7 +2,8 @@ from random import Random
 
 from water_investigation.evaluation import (TraceScenario, empirical_actions,
                                             empirical_initial_telemetry, is_ambiguous,
-                                            run_episode, split_scenarios)
+                                            run_episode, split_scenarios, _choose)
+from water_investigation.analytic import Action
 from water_investigation.ensemble import ScenarioSpec
 from water_investigation.measurement import (FIELD_SIGMA_MG_L, PRESSURE_HALF_WIDTH_PSI,
                                              chlorine, pressure_delta)
@@ -53,3 +54,12 @@ def test_chlorine_measurement_is_seeded_and_uses_the_documented_precision() -> N
     assert first == second
     assert first.model == "Hach Method 8021 normal approximation"
     assert FIELD_SIGMA_MG_L == 0.05 / 1.96
+
+
+def test_risk_aware_policy_stops_when_no_action_improves_risk_adjusted_accuracy() -> None:
+    belief = {"contamination": 0.5, "leak": 0.5}
+    uninformative = Action(
+        "uninformative", 1.0, 0,
+        {"contamination": {"same": 1.0}, "leak": {"same": 1.0}},
+    )
+    assert _choose("risk_aware", belief, [uninformative], Random(0), risk_lambda=0.05) is None

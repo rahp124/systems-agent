@@ -1,0 +1,71 @@
+{
+  "episodes": 100,
+  "paired": true,
+  "frontier": [
+    {
+      "risk_lambda": 0.0,
+      "accuracy": 0.88,
+      "accuracy_95_ci": [
+        0.81,
+        0.94
+      ],
+      "mean_cost": 5.0,
+      "cost_95_ci": [
+        5.0,
+        5.0
+      ]
+    },
+    {
+      "risk_lambda": 0.02,
+      "accuracy": 0.83,
+      "accuracy_95_ci": [
+        0.75,
+        0.9
+      ],
+      "mean_cost": 1.0,
+      "cost_95_ci": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "risk_lambda": 0.05,
+      "accuracy": 0.83,
+      "accuracy_95_ci": [
+        0.75,
+        0.9
+      ],
+      "mean_cost": 1.0,
+      "cost_95_ci": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "risk_lambda": 0.1,
+      "accuracy": 0.83,
+      "accuracy_95_ci": [
+        0.75,
+        0.9
+      ],
+      "mean_cost": 1.0,
+      "cost_95_ci": [
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "risk_lambda": 0.2,
+      "accuracy": 0.83,
+      "accuracy_95_ci": [
+        0.75,
+        0.9
+      ],
+      "mean_cost": 1.0,
+      "cost_95_ci": [
+        1.0,
+        1.0
+      ]
+    }
+  ]
+}

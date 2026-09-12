@@ -1,5 +1,5 @@
 {
-  "ensemble": "artifacts/net3-ensemble.npz",
+  "ensemble": "/Users/rahul/Desktop/systems-agent/artifacts/net3-ensemble.npz",
   "episodes": 100,
   "training_scenarios": 60,
   "held_out_scenarios": 60,
@@ -15,6 +15,7 @@
     "lab_sensitivity_mg_l": 0.03
   },
   "paired_episodes": true,
+  "risk_lambda": 0.05,
   "policies": {
     "eig_per_cost": {
       "accuracy": 0.83,
@@ -2837,6 +2838,2814 @@
         {
           "scenario_id": "leak-003",
           "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "leak",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.19899248470702063,
+            "field_chlorine_mg_l": 0.041789848190469235,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.057213847268736184
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        }
+      ]
+    },
+    "risk_aware": {
+      "accuracy": 0.83,
+      "mean_cost": 1.0,
+      "mean_actions": 1,
+      "mean_cost_when_correct": 1.0,
+      "runs": [
+        {
+          "scenario_id": "contamination-007",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.08865417493502814,
+            "field_chlorine_mg_l": 0.022582472395968625,
+            "lab_chlorine_mg_l": 0.0023263896999663556,
+            "portable_pressure_delta_psi": -0.06360685924070764
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-015",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.1705199975094296,
+            "field_chlorine_mg_l": 0.011650924662771473,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": 0.22786642237513627
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-027",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.24149614339189973,
+            "field_chlorine_mg_l": 1.4650361665170122,
+            "lab_chlorine_mg_l": 1.4411704100379976,
+            "portable_pressure_delta_psi": 0.025320621249697417
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-015",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.013216559672114547,
+            "field_chlorine_mg_l": 1.0300860856355465,
+            "lab_chlorine_mg_l": 0.9375914193184756,
+            "portable_pressure_delta_psi": 0.20692375882213526
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-003",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.19481568365094398,
+            "field_chlorine_mg_l": 0.5773954426554051,
+            "lab_chlorine_mg_l": 0.6151505133601894,
+            "portable_pressure_delta_psi": -0.1110736154126361
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-039",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "leak",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.15074259816410707,
+            "field_chlorine_mg_l": 0.03783989887173944,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.10739539115069618
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-033",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.05809096142774178,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.2193523984777518
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-037",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.0460953412923325,
+            "field_chlorine_mg_l": 0.015781297504214437,
+            "lab_chlorine_mg_l": 0.018109059788280587,
+            "portable_pressure_delta_psi": -0.03148705585656347
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-021",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.1558676490080539,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.006772659581594731
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-011",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.05214494068585823,
+            "field_chlorine_mg_l": 0.4153001501210305,
+            "lab_chlorine_mg_l": 0.40973517158127776,
+            "portable_pressure_delta_psi": -0.1853073392086555
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-025",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.12815531269216174,
+            "field_chlorine_mg_l": 0.06548837196882669,
+            "lab_chlorine_mg_l": 0.03140312462660066,
+            "portable_pressure_delta_psi": -0.24143886938077547
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-011",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.05214494068585823,
+            "field_chlorine_mg_l": 0.4153001501210305,
+            "lab_chlorine_mg_l": 0.40973517158127776,
+            "portable_pressure_delta_psi": -0.1853073392086555
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-023",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "leak",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.06850774186616548,
+            "field_chlorine_mg_l": 0.029713622945965218,
+            "lab_chlorine_mg_l": 0.01749910749093502,
+            "portable_pressure_delta_psi": -0.19805616412162325
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-017",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.2181419352639265,
+            "field_chlorine_mg_l": 0.019640528968638063,
+            "lab_chlorine_mg_l": 0.021964819747884255,
+            "portable_pressure_delta_psi": -0.0396831088011485
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.047591950173845765,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.24447181212108676
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-033",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.05809096142774178,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.2193523984777518
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-007",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.08865417493502814,
+            "field_chlorine_mg_l": 0.022582472395968625,
+            "lab_chlorine_mg_l": 0.0023263896999663556,
+            "portable_pressure_delta_psi": -0.06360685924070764
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-035",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "leak",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.2241760107433723,
+            "field_chlorine_mg_l": 0.03184356005927214,
+            "lab_chlorine_mg_l": 0.020720315812020315,
+            "portable_pressure_delta_psi": -0.03773361914005097
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-009",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.03815817363762236,
+            "field_chlorine_mg_l": 0.9466947034825888,
+            "lab_chlorine_mg_l": 0.9674123668119092,
+            "portable_pressure_delta_psi": 0.2271220341389743
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-003",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "leak",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.19899248470702063,
+            "field_chlorine_mg_l": 0.041789848190469235,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.057213847268736184
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-029",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.2321090729960386,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": 0.07314590246459701
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-023",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "leak",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.06850774186616548,
+            "field_chlorine_mg_l": 0.029713622945965218,
+            "lab_chlorine_mg_l": 0.01749910749093502,
+            "portable_pressure_delta_psi": -0.19805616412162325
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-005",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.01147940765694877,
+            "field_chlorine_mg_l": 0.9597283358897445,
+            "lab_chlorine_mg_l": 0.9719481249936385,
+            "portable_pressure_delta_psi": -0.03481303539137559
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-017",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.2181419352639265,
+            "field_chlorine_mg_l": 0.019640528968638063,
+            "lab_chlorine_mg_l": 0.021964819747884255,
+            "portable_pressure_delta_psi": -0.0396831088011485
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-025",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.10521679690342367,
+            "field_chlorine_mg_l": 0.013868113651220274,
+            "lab_chlorine_mg_l": 0.0017956580605302578,
+            "portable_pressure_delta_psi": 0.004650029505217201
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-013",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "contamination",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.03308450575274702,
+            "field_chlorine_mg_l": 0.0006674707779354798,
+            "lab_chlorine_mg_l": 0.007014474013870668,
+            "portable_pressure_delta_psi": 0.05291442051170342
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-021",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.1558676490080539,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.006772659581594731
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-017",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.2181419352639265,
+            "field_chlorine_mg_l": 0.019640528968638063,
+            "lab_chlorine_mg_l": 0.021964819747884255,
+            "portable_pressure_delta_psi": -0.0396831088011485
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-009",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.03815817363762236,
+            "field_chlorine_mg_l": 0.9466947034825888,
+            "lab_chlorine_mg_l": 0.9674123668119092,
+            "portable_pressure_delta_psi": 0.2271220341389743
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-019",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.02451148933079389,
+            "field_chlorine_mg_l": 0.517582280977607,
+            "lab_chlorine_mg_l": 0.5945440762852575,
+            "portable_pressure_delta_psi": 0.24566490215434672
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-029",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.10463547844312882,
+            "field_chlorine_mg_l": 0.8463258353787724,
+            "lab_chlorine_mg_l": 0.8649857385024099,
+            "portable_pressure_delta_psi": -0.14605349328576678
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-017",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.15128292503063523,
+            "field_chlorine_mg_l": 0.09163534250216086,
+            "lab_chlorine_mg_l": 0.08723838283481566,
+            "portable_pressure_delta_psi": 0.10609338457481698
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-033",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.05809096142774178,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.2193523984777518
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-013",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "contamination",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.03308450575274702,
+            "field_chlorine_mg_l": 0.0006674707779354798,
+            "lab_chlorine_mg_l": 0.007014474013870668,
+            "portable_pressure_delta_psi": 0.05291442051170342
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-029",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.10463547844312882,
+            "field_chlorine_mg_l": 0.8463258353787724,
+            "lab_chlorine_mg_l": 0.8649857385024099,
+            "portable_pressure_delta_psi": -0.14605349328576678
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-031",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.08433207596283049,
+            "field_chlorine_mg_l": 0.9058390614122859,
+            "lab_chlorine_mg_l": 0.8685409379500492,
+            "portable_pressure_delta_psi": 0.23126818806426808
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-003",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "leak",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.19899248470702063,
+            "field_chlorine_mg_l": 0.041789848190469235,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.057213847268736184
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-021",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.09958292762135551,
+            "field_chlorine_mg_l": 0.8788314483539996,
+            "lab_chlorine_mg_l": 0.8645962284715258,
+            "portable_pressure_delta_psi": -0.06111583811544835
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-001",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.1516270541453441,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.11513925887714083
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-017",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.15128292503063523,
+            "field_chlorine_mg_l": 0.09163534250216086,
+            "lab_chlorine_mg_l": 0.08723838283481566,
+            "portable_pressure_delta_psi": 0.10609338457481698
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-013",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "contamination",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.03308450575274702,
+            "field_chlorine_mg_l": 0.0006674707779354798,
+            "lab_chlorine_mg_l": 0.007014474013870668,
+            "portable_pressure_delta_psi": 0.05291442051170342
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-021",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.09958292762135551,
+            "field_chlorine_mg_l": 0.8788314483539996,
+            "lab_chlorine_mg_l": 0.8645962284715258,
+            "portable_pressure_delta_psi": -0.06111583811544835
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-029",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.10463547844312882,
+            "field_chlorine_mg_l": 0.8463258353787724,
+            "lab_chlorine_mg_l": 0.8649857385024099,
+            "portable_pressure_delta_psi": -0.14605349328576678
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-027",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.14850416875679873,
+            "field_chlorine_mg_l": 0.010806757567746142,
+            "lab_chlorine_mg_l": 0.001812758754725385,
+            "portable_pressure_delta_psi": -0.18642270383994697
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-017",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.2181419352639265,
+            "field_chlorine_mg_l": 0.019640528968638063,
+            "lab_chlorine_mg_l": 0.021964819747884255,
+            "portable_pressure_delta_psi": -0.0396831088011485
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-013",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "contamination",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.03308450575274702,
+            "field_chlorine_mg_l": 0.0006674707779354798,
+            "lab_chlorine_mg_l": 0.007014474013870668,
+            "portable_pressure_delta_psi": 0.05291442051170342
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-035",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.16019579229182102,
+            "field_chlorine_mg_l": 0.04675333021765146,
+            "lab_chlorine_mg_l": 0.057204692734453645,
+            "portable_pressure_delta_psi": 0.2035851483977712
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-001",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.1516270541453441,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.11513925887714083
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-007",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.08865417493502814,
+            "field_chlorine_mg_l": 0.022582472395968625,
+            "lab_chlorine_mg_l": 0.0023263896999663556,
+            "portable_pressure_delta_psi": -0.06360685924070764
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-005",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.01147940765694877,
+            "field_chlorine_mg_l": 0.9597283358897445,
+            "lab_chlorine_mg_l": 0.9719481249936385,
+            "portable_pressure_delta_psi": -0.03481303539137559
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-001",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.1516270541453441,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.11513925887714083
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-029",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.10463547844312882,
+            "field_chlorine_mg_l": 0.8463258353787724,
+            "lab_chlorine_mg_l": 0.8649857385024099,
+            "portable_pressure_delta_psi": -0.14605349328576678
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-015",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.1705199975094296,
+            "field_chlorine_mg_l": 0.011650924662771473,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": 0.22786642237513627
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-019",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.2116904924400696,
+            "field_chlorine_mg_l": 0.003845334122351662,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.025326690087283943
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-009",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.03815817363762236,
+            "field_chlorine_mg_l": 0.9466947034825888,
+            "lab_chlorine_mg_l": 0.9674123668119092,
+            "portable_pressure_delta_psi": 0.2271220341389743
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-019",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.02451148933079389,
+            "field_chlorine_mg_l": 0.517582280977607,
+            "lab_chlorine_mg_l": 0.5945440762852575,
+            "portable_pressure_delta_psi": 0.24566490215434672
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-019",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.02451148933079389,
+            "field_chlorine_mg_l": 0.517582280977607,
+            "lab_chlorine_mg_l": 0.5945440762852575,
+            "portable_pressure_delta_psi": 0.24566490215434672
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-021",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.09958292762135551,
+            "field_chlorine_mg_l": 0.8788314483539996,
+            "lab_chlorine_mg_l": 0.8645962284715258,
+            "portable_pressure_delta_psi": -0.06111583811544835
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-033",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.05809096142774178,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.2193523984777518
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-009",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.03815817363762236,
+            "field_chlorine_mg_l": 0.9466947034825888,
+            "lab_chlorine_mg_l": 0.9674123668119092,
+            "portable_pressure_delta_psi": 0.2271220341389743
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-027",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.24149614339189973,
+            "field_chlorine_mg_l": 1.4650361665170122,
+            "lab_chlorine_mg_l": 1.4411704100379976,
+            "portable_pressure_delta_psi": 0.025320621249697417
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-015",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.1705199975094296,
+            "field_chlorine_mg_l": 0.011650924662771473,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": 0.22786642237513627
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.06765215720598206,
+            "field_chlorine_mg_l": 0.0071279991717831314,
+            "lab_chlorine_mg_l": 0.012204010924627931,
+            "portable_pressure_delta_psi": -0.04915505164831546
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-009",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.03815817363762236,
+            "field_chlorine_mg_l": 0.9466947034825888,
+            "lab_chlorine_mg_l": 0.9674123668119092,
+            "portable_pressure_delta_psi": 0.2271220341389743
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-011",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.05214494068585823,
+            "field_chlorine_mg_l": 0.4153001501210305,
+            "lab_chlorine_mg_l": 0.40973517158127776,
+            "portable_pressure_delta_psi": -0.1853073392086555
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-025",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.12815531269216174,
+            "field_chlorine_mg_l": 0.06548837196882669,
+            "lab_chlorine_mg_l": 0.03140312462660066,
+            "portable_pressure_delta_psi": -0.24143886938077547
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-025",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.12815531269216174,
+            "field_chlorine_mg_l": 0.06548837196882669,
+            "lab_chlorine_mg_l": 0.03140312462660066,
+            "portable_pressure_delta_psi": -0.24143886938077547
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-007",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.16716509673160285,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.050996282625614626,
+            "portable_pressure_delta_psi": 0.2101330442110933
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-021",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.09958292762135551,
+            "field_chlorine_mg_l": 0.8788314483539996,
+            "lab_chlorine_mg_l": 0.8645962284715258,
+            "portable_pressure_delta_psi": -0.06111583811544835
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-011",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.05214494068585823,
+            "field_chlorine_mg_l": 0.4153001501210305,
+            "lab_chlorine_mg_l": 0.40973517158127776,
+            "portable_pressure_delta_psi": -0.1853073392086555
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-027",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.24149614339189973,
+            "field_chlorine_mg_l": 1.4650361665170122,
+            "lab_chlorine_mg_l": 1.4411704100379976,
+            "portable_pressure_delta_psi": 0.025320621249697417
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.06765215720598206,
+            "field_chlorine_mg_l": 0.0071279991717831314,
+            "lab_chlorine_mg_l": 0.012204010924627931,
+            "portable_pressure_delta_psi": -0.04915505164831546
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-027",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.14850416875679873,
+            "field_chlorine_mg_l": 0.010806757567746142,
+            "lab_chlorine_mg_l": 0.001812758754725385,
+            "portable_pressure_delta_psi": -0.18642270383994697
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-005",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.01147940765694877,
+            "field_chlorine_mg_l": 0.9597283358897445,
+            "lab_chlorine_mg_l": 0.9719481249936385,
+            "portable_pressure_delta_psi": -0.03481303539137559
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-009",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.03815817363762236,
+            "field_chlorine_mg_l": 0.9466947034825888,
+            "lab_chlorine_mg_l": 0.9674123668119092,
+            "portable_pressure_delta_psi": 0.2271220341389743
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-033",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.05809096142774178,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.2193523984777518
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-039",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "leak",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.15074259816410707,
+            "field_chlorine_mg_l": 0.03783989887173944,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.10739539115069618
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-039",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "leak",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.15074259816410707,
+            "field_chlorine_mg_l": 0.03783989887173944,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.10739539115069618
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-027",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.24149614339189973,
+            "field_chlorine_mg_l": 1.4650361665170122,
+            "lab_chlorine_mg_l": 1.4411704100379976,
+            "portable_pressure_delta_psi": 0.025320621249697417
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-035",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "leak",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.2241760107433723,
+            "field_chlorine_mg_l": 0.03184356005927214,
+            "lab_chlorine_mg_l": 0.020720315812020315,
+            "portable_pressure_delta_psi": -0.03773361914005097
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-025",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.10521679690342367,
+            "field_chlorine_mg_l": 0.013868113651220274,
+            "lab_chlorine_mg_l": 0.0017956580605302578,
+            "portable_pressure_delta_psi": 0.004650029505217201
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-033",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.04092528087416769,
+            "field_chlorine_mg_l": 0.07121798030576224,
+            "lab_chlorine_mg_l": 0.0646372678952944,
+            "portable_pressure_delta_psi": 0.20373513807999916
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-013",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "contamination",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.03308450575274702,
+            "field_chlorine_mg_l": 0.0006674707779354798,
+            "lab_chlorine_mg_l": 0.007014474013870668,
+            "portable_pressure_delta_psi": 0.05291442051170342
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-015",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.013216559672114547,
+            "field_chlorine_mg_l": 1.0300860856355465,
+            "lab_chlorine_mg_l": 0.9375914193184756,
+            "portable_pressure_delta_psi": 0.20692375882213526
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-003",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "leak",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.19899248470702063,
+            "field_chlorine_mg_l": 0.041789848190469235,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.057213847268736184
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-007",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.16716509673160285,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.050996282625614626,
+            "portable_pressure_delta_psi": 0.2101330442110933
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-021",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.09958292762135551,
+            "field_chlorine_mg_l": 0.8788314483539996,
+            "lab_chlorine_mg_l": 0.8645962284715258,
+            "portable_pressure_delta_psi": -0.06111583811544835
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-025",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.10521679690342367,
+            "field_chlorine_mg_l": 0.013868113651220274,
+            "lab_chlorine_mg_l": 0.0017956580605302578,
+            "portable_pressure_delta_psi": 0.004650029505217201
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-027",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.14850416875679873,
+            "field_chlorine_mg_l": 0.010806757567746142,
+            "lab_chlorine_mg_l": 0.001812758754725385,
+            "portable_pressure_delta_psi": -0.18642270383994697
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-027",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.24149614339189973,
+            "field_chlorine_mg_l": 1.4650361665170122,
+            "lab_chlorine_mg_l": 1.4411704100379976,
+            "portable_pressure_delta_psi": 0.025320621249697417
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-007",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.16716509673160285,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.050996282625614626,
+            "portable_pressure_delta_psi": 0.2101330442110933
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-023",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.10181099846411251,
+            "field_chlorine_mg_l": 1.4044798826195235,
+            "lab_chlorine_mg_l": 1.3821802499458162,
+            "portable_pressure_delta_psi": -0.08335130578085298
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-017",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.2181419352639265,
+            "field_chlorine_mg_l": 0.019640528968638063,
+            "lab_chlorine_mg_l": 0.021964819747884255,
+            "portable_pressure_delta_psi": -0.0396831088011485
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-005",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.01147940765694877,
+            "field_chlorine_mg_l": 0.9597283358897445,
+            "lab_chlorine_mg_l": 0.9719481249936385,
+            "portable_pressure_delta_psi": -0.03481303539137559
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "contamination-037",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.23308633358026098,
+            "field_chlorine_mg_l": 0.6576806903316906,
+            "lab_chlorine_mg_l": 0.6444208034123251,
+            "portable_pressure_delta_psi": -0.24345107133069055
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-021",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.1558676490080539,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.0,
+            "portable_pressure_delta_psi": -0.006772659581594731
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "leak-035",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "leak",
+          "correct": false,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.2241760107433723,
+            "field_chlorine_mg_l": 0.03184356005927214,
+            "lab_chlorine_mg_l": 0.020720315812020315,
+            "portable_pressure_delta_psi": -0.03773361914005097
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-009",
+          "policy": "risk_aware",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": 0.03536174538611475,
+            "field_chlorine_mg_l": 0.0,
+            "lab_chlorine_mg_l": 0.03075297782115477,
+            "portable_pressure_delta_psi": -0.11429774757255956
+          },
+          "posterior": {
+            "contamination": 0.21920668058455117,
+            "leak": 0.7453027139874739,
+            "sensor_fault": 0.035490605427974956
+          }
+        },
+        {
+          "scenario_id": "contamination-017",
+          "policy": "risk_aware",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "initial_outcome": "unresolved",
+          "initial_posterior": {
+            "contamination": 0.48837209302325585,
+            "leak": 0.48837209302325585,
+            "sensor_fault": 0.023255813953488375
+          },
+          "measurements": {
+            "fixed_pressure_delta_psi": -0.15128292503063523,
+            "field_chlorine_mg_l": 0.09163534250216086,
+            "lab_chlorine_mg_l": 0.08723838283481566,
+            "portable_pressure_delta_psi": 0.10609338457481698
+          },
+          "posterior": {
+            "contamination": 0.7644539614561028,
+            "leak": 0.22483940042826556,
+            "sensor_fault": 0.010706638115631694
+          }
+        },
+        {
+          "scenario_id": "leak-003",
+          "policy": "risk_aware",
           "prediction": "contamination",
           "truth": "leak",
           "correct": false,

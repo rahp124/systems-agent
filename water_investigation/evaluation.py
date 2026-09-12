@@ -127,11 +127,18 @@ def is_ambiguous(posterior) -> bool:
     return ranked[0] <= MAX_INITIAL_POSTERIOR and ranked[1] >= MIN_SECOND_INITIAL_POSTERIOR
 
 
-def _choose(policy: str, belief, available: list[Action], rng: Random) -> Action:
+def _risk_adjusted_value(belief, action: Action, risk_lambda: float) -> float:
+    return expected_classification_accuracy(belief, action) - max(belief.values()) - risk_lambda * action.cost
+
+
+def _choose(policy: str, belief, available: list[Action], rng: Random, risk_lambda: float = 0.05) -> Action | None:
     if policy == "eig_per_cost":
         return max(available, key=lambda action: (score_action(belief, action), action.name))
     if policy == "expected_accuracy":
         return max(available, key=lambda action: (expected_classification_accuracy(belief, action), -action.cost, action.name))
+    if policy == "risk_aware":
+        action = max(available, key=lambda candidate: (_risk_adjusted_value(belief, candidate, risk_lambda), candidate.name))
+        return action if _risk_adjusted_value(belief, action, risk_lambda) > 0 else None
     if policy == "cheapest_first":
         return min(available, key=lambda action: (action.cost, action.name))
     if policy == "random":
@@ -139,14 +146,16 @@ def _choose(policy: str, belief, available: list[Action], rng: Random) -> Action
     raise ValueError(f"unknown policy: {policy}")
 
 
-def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], telemetry: Action, policy: str, seed: int) -> dict[str, object]:
+def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], telemetry: Action, policy: str, seed: int, risk_lambda: float = 0.05) -> dict[str, object]:
     belief = initial_posterior(scenario, telemetry)
     remaining = list(actions)
     rng = Random(seed)
     total_cost = 0.0
     selected: list[str] = []
     for _ in range(3):
-        action = _choose(policy, belief, remaining, rng)
+        action = _choose(policy, belief, remaining, rng, risk_lambda)
+        if action is None:
+            break
         selected.append(action.name)
         total_cost += action.cost
         belief = posterior_after(belief, action, scenario.outcomes[action.name])
@@ -175,7 +184,7 @@ def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], telemetry:
     }
 
 
-def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260911) -> dict[str, object]:
+def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260911, risk_lambda: float = 0.05) -> dict[str, object]:
     scenarios = scenarios_from_ensemble(path)
     training, held_out = split_scenarios(scenarios)
     if not held_out:
@@ -186,8 +195,12 @@ def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260
     if not eligible:
         raise ValueError("no held-out scenarios met the ambiguity gate")
     rng = Random(seed)
+    try:
+        ensemble_name = str(path.relative_to(ROOT))
+    except ValueError:
+        ensemble_name = str(path)
     report: dict[str, object] = {
-        "ensemble": str(path), "episodes": episodes,
+        "ensemble": ensemble_name, "episodes": episodes,
         "training_scenarios": len(training), "held_out_scenarios": len(held_out),
         "eligible_held_out_scenarios": len(eligible), "rejected_held_out_scenarios": len(held_out) - len(eligible),
         "ambiguity_gate": {"max_initial_posterior": MAX_INITIAL_POSTERIOR, "min_second_initial_posterior": MIN_SECOND_INITIAL_POSTERIOR},
@@ -195,14 +208,14 @@ def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260
             "pressure_half_width_psi": PRESSURE_HALF_WIDTH_PSI,
             "field_lower_range_mg_l": FIELD_LOWER_RANGE_MG_L,
             "lab_sensitivity_mg_l": LAB_SENSITIVITY_MG_L,
-        }, "paired_episodes": True, "policies": {},
+        }, "paired_episodes": True, "risk_lambda": risk_lambda, "policies": {},
     }
     # Every policy must face the identical held-out episode sequence. Sampling
     # separately per policy confounds policy quality with scenario mix.
     episode_scenarios = [rng.choice(eligible) for _ in range(episodes)]
     episode_seeds = [rng.randrange(2**31) for _ in range(episodes)]
-    for policy in ("eig_per_cost", "expected_accuracy", "random", "cheapest_first"):
-        runs = [run_episode(scenario, actions, telemetry, policy, episode_seed)
+    for policy in ("eig_per_cost", "risk_aware", "expected_accuracy", "random", "cheapest_first"):
+        runs = [run_episode(scenario, actions, telemetry, policy, episode_seed, risk_lambda)
                 for scenario, episode_seed in zip(episode_scenarios, episode_seeds)]
         correct = [run for run in runs if run["correct"]]
         report["policies"][policy] = {
@@ -220,9 +233,10 @@ def main() -> None:
     parser.add_argument("--ensemble", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--episodes", type=int, default=100)
     parser.add_argument("--seed", type=int, default=20260911)
+    parser.add_argument("--risk-lambda", type=float, default=0.05)
     parser.add_argument("--output", type=Path, default=DEFAULT_REPORT)
     args = parser.parse_args()
-    report = evaluate(args.ensemble, args.episodes, args.seed)
+    report = evaluate(args.ensemble, args.episodes, args.seed, args.risk_lambda)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n")
     print(args.output)
