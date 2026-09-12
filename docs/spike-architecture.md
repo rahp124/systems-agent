@@ -114,3 +114,9 @@ These noise rates are deliberate harness controls, not calibrated sensor-error e
 The complete source links and assumptions are in [measurement-model-sources.md](research/measurement-model-sources.md). The sources characterize ideal-condition product/method performance; they do not model collection, transport, hydraulic-model, or site-specific error. The run report stores each seeded numeric draw and its model parameters alongside the categorical result.
 
 The ensemble injection scale is now chosen so contaminant concentrations span the field method's cited 0.02–2.0 mg/L range. Under this model, 40 of 60 held-out scenarios pass the ambiguity gate. EIG-per-cost reduces cost relative to the baselines but has lower accuracy than random in the first 100-episode run, so it is a diagnostic result—not an improvement claim.
+
+## Policy-diagnosis baseline
+
+The evaluator includes an `expected_accuracy` policy that ranks actions by expected post-observation MAP classification accuracy and uses cost only as a tie-breaker. It is deliberately not cost-aware. Its purpose is to distinguish a weak acquisition objective from weak observations: if it improves accuracy but costs more, the action model contains useful information and the cost-aware objective needs refinement.
+
+In the first instrument-level run, EIG-per-cost made most of its errors by choosing the low-cost field assay, receiving a false positive, and classifying a leak as contamination. The expected-accuracy policy instead chooses the lab assay, increasing accuracy from 83% to 88% at mean cost 5.00. Random reached 90% on the same 100 paired episodes. This is an accuracy/cost frontier diagnostic, not evidence that any policy wins.

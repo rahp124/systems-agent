@@ -1,7 +1,8 @@
 from math import isclose
 from random import Random
 
-from water_investigation.analytic import Action, entropy, expected_information_gain, posterior_after, update_belief
+from water_investigation.analytic import (Action, entropy, expected_classification_accuracy,
+                                          expected_information_gain, posterior_after, update_belief)
 from water_investigation.world import default_actions, new_episode
 
 
@@ -18,6 +19,11 @@ def test_perfect_test_has_one_bit_of_information_for_uniform_binary_belief() -> 
 def test_uninformative_test_has_zero_information_gain() -> None:
     action = Action("none", 1, 0, {"a": {"yes": 0.5, "no": 0.5}, "b": {"yes": 0.5, "no": 0.5}})
     assert isclose(expected_information_gain({"a": 0.5, "b": 0.5}, action), 0.0)
+
+
+def test_perfect_test_has_perfect_expected_classification_accuracy() -> None:
+    action = Action("perfect", 1, 0, {"a": {"yes": 1}, "b": {"no": 1}})
+    assert isclose(expected_classification_accuracy({"a": 0.5, "b": 0.5}, action), 1.0)
 
 
 def test_posterior_is_normalized_after_an_outcome() -> None:

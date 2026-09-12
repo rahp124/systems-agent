@@ -55,9 +55,18 @@ def expected_information_gain(belief: Mapping[str, float], action: Action) -> fl
     return entropy(belief) - expected_entropy
 
 
+def expected_classification_accuracy(belief: Mapping[str, float], action: Action) -> float:
+    """Expected probability that the MAP class is correct after observing an action outcome."""
+    outcomes = set().union(*(distribution.keys() for distribution in action.likelihood.values()))
+    return sum(
+        outcome_probability(belief, action, outcome) * max(posterior_after(belief, action, outcome).values())
+        for outcome in outcomes
+        if outcome_probability(belief, action, outcome) > 0
+    )
+
+
 def score_action(belief: Mapping[str, float], action: Action, latency_penalty: float = 0.25) -> float:
     denominator = action.cost + latency_penalty * action.latency_steps
     if denominator <= 0:
         raise ValueError("expected action cost must be positive")
     return expected_information_gain(belief, action) / denominator
-

@@ -70,6 +70,8 @@ The ensemble command stores local compressed traces in `artifacts/net3-ensemble.
 
 The evaluation now uses a seeded instrument-level measurement model rather than categorical outcome-flip rates. Its assumptions, bounds, source links, and limitations are documented in [measurement-model-sources.md](docs/research/measurement-model-sources.md).
 
+The report compares four policies: EIG-per-cost, expected post-action classification accuracy, random, and cheapest-first. The expected-accuracy policy is intentionally a cost-insensitive diagnostic baseline; it exposes the accuracy/cost tradeoff rather than replacing the cost-aware policy.
+
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
 ## Architecture

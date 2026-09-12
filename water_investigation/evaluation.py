@@ -8,7 +8,7 @@ from pathlib import Path
 from random import Random
 from statistics import mean
 
-from .analytic import Action, posterior_after, score_action
+from .analytic import Action, expected_classification_accuracy, posterior_after, score_action
 from .ensemble import DEFAULT_OUTPUT, HYPOTHESES, ScenarioSpec, load_ensemble
 from .measurement import (FIELD_LOWER_RANGE_MG_L, LAB_SENSITIVITY_MG_L,
                           PRESSURE_HALF_WIDTH_PSI, chlorine, pressure_delta)
@@ -130,6 +130,8 @@ def is_ambiguous(posterior) -> bool:
 def _choose(policy: str, belief, available: list[Action], rng: Random) -> Action:
     if policy == "eig_per_cost":
         return max(available, key=lambda action: (score_action(belief, action), action.name))
+    if policy == "expected_accuracy":
+        return max(available, key=lambda action: (expected_classification_accuracy(belief, action), -action.cost, action.name))
     if policy == "cheapest_first":
         return min(available, key=lambda action: (action.cost, action.name))
     if policy == "random":
@@ -193,10 +195,15 @@ def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260
             "pressure_half_width_psi": PRESSURE_HALF_WIDTH_PSI,
             "field_lower_range_mg_l": FIELD_LOWER_RANGE_MG_L,
             "lab_sensitivity_mg_l": LAB_SENSITIVITY_MG_L,
-        }, "policies": {},
+        }, "paired_episodes": True, "policies": {},
     }
-    for policy in ("eig_per_cost", "random", "cheapest_first"):
-        runs = [run_episode(rng.choice(eligible), actions, telemetry, policy, rng.randrange(2**31)) for _ in range(episodes)]
+    # Every policy must face the identical held-out episode sequence. Sampling
+    # separately per policy confounds policy quality with scenario mix.
+    episode_scenarios = [rng.choice(eligible) for _ in range(episodes)]
+    episode_seeds = [rng.randrange(2**31) for _ in range(episodes)]
+    for policy in ("eig_per_cost", "expected_accuracy", "random", "cheapest_first"):
+        runs = [run_episode(scenario, actions, telemetry, policy, episode_seed)
+                for scenario, episode_seed in zip(episode_scenarios, episode_seeds)]
         correct = [run for run in runs if run["correct"]]
         report["policies"][policy] = {
             "accuracy": len(correct) / episodes,
