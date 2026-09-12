@@ -1,0 +1,103 @@
+{
+  "base_noise_rates": {
+    "initial_telemetry": 0.45,
+    "field_chlorine_grab": 0.1,
+    "lab_chlorine_assay": 0.02,
+    "portable_pressure_reading": 0.12,
+    "wait": 0.0
+  },
+  "results": [
+    {
+      "noise_multiplier": 0.0,
+      "error": "no held-out scenarios met the ambiguity gate"
+    },
+    {
+      "noise_multiplier": 0.5,
+      "eligible_held_out_scenarios": 2,
+      "rejected_held_out_scenarios": 58,
+      "policies": {
+        "eig_per_cost": {
+          "accuracy": 0.44,
+          "mean_cost": 4.0,
+          "mean_actions": 2
+        },
+        "random": {
+          "accuracy": 0.44,
+          "mean_cost": 5.31,
+          "mean_actions": 2.14
+        },
+        "cheapest_first": {
+          "accuracy": 0.4,
+          "mean_cost": 4.5,
+          "mean_actions": 3
+        }
+      }
+    },
+    {
+      "noise_multiplier": 1.0,
+      "eligible_held_out_scenarios": 60,
+      "rejected_held_out_scenarios": 0,
+      "policies": {
+        "eig_per_cost": {
+          "accuracy": 0.76,
+          "mean_cost": 2.945,
+          "mean_actions": 1.99
+        },
+        "random": {
+          "accuracy": 0.76,
+          "mean_cost": 4.465,
+          "mean_actions": 1.84
+        },
+        "cheapest_first": {
+          "accuracy": 0.73,
+          "mean_cost": 3.24,
+          "mean_actions": 2.58
+        }
+      }
+    },
+    {
+      "noise_multiplier": 1.5,
+      "eligible_held_out_scenarios": 60,
+      "rejected_held_out_scenarios": 0,
+      "policies": {
+        "eig_per_cost": {
+          "accuracy": 0.72,
+          "mean_cost": 3.685,
+          "mean_actions": 2.27
+        },
+        "random": {
+          "accuracy": 0.72,
+          "mean_cost": 5.67,
+          "mean_actions": 2.4
+        },
+        "cheapest_first": {
+          "accuracy": 0.7,
+          "mean_cost": 3.81,
+          "mean_actions": 2.77
+        }
+      }
+    },
+    {
+      "noise_multiplier": 2.0,
+      "eligible_held_out_scenarios": 60,
+      "rejected_held_out_scenarios": 0,
+      "policies": {
+        "eig_per_cost": {
+          "accuracy": 0.73,
+          "mean_cost": 3.72,
+          "mean_actions": 2.39
+        },
+        "random": {
+          "accuracy": 0.76,
+          "mean_cost": 5.7,
+          "mean_actions": 2.44
+        },
+        "cheapest_first": {
+          "accuracy": 0.7,
+          "mean_cost": 3.78,
+          "mean_actions": 2.76
+        }
+      }
+    }
+  ]
+}

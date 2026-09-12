@@ -39,16 +39,16 @@ class TraceScenario:
     initial_outcome: str = "unresolved"
 
 
-def _noisy_outcome(spec: ScenarioSpec, channel: str, outcome: str) -> str:
+def _noisy_outcome(spec: ScenarioSpec, channel: str, outcome: str, noise_multiplier: float) -> str:
     """Apply reproducible, channel-specific categorical measurement noise."""
     rng = Random(f"{spec.seed}:{channel}")
-    if rng.random() >= NOISE_RATES[channel]:
+    if rng.random() >= NOISE_RATES[channel] * noise_multiplier:
         return outcome
     alternatives = [candidate for candidate in OUTCOME_SPACES[channel] if candidate != outcome]
     return rng.choice(alternatives)
 
 
-def _outcomes(spec: ScenarioSpec, pressure, flow, quality, baseline) -> tuple[str, dict[str, str]]:
+def _outcomes(spec: ScenarioSpec, pressure, flow, quality, baseline, noise_multiplier: float) -> tuple[str, dict[str, str]]:
     """Extract action results from stored traces; no event label is consulted."""
     baseline_pressure, baseline_flow, baseline_quality = baseline
     quality_peak = float((quality - baseline_quality).max())
@@ -65,15 +65,17 @@ def _outcomes(spec: ScenarioSpec, pressure, flow, quality, baseline) -> tuple[st
         # low-cost but weak action. It should not dominate an informative sample.
         "wait": "flow_changed" if flow_change > 1.0 else "steady",
     }
-    return (_noisy_outcome(spec, "initial_telemetry", initial),
-            {channel: _noisy_outcome(spec, channel, outcome) for channel, outcome in outcomes.items()})
+    return (_noisy_outcome(spec, "initial_telemetry", initial, noise_multiplier),
+            {channel: _noisy_outcome(spec, channel, outcome, noise_multiplier) for channel, outcome in outcomes.items()})
 
 
-def scenarios_from_ensemble(path: Path) -> list[TraceScenario]:
+def scenarios_from_ensemble(path: Path, noise_multiplier: float = 1.0) -> list[TraceScenario]:
+    if not 0 <= noise_multiplier <= 2:
+        raise ValueError("noise_multiplier must be between zero and two")
     specs, pressure, flow, quality, baseline = load_ensemble(path)
     scenarios = []
     for index, spec in enumerate(specs):
-        initial_outcome, outcomes = _outcomes(spec, pressure[index], flow[index], quality[index], baseline)
+        initial_outcome, outcomes = _outcomes(spec, pressure[index], flow[index], quality[index], baseline, noise_multiplier)
         scenarios.append(TraceScenario(spec, outcomes, initial_outcome))
     return scenarios
 
@@ -177,8 +179,8 @@ def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], telemetry:
     }
 
 
-def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260911) -> dict[str, object]:
-    scenarios = scenarios_from_ensemble(path)
+def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260911, noise_multiplier: float = 1.0) -> dict[str, object]:
+    scenarios = scenarios_from_ensemble(path, noise_multiplier)
     training, held_out = split_scenarios(scenarios)
     if not held_out:
         raise ValueError("ensemble does not contain held-out scenarios")
@@ -193,7 +195,7 @@ def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260
         "training_scenarios": len(training), "held_out_scenarios": len(held_out),
         "eligible_held_out_scenarios": len(eligible), "rejected_held_out_scenarios": len(held_out) - len(eligible),
         "ambiguity_gate": {"max_initial_posterior": MAX_INITIAL_POSTERIOR, "min_second_initial_posterior": MIN_SECOND_INITIAL_POSTERIOR},
-        "noise_rates": NOISE_RATES, "policies": {},
+        "noise_rates": NOISE_RATES, "noise_multiplier": noise_multiplier, "policies": {},
     }
     for policy in ("eig_per_cost", "random", "cheapest_first"):
         runs = [run_episode(rng.choice(eligible), actions, telemetry, policy, rng.randrange(2**31)) for _ in range(episodes)]
@@ -213,9 +215,10 @@ def main() -> None:
     parser.add_argument("--ensemble", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--episodes", type=int, default=100)
     parser.add_argument("--seed", type=int, default=20260911)
+    parser.add_argument("--noise-multiplier", type=float, default=1.0)
     parser.add_argument("--output", type=Path, default=DEFAULT_REPORT)
     args = parser.parse_args()
-    report = evaluate(args.ensemble, args.episodes, args.seed)
+    report = evaluate(args.ensemble, args.episodes, args.seed, args.noise_multiplier)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n")
     print(args.output)

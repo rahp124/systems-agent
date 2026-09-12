@@ -1,6 +1,6 @@
 from random import Random
 
-from water_investigation.evaluation import (TraceScenario, empirical_actions,
+from water_investigation.evaluation import (TraceScenario, _noisy_outcome, empirical_actions,
                                             empirical_initial_telemetry, is_ambiguous,
                                             run_episode, split_scenarios)
 from water_investigation.ensemble import ScenarioSpec
@@ -34,3 +34,8 @@ def test_selecting_field_assay_excludes_correlated_lab_assay() -> None:
 def test_ambiguity_gate_requires_two_plausible_classes() -> None:
     assert is_ambiguous({"contamination": 0.55, "leak": 0.30, "sensor_fault": 0.15})
     assert not is_ambiguous({"contamination": 0.80, "leak": 0.10, "sensor_fault": 0.10})
+
+
+def test_zero_noise_preserves_the_trace_derived_outcome() -> None:
+    spec = ScenarioSpec("contamination-000", "contamination", 42, 0, 1.0)
+    assert _noisy_outcome(spec, "field_chlorine_grab", "detected", 0.0) == "detected"

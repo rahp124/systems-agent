@@ -13,6 +13,7 @@
 - A seeded categorical episode keeps its hidden class evaluator-only, schedules delayed evidence, and replays deterministically.
 - L-Town can run a 48-hour sensor-fault smoke scenario with the current four-pressure/one-flow/two-quality sensor configuration in about 0.9 seconds on this machine (`577` observations, using its bundled five-minute cadence).
 - A 120-scenario Net3 ensemble (40 per class) can be generated reproducibly. With seeded noisy observations and an ambiguity gate, 100 held-out episodes produced 76% accuracy at mean cost 2.95 for EIG-per-cost, versus 76%/4.47 for random and 73%/3.24 for cheapest-first.
+- A five-level uncertainty sensitivity sweep found no eligible ambiguous episodes without synthetic noise, only two at half the configured noise, and 60 at the current or higher settings. The result depends materially on the synthetic measurement model.
 
 ## Integration details found empirically
 
@@ -24,5 +25,6 @@
 
 - The first trace-backed likelihood model uses categorical thresholds and Laplace-smoothed empirical frequencies. It is not calibrated and its threshold choices are harness parameters.
 - Initial telemetry now gates the benchmark to scenarios with top posterior ≤0.70 and second posterior ≥0.15. Its categorical noise rates are configured harness parameters, not calibrated field-error estimates.
+- The next valid improvement is a sensor/action measurement model grounded in simulator uncertainty configuration, published instrument specifications, or real measurement data; tuning categorical noise rates is no longer sufficient.
 - The Phase-0 100-scenario parallel timing and frozen-sensor serialized-storage measurements remain to be added. No performance claim is justified yet.
 - The analytic runner remains a correctness oracle. The new evaluation path is simulator-derived, but is an integration result rather than a resume-quality benchmark.

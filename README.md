@@ -68,6 +68,14 @@ Build the first reproducible Net3 ensemble and evaluate it:
 
 The ensemble command stores local compressed traces in `artifacts/net3-ensemble.npz`; the evaluation command trains empirical action likelihoods on an even-indexed stratified subset and evaluates policies on odd-indexed held-out scenarios. Its report is written to `artifacts/net3-evaluation.json`.
 
+Run an uncertainty sensitivity sweep before interpreting an evaluation result:
+
+```bash
+.venv/bin/python -m water_investigation.sensitivity --episodes 100 --seed 20260912
+```
+
+The sweep evaluates zero through double the configured uncertainty assumptions and writes `artifacts/net3-noise-sensitivity.json`. It is a robustness check, not calibration to real instruments.
+
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
 ## Architecture

@@ -106,3 +106,9 @@ Every channel has a deterministic, scenario-seeded categorical noise rate. Curre
 The likelihood model built from training scenarios updates the initial uniform prior. A held-out scenario is eligible only if its largest initial posterior is at most 0.70 and its second-largest posterior is at least 0.15. The evaluation report records both the eligible and rejected counts, the gate values, and noise rates.
 
 These noise rates are deliberate harness controls, not calibrated sensor-error estimates. The benchmark now tests action selection from ambiguous initial state, but no resume-quality claim is valid until noise and thresholds are estimated or validated against a more realistic measurement model.
+
+## Uncertainty sensitivity
+
+`water_investigation.sensitivity` runs the held-out evaluation at multipliers 0.0, 0.5, 1.0, 1.5, and 2.0 of the configured channel noise rates. It reports whether the ambiguity gate still has eligible scenarios and each policy's accuracy, cost, and action count.
+
+The first sweep shows that the no-noise model has no eligible held-out episodes and the half-noise model has only two. This makes the dependency on synthetic uncertainty explicit rather than hiding it behind one favorable setting. The sweep is evidence about robustness of the harness assumptions; it is not a field-calibration method.
