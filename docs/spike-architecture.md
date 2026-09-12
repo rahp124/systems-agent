@@ -107,8 +107,10 @@ The likelihood model built from training scenarios updates the initial uniform p
 
 These noise rates are deliberate harness controls, not calibrated sensor-error estimates. The benchmark now tests action selection from ambiguous initial state, but no resume-quality claim is valid until noise and thresholds are estimated or validated against a more realistic measurement model.
 
-## Uncertainty sensitivity
+## Instrument-level measurement model
 
-`water_investigation.sensitivity` runs the held-out evaluation at multipliers 0.0, 0.5, 1.0, 1.5, and 2.0 of the configured channel noise rates. It reports whether the ambiguity gate still has eligible scenarios and each policy's accuracy, cost, and action count.
+`water_investigation.measurement` replaces the former categorical flip-rate model with seeded draws at the observation layer. The model treats the TE M3200 pressure transducer's ±0.25% full-scale accuracy as a bounded uniform interval for a selected 100 psi deployment, yielding a ±0.25 psi pressure measurement bound. It treats the published Hach chlorine-method 95% intervals as explicit normal approximations for field and lab assay draws, while preserving their documented field lower range (0.02 mg/L) and lab sensitivity (0.03 mg/L).
 
-The first sweep shows that the no-noise model has no eligible held-out episodes and the half-noise model has only two. This makes the dependency on synthetic uncertainty explicit rather than hiding it behind one favorable setting. The sweep is evidence about robustness of the harness assumptions; it is not a field-calibration method.
+The complete source links and assumptions are in [measurement-model-sources.md](research/measurement-model-sources.md). The sources characterize ideal-condition product/method performance; they do not model collection, transport, hydraulic-model, or site-specific error. The run report stores each seeded numeric draw and its model parameters alongside the categorical result.
+
+The ensemble injection scale is now chosen so contaminant concentrations span the field method's cited 0.02–2.0 mg/L range. Under this model, 40 of 60 held-out scenarios pass the ambiguity gate. EIG-per-cost reduces cost relative to the baselines but has lower accuracy than random in the first 100-episode run, so it is a diagnostic result—not an improvement claim.

@@ -8,8 +8,10 @@ from pathlib import Path
 from random import Random
 from statistics import mean
 
-from .analytic import Action, expected_information_gain, posterior_after, score_action
+from .analytic import Action, posterior_after, score_action
 from .ensemble import DEFAULT_OUTPUT, HYPOTHESES, ScenarioSpec, load_ensemble
+from .measurement import (FIELD_LOWER_RANGE_MG_L, LAB_SENSITIVITY_MG_L,
+                          PRESSURE_HALF_WIDTH_PSI, chlorine, pressure_delta)
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_REPORT = ROOT / "artifacts" / "net3-evaluation.json"
@@ -17,18 +19,11 @@ CONCLUSION_THRESHOLD = 0.75
 MAX_INITIAL_POSTERIOR = 0.70
 MIN_SECOND_INITIAL_POSTERIOR = 0.15
 OUTCOME_SPACES = {
-    "initial_telemetry": ("quality_signal", "pressure_high", "pressure_low", "unresolved"),
-    "field_chlorine_grab": ("detected", "clear"),
-    "lab_chlorine_assay": ("detected", "clear"),
+    "initial_telemetry": ("pressure_high", "pressure_low", "unresolved"),
+    "field_chlorine_grab": ("detected", "below_range"),
+    "lab_chlorine_assay": ("detected", "below_sensitivity"),
     "portable_pressure_reading": ("higher", "lower", "stable"),
     "wait": ("flow_changed", "steady"),
-}
-NOISE_RATES = {
-    "initial_telemetry": 0.45,
-    "field_chlorine_grab": 0.10,
-    "lab_chlorine_assay": 0.02,
-    "portable_pressure_reading": 0.12,
-    "wait": 0.00,
 }
 
 
@@ -37,46 +32,44 @@ class TraceScenario:
     spec: ScenarioSpec
     outcomes: dict[str, str]
     initial_outcome: str = "unresolved"
+    measurements: dict[str, float] | None = None
 
 
-def _noisy_outcome(spec: ScenarioSpec, channel: str, outcome: str, noise_multiplier: float) -> str:
-    """Apply reproducible, channel-specific categorical measurement noise."""
-    rng = Random(f"{spec.seed}:{channel}")
-    if rng.random() >= NOISE_RATES[channel] * noise_multiplier:
-        return outcome
-    alternatives = [candidate for candidate in OUTCOME_SPACES[channel] if candidate != outcome]
-    return rng.choice(alternatives)
-
-
-def _outcomes(spec: ScenarioSpec, pressure, flow, quality, baseline, noise_multiplier: float) -> tuple[str, dict[str, str]]:
+def _outcomes(spec: ScenarioSpec, pressure, flow, quality, baseline) -> tuple[str, dict[str, str], dict[str, float]]:
     """Extract action results from stored traces; no event label is consulted."""
     baseline_pressure, baseline_flow, baseline_quality = baseline
     quality_peak = float((quality - baseline_quality).max())
-    pressure_delta = pressure[:, 0] - baseline_pressure[:, 0]
+    pressure_trace_delta = pressure[:, 0] - baseline_pressure[:, 0]
     flow_change = float(abs(flow - baseline_flow).max())
     initial_pressure = pressure[:13, 0] - baseline_pressure[:13, 0]
-    initial_quality = float((quality[:13] - baseline_quality[:13]).max())
-    initial = "quality_signal" if initial_quality > 1e-6 else "pressure_high" if initial_pressure.max() > 0.4 else "pressure_low" if initial_pressure.min() < -0.02 else "unresolved"
+    initial_reading = pressure_delta(spec, "fixed_pressure", float(initial_pressure.max()))
+    field_reading = chlorine(spec, "field_chlorine_grab", quality_peak, lab=False)
+    lab_reading = chlorine(spec, "lab_chlorine_assay", quality_peak, lab=True)
+    pressure_reading = pressure_delta(spec, "portable_pressure_reading", float(pressure_trace_delta.max()))
+    initial = "pressure_high" if initial_reading.value > PRESSURE_HALF_WIDTH_PSI else "pressure_low" if initial_reading.value < -PRESSURE_HALF_WIDTH_PSI else "unresolved"
     outcomes = {
-        "field_chlorine_grab": "detected" if quality_peak > 1e-6 else "clear",
-        "lab_chlorine_assay": "detected" if quality_peak > 1e-7 else "clear",
-        "portable_pressure_reading": "higher" if pressure_delta.max() > 0.4 else "lower" if pressure_delta.min() < -0.02 else "stable",
+        "field_chlorine_grab": "detected" if field_reading.value >= FIELD_LOWER_RANGE_MG_L else "below_range",
+        "lab_chlorine_assay": "detected" if lab_reading.value >= LAB_SENSITIVITY_MG_L else "below_sensitivity",
+        "portable_pressure_reading": "higher" if pressure_reading.value > PRESSURE_HALF_WIDTH_PSI else "lower" if pressure_reading.value < -PRESSURE_HALF_WIDTH_PSI else "stable",
         # At this short horizon, passive waiting is deliberately retained as a
         # low-cost but weak action. It should not dominate an informative sample.
         "wait": "flow_changed" if flow_change > 1.0 else "steady",
     }
-    return (_noisy_outcome(spec, "initial_telemetry", initial, noise_multiplier),
-            {channel: _noisy_outcome(spec, channel, outcome, noise_multiplier) for channel, outcome in outcomes.items()})
+    measurements = {
+        "fixed_pressure_delta_psi": initial_reading.value,
+        "field_chlorine_mg_l": field_reading.value,
+        "lab_chlorine_mg_l": lab_reading.value,
+        "portable_pressure_delta_psi": pressure_reading.value,
+    }
+    return initial, outcomes, measurements
 
 
-def scenarios_from_ensemble(path: Path, noise_multiplier: float = 1.0) -> list[TraceScenario]:
-    if not 0 <= noise_multiplier <= 2:
-        raise ValueError("noise_multiplier must be between zero and two")
+def scenarios_from_ensemble(path: Path) -> list[TraceScenario]:
     specs, pressure, flow, quality, baseline = load_ensemble(path)
     scenarios = []
     for index, spec in enumerate(specs):
-        initial_outcome, outcomes = _outcomes(spec, pressure[index], flow[index], quality[index], baseline, noise_multiplier)
-        scenarios.append(TraceScenario(spec, outcomes, initial_outcome))
+        initial_outcome, outcomes, measurements = _outcomes(spec, pressure[index], flow[index], quality[index], baseline)
+        scenarios.append(TraceScenario(spec, outcomes, initial_outcome, measurements))
     return scenarios
 
 
@@ -175,12 +168,13 @@ def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], telemetry:
         "actions": selected,
         "initial_outcome": scenario.initial_outcome,
         "initial_posterior": initial_posterior(scenario, telemetry),
+        "measurements": scenario.measurements,
         "posterior": belief,
     }
 
 
-def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260911, noise_multiplier: float = 1.0) -> dict[str, object]:
-    scenarios = scenarios_from_ensemble(path, noise_multiplier)
+def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260911) -> dict[str, object]:
+    scenarios = scenarios_from_ensemble(path)
     training, held_out = split_scenarios(scenarios)
     if not held_out:
         raise ValueError("ensemble does not contain held-out scenarios")
@@ -195,7 +189,11 @@ def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260
         "training_scenarios": len(training), "held_out_scenarios": len(held_out),
         "eligible_held_out_scenarios": len(eligible), "rejected_held_out_scenarios": len(held_out) - len(eligible),
         "ambiguity_gate": {"max_initial_posterior": MAX_INITIAL_POSTERIOR, "min_second_initial_posterior": MIN_SECOND_INITIAL_POSTERIOR},
-        "noise_rates": NOISE_RATES, "noise_multiplier": noise_multiplier, "policies": {},
+        "measurement_model": {
+            "pressure_half_width_psi": PRESSURE_HALF_WIDTH_PSI,
+            "field_lower_range_mg_l": FIELD_LOWER_RANGE_MG_L,
+            "lab_sensitivity_mg_l": LAB_SENSITIVITY_MG_L,
+        }, "policies": {},
     }
     for policy in ("eig_per_cost", "random", "cheapest_first"):
         runs = [run_episode(rng.choice(eligible), actions, telemetry, policy, rng.randrange(2**31)) for _ in range(episodes)]
@@ -215,10 +213,9 @@ def main() -> None:
     parser.add_argument("--ensemble", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument("--episodes", type=int, default=100)
     parser.add_argument("--seed", type=int, default=20260911)
-    parser.add_argument("--noise-multiplier", type=float, default=1.0)
     parser.add_argument("--output", type=Path, default=DEFAULT_REPORT)
     args = parser.parse_args()
-    report = evaluate(args.ensemble, args.episodes, args.seed, args.noise_multiplier)
+    report = evaluate(args.ensemble, args.episodes, args.seed)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n")
     print(args.output)

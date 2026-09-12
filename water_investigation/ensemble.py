@@ -68,7 +68,9 @@ def simulate(spec: ScenarioSpec) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
             start_step = spec.event_start_seconds // 3600
             pattern = np.array([0.0] * start_step + [1.0] * 2 + [0.0] * (49 - start_step - 2))
             simulator.add_quality_source(event_node, EpanetConstants.EN_MASS, pattern=pattern,
-                                         source_strength=spec.magnitude)
+                                         # Scale the injected mass so observable concentrations
+                                         # occupy the cited 0.02–2.0 mg/L field-method range.
+                                         source_strength=100.0 * spec.magnitude)
         elif spec.event_class == "leak":
             simulator.add_leakage(AbruptLeakage(link_id=None, node_id=event_node,
                                                  diameter=0.002 + spec.magnitude * 0.006,

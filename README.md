@@ -68,13 +68,7 @@ Build the first reproducible Net3 ensemble and evaluate it:
 
 The ensemble command stores local compressed traces in `artifacts/net3-ensemble.npz`; the evaluation command trains empirical action likelihoods on an even-indexed stratified subset and evaluates policies on odd-indexed held-out scenarios. Its report is written to `artifacts/net3-evaluation.json`.
 
-Run an uncertainty sensitivity sweep before interpreting an evaluation result:
-
-```bash
-.venv/bin/python -m water_investigation.sensitivity --episodes 100 --seed 20260912
-```
-
-The sweep evaluates zero through double the configured uncertainty assumptions and writes `artifacts/net3-noise-sensitivity.json`. It is a robustness check, not calibration to real instruments.
+The evaluation now uses a seeded instrument-level measurement model rather than categorical outcome-flip rates. Its assumptions, bounds, source links, and limitations are documented in [measurement-model-sources.md](docs/research/measurement-model-sources.md).
 
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
@@ -111,4 +105,4 @@ The two paths must stay distinct until the simulator path can estimate likelihoo
 
 The spike deliberately excludes persistent workflow state, a UI, LLM processing, human approval gates, interventions such as hydrant flushes, scenario-ensemble storage, and benchmark claims. Do not report policy quality, cost savings, or calibration results from the current code.
 
-The evaluation now admits only held-out episodes whose noisy, simulator-derived initial telemetry leaves at least two plausible classes. The next technical gate is calibration: replace the current configured noise rates and categorical thresholds with measurement models estimated from realistic sensor/action error. See [FINDINGS.md](FINDINGS.md) for the current evidence and blockers.
+The evaluation now admits only held-out episodes whose instrument-perturbed, simulator-derived initial telemetry leaves at least two plausible classes. The next technical gate is a policy improvement: EIG-per-cost currently saves cost but trails random on accuracy under the new model. See [FINDINGS.md](FINDINGS.md) for the current evidence and blockers.
