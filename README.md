@@ -103,4 +103,4 @@ The two paths must stay distinct until the simulator path can estimate likelihoo
 
 The spike deliberately excludes persistent workflow state, a UI, LLM processing, human approval gates, interventions such as hydrant flushes, scenario-ensemble storage, and benchmark claims. Do not report policy quality, cost savings, or calibration results from the current code.
 
-The ensemble and first held-out evaluation now exist, but their events remain deliberately easy to separate and begin from a uniform anomaly-conditioned prior. The next technical gate is an episode generator with genuinely ambiguous initial telemetry and noisy action results. See [FINDINGS.md](FINDINGS.md) for the current evidence and blockers.
+The evaluation now admits only held-out episodes whose noisy, simulator-derived initial telemetry leaves at least two plausible classes. The next technical gate is calibration: replace the current configured noise rates and categorical thresholds with measurement models estimated from realistic sensor/action error. See [FINDINGS.md](FINDINGS.md) for the current evidence and blockers.

@@ -97,4 +97,12 @@ The next increment should introduce a versioned scenario record with: scenario I
 
 The current 0.75 conclusion threshold and action outcome thresholds are harness parameters, not domain-calibrated operational policy. The report includes accuracy, mean cost, mean action count, and cost when correct for EIG-per-cost, random, and cheapest-first policies.
 
-This is an integration milestone, not a benchmark result: all current synthetic event classes are easily separable after the selected action sequence, and episodes start from an intentionally uniform anomaly-conditioned prior. A future episode generator must reject trivially separable initial observations and introduce calibrated sensor/action noise before any resume-quality performance claim.
+## Ambiguous episodes and noisy evidence
+
+The evaluator now extracts an `initial_telemetry` categorical outcome from the first 12 hours of each simulator trace, relative to the stored no-event baseline. It combines early quality and pressure deviations into one of `quality_signal`, `pressure_high`, `pressure_low`, or `unresolved`.
+
+Every channel has a deterministic, scenario-seeded categorical noise rate. Current rates are 0.45 for initial telemetry, 0.10 for field sampling, 0.02 for lab assay, 0.12 for portable pressure readings, and 0 for waiting. The same scenario and channel always produce the same noisy outcome, so training/evaluation remain reproducible.
+
+The likelihood model built from training scenarios updates the initial uniform prior. A held-out scenario is eligible only if its largest initial posterior is at most 0.70 and its second-largest posterior is at least 0.15. The evaluation report records both the eligible and rejected counts, the gate values, and noise rates.
+
+These noise rates are deliberate harness controls, not calibrated sensor-error estimates. The benchmark now tests action selection from ambiguous initial state, but no resume-quality claim is valid until noise and thresholds are estimated or validated against a more realistic measurement model.

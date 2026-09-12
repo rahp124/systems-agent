@@ -14,21 +14,50 @@ from .ensemble import DEFAULT_OUTPUT, HYPOTHESES, ScenarioSpec, load_ensemble
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_REPORT = ROOT / "artifacts" / "net3-evaluation.json"
 CONCLUSION_THRESHOLD = 0.75
+MAX_INITIAL_POSTERIOR = 0.70
+MIN_SECOND_INITIAL_POSTERIOR = 0.15
+OUTCOME_SPACES = {
+    "initial_telemetry": ("quality_signal", "pressure_high", "pressure_low", "unresolved"),
+    "field_chlorine_grab": ("detected", "clear"),
+    "lab_chlorine_assay": ("detected", "clear"),
+    "portable_pressure_reading": ("higher", "lower", "stable"),
+    "wait": ("flow_changed", "steady"),
+}
+NOISE_RATES = {
+    "initial_telemetry": 0.45,
+    "field_chlorine_grab": 0.10,
+    "lab_chlorine_assay": 0.02,
+    "portable_pressure_reading": 0.12,
+    "wait": 0.00,
+}
 
 
 @dataclass(frozen=True)
 class TraceScenario:
     spec: ScenarioSpec
     outcomes: dict[str, str]
+    initial_outcome: str = "unresolved"
 
 
-def _outcomes(pressure, flow, quality, baseline) -> dict[str, str]:
+def _noisy_outcome(spec: ScenarioSpec, channel: str, outcome: str) -> str:
+    """Apply reproducible, channel-specific categorical measurement noise."""
+    rng = Random(f"{spec.seed}:{channel}")
+    if rng.random() >= NOISE_RATES[channel]:
+        return outcome
+    alternatives = [candidate for candidate in OUTCOME_SPACES[channel] if candidate != outcome]
+    return rng.choice(alternatives)
+
+
+def _outcomes(spec: ScenarioSpec, pressure, flow, quality, baseline) -> tuple[str, dict[str, str]]:
     """Extract action results from stored traces; no event label is consulted."""
     baseline_pressure, baseline_flow, baseline_quality = baseline
     quality_peak = float((quality - baseline_quality).max())
     pressure_delta = pressure[:, 0] - baseline_pressure[:, 0]
     flow_change = float(abs(flow - baseline_flow).max())
-    return {
+    initial_pressure = pressure[:13, 0] - baseline_pressure[:13, 0]
+    initial_quality = float((quality[:13] - baseline_quality[:13]).max())
+    initial = "quality_signal" if initial_quality > 1e-6 else "pressure_high" if initial_pressure.max() > 0.4 else "pressure_low" if initial_pressure.min() < -0.02 else "unresolved"
+    outcomes = {
         "field_chlorine_grab": "detected" if quality_peak > 1e-6 else "clear",
         "lab_chlorine_assay": "detected" if quality_peak > 1e-7 else "clear",
         "portable_pressure_reading": "higher" if pressure_delta.max() > 0.4 else "lower" if pressure_delta.min() < -0.02 else "stable",
@@ -36,12 +65,17 @@ def _outcomes(pressure, flow, quality, baseline) -> dict[str, str]:
         # low-cost but weak action. It should not dominate an informative sample.
         "wait": "flow_changed" if flow_change > 1.0 else "steady",
     }
+    return (_noisy_outcome(spec, "initial_telemetry", initial),
+            {channel: _noisy_outcome(spec, channel, outcome) for channel, outcome in outcomes.items()})
 
 
 def scenarios_from_ensemble(path: Path) -> list[TraceScenario]:
     specs, pressure, flow, quality, baseline = load_ensemble(path)
-    return [TraceScenario(spec, _outcomes(pressure[index], flow[index], quality[index], baseline))
-            for index, spec in enumerate(specs)]
+    scenarios = []
+    for index, spec in enumerate(specs):
+        initial_outcome, outcomes = _outcomes(spec, pressure[index], flow[index], quality[index], baseline)
+        scenarios.append(TraceScenario(spec, outcomes, initial_outcome))
+    return scenarios
 
 
 def split_scenarios(scenarios: list[TraceScenario]) -> tuple[list[TraceScenario], list[TraceScenario]]:
@@ -62,7 +96,7 @@ def empirical_actions(training: list[TraceScenario]) -> tuple[Action, ...]:
     )
     actions = []
     for name, cost, latency in definitions:
-        outcomes = sorted({scenario.outcomes[name] for scenario in training})
+        outcomes = OUTCOME_SPACES[name]
         likelihood = {}
         for hypothesis in HYPOTHESES:
             class_scenarios = [scenario for scenario in training if scenario.spec.event_class == hypothesis]
@@ -76,6 +110,28 @@ def empirical_actions(training: list[TraceScenario]) -> tuple[Action, ...]:
     return tuple(actions)
 
 
+def empirical_initial_telemetry(training: list[TraceScenario]) -> Action:
+    likelihood = {}
+    for hypothesis in HYPOTHESES:
+        class_scenarios = [scenario for scenario in training if scenario.spec.event_class == hypothesis]
+        likelihood[hypothesis] = {
+            outcome: (1 + sum(scenario.initial_outcome == outcome for scenario in class_scenarios)) /
+            (len(OUTCOME_SPACES["initial_telemetry"]) + len(class_scenarios))
+            for outcome in OUTCOME_SPACES["initial_telemetry"]
+        }
+    return Action("initial_telemetry", 0.0, 0, likelihood)
+
+
+def initial_posterior(scenario: TraceScenario, telemetry: Action):
+    prior = {hypothesis: 1 / len(HYPOTHESES) for hypothesis in HYPOTHESES}
+    return posterior_after(prior, telemetry, scenario.initial_outcome)
+
+
+def is_ambiguous(posterior) -> bool:
+    ranked = sorted(posterior.values(), reverse=True)
+    return ranked[0] <= MAX_INITIAL_POSTERIOR and ranked[1] >= MIN_SECOND_INITIAL_POSTERIOR
+
+
 def _choose(policy: str, belief, available: list[Action], rng: Random) -> Action:
     if policy == "eig_per_cost":
         return max(available, key=lambda action: (score_action(belief, action), action.name))
@@ -86,8 +142,8 @@ def _choose(policy: str, belief, available: list[Action], rng: Random) -> Action
     raise ValueError(f"unknown policy: {policy}")
 
 
-def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], policy: str, seed: int) -> dict[str, object]:
-    belief = {hypothesis: 1 / len(HYPOTHESES) for hypothesis in HYPOTHESES}
+def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], telemetry: Action, policy: str, seed: int) -> dict[str, object]:
+    belief = initial_posterior(scenario, telemetry)
     remaining = list(actions)
     rng = Random(seed)
     total_cost = 0.0
@@ -115,6 +171,8 @@ def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], policy: st
         "correct": prediction == scenario.spec.event_class,
         "cost": total_cost,
         "actions": selected,
+        "initial_outcome": scenario.initial_outcome,
+        "initial_posterior": initial_posterior(scenario, telemetry),
         "posterior": belief,
     }
 
@@ -125,13 +183,20 @@ def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260
     if not held_out:
         raise ValueError("ensemble does not contain held-out scenarios")
     actions = empirical_actions(training)
+    telemetry = empirical_initial_telemetry(training)
+    eligible = [scenario for scenario in held_out if is_ambiguous(initial_posterior(scenario, telemetry))]
+    if not eligible:
+        raise ValueError("no held-out scenarios met the ambiguity gate")
     rng = Random(seed)
     report: dict[str, object] = {
         "ensemble": str(path), "episodes": episodes,
-        "training_scenarios": len(training), "held_out_scenarios": len(held_out), "policies": {},
+        "training_scenarios": len(training), "held_out_scenarios": len(held_out),
+        "eligible_held_out_scenarios": len(eligible), "rejected_held_out_scenarios": len(held_out) - len(eligible),
+        "ambiguity_gate": {"max_initial_posterior": MAX_INITIAL_POSTERIOR, "min_second_initial_posterior": MIN_SECOND_INITIAL_POSTERIOR},
+        "noise_rates": NOISE_RATES, "policies": {},
     }
     for policy in ("eig_per_cost", "random", "cheapest_first"):
-        runs = [run_episode(rng.choice(held_out), actions, policy, rng.randrange(2**31)) for _ in range(episodes)]
+        runs = [run_episode(rng.choice(eligible), actions, telemetry, policy, rng.randrange(2**31)) for _ in range(episodes)]
         correct = [run for run in runs if run["correct"]]
         report["policies"][policy] = {
             "accuracy": len(correct) / episodes,
