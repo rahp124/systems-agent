@@ -88,3 +88,13 @@ The report schema is:
 ## Required next interface
 
 The next increment should introduce a versioned scenario record with: scenario ID and seed, event class and parameters, fixed sensor configuration, full or selected trace storage, convergence status, and action-conditioned observation extraction. A likelihood-estimation layer can then consume that record without accessing hidden evaluation ground truth.
+
+## First trace-backed evaluation
+
+`water_investigation.ensemble` now creates 40 seeded scenarios per event class by default and writes compressed pressure, flow, and quality tensors plus scenario metadata to `artifacts/net3-ensemble.npz`. A no-event baseline trace is stored alongside them so action extraction measures event deviations rather than confusing chemical concentration with Net3's default water-age channel.
+
+`water_investigation.evaluation` converts held-out traces into categorical results for field chlorine sampling, lab chlorine assay, portable pressure observation, and waiting. It estimates each action's likelihood table from an even-indexed stratified training split using Laplace smoothing, then evaluates only odd-indexed scenarios. Field and lab assays are mutually exclusive because, in this first harness, they inspect the same physical sample; treating them as independent would double-count evidence.
+
+The current 0.75 conclusion threshold and action outcome thresholds are harness parameters, not domain-calibrated operational policy. The report includes accuracy, mean cost, mean action count, and cost when correct for EIG-per-cost, random, and cheapest-first policies.
+
+This is an integration milestone, not a benchmark result: all current synthetic event classes are easily separable after the selected action sequence, and episodes start from an intentionally uniform anomaly-conditioned prior. A future episode generator must reject trivially separable initial observations and introduce calibrated sensor/action noise before any resume-quality performance claim.

@@ -1,0 +1,5187 @@
+{
+  "ensemble": "artifacts/net3-ensemble.npz",
+  "episodes": 100,
+  "training_scenarios": 60,
+  "held_out_scenarios": 60,
+  "policies": {
+    "eig_per_cost": {
+      "accuracy": 1.0,
+      "mean_cost": 3.13,
+      "mean_actions": 1.71,
+      "mean_cost_when_correct": 3.13,
+      "runs": [
+        {
+          "scenario_id": "sensor_fault-023",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-001",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-035",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-005",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-025",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-001",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-033",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-033",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-017",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-015",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-015",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-007",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-019",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-029",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-003",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-005",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-017",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-023",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-019",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-009",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-005",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-023",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-005",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-027",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-007",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-019",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-029",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-031",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-023",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-007",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-011",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-001",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-001",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-019",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-009",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-035",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-015",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-007",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-019",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-023",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-013",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-033",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-025",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-023",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-003",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-027",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-027",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-015",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-037",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-029",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-029",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-001",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-003",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-001",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-015",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-037",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-005",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-029",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-015",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-019",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-033",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-021",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-007",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-039",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-031",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-029",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-005",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-001",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-009",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-005",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-037",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-027",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-009",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-017",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-037",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-003",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-001",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-029",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-007",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-023",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-039",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-035",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-017",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-009",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-035",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-037",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-009",
+          "policy": "eig_per_cost",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-029",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-013",
+          "policy": "eig_per_cost",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-025",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-007",
+          "policy": "eig_per_cost",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        }
+      ]
+    },
+    "random": {
+      "accuracy": 1.0,
+      "mean_cost": 5.135,
+      "mean_actions": 2.19,
+      "mean_cost_when_correct": 5.135,
+      "runs": [
+        {
+          "scenario_id": "sensor_fault-029",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-009",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 8.0,
+          "actions": [
+            "lab_chlorine_assay",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-005",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-007",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 3.0,
+          "actions": [
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.9130434782608695
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-033",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "field_chlorine_grab",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-033",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 3.0,
+          "actions": [
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.9130434782608695
+          }
+        },
+        {
+          "scenario_id": "contamination-021",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-027",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-033",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-035",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 3.0,
+          "actions": [
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.9130434782608695
+          }
+        },
+        {
+          "scenario_id": "contamination-019",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9524838012958964,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.0021598272138228943
+          }
+        },
+        {
+          "scenario_id": "leak-033",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.0,
+          "actions": [
+            "portable_pressure_reading",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-009",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "lab_chlorine_assay",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-005",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 5.0,
+          "actions": [
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-005",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 5.5,
+          "actions": [
+            "wait",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-039",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "lab_chlorine_assay",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-031",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-027",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-015",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 5.0,
+          "actions": [
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-007",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 8.0,
+          "actions": [
+            "lab_chlorine_assay",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-003",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9524838012958964,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.0021598272138228943
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-039",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-037",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-037",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9524838012958964,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.0021598272138228943
+          }
+        },
+        {
+          "scenario_id": "leak-025",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "portable_pressure_reading",
+            "wait",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-001",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 8.0,
+          "actions": [
+            "portable_pressure_reading",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.9524838012958964,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.0021598272138228943
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.0,
+          "actions": [
+            "portable_pressure_reading",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-023",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-035",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-023",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-035",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "wait",
+            "portable_pressure_reading",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-017",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "field_chlorine_grab",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-019",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "portable_pressure_reading",
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9524838012958964,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.0021598272138228943
+          }
+        },
+        {
+          "scenario_id": "leak-021",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-021",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.0,
+          "actions": [
+            "portable_pressure_reading",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-027",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-019",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "wait",
+            "portable_pressure_reading",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-031",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "lab_chlorine_assay",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-007",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 3.0,
+          "actions": [
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.9130434782608695
+          }
+        },
+        {
+          "scenario_id": "leak-037",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-007",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-027",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "lab_chlorine_assay",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-025",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 3.0,
+          "actions": [
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.9130434782608695
+          }
+        },
+        {
+          "scenario_id": "contamination-027",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-025",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "field_chlorine_grab",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-009",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "field_chlorine_grab",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-029",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "field_chlorine_grab",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-003",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "portable_pressure_reading",
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9524838012958964,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.0021598272138228943
+          }
+        },
+        {
+          "scenario_id": "contamination-035",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9524838012958964,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.0021598272138228943
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-019",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 3.0,
+          "actions": [
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.9130434782608695
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-035",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9524838012958964,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.0021598272138228943
+          }
+        },
+        {
+          "scenario_id": "leak-011",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-025",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 8.0,
+          "actions": [
+            "lab_chlorine_assay",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-021",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9524838012958964,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.0021598272138228943
+          }
+        },
+        {
+          "scenario_id": "contamination-023",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 5.0,
+          "actions": [
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-015",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.0,
+          "actions": [
+            "portable_pressure_reading",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-007",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-001",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "portable_pressure_reading",
+            "wait",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-029",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "lab_chlorine_assay",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-037",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.0,
+          "actions": [
+            "lab_chlorine_assay",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-017",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.0,
+          "actions": [
+            "lab_chlorine_assay",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-025",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 5.0,
+          "actions": [
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-025",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "wait",
+            "portable_pressure_reading",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.9524838012958964,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.0021598272138228943
+          }
+        },
+        {
+          "scenario_id": "leak-035",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "lab_chlorine_assay",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-001",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 8.0,
+          "actions": [
+            "portable_pressure_reading",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.9524838012958964,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.0021598272138228943
+          }
+        },
+        {
+          "scenario_id": "leak-017",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "wait",
+            "lab_chlorine_assay",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-007",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 3.0,
+          "actions": [
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.9130434782608695
+          }
+        },
+        {
+          "scenario_id": "leak-033",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "field_chlorine_grab",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-017",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "lab_chlorine_assay",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-027",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-039",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "wait",
+            "lab_chlorine_assay",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-007",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "portable_pressure_reading",
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-039",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 3.0,
+          "actions": [
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.9130434782608695
+          }
+        },
+        {
+          "scenario_id": "contamination-035",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-005",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-027",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "lab_chlorine_assay",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-015",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-011",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.0,
+          "actions": [
+            "lab_chlorine_assay",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-009",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 5.0,
+          "actions": [
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-009",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-019",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-011",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 5.5,
+          "actions": [
+            "wait",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-039",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 5.0,
+          "actions": [
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-039",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9524838012958964,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.0021598272138228943
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-011",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "lab_chlorine_assay",
+            "wait",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-007",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "portable_pressure_reading",
+            "wait",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-039",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 3.0,
+          "actions": [
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.9130434782608695
+          }
+        },
+        {
+          "scenario_id": "contamination-031",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "portable_pressure_reading",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9524838012958964,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.0021598272138228943
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-037",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 3.0,
+          "actions": [
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.9130434782608695
+          }
+        },
+        {
+          "scenario_id": "leak-029",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 8.5,
+          "actions": [
+            "portable_pressure_reading",
+            "wait",
+            "lab_chlorine_assay"
+          ],
+          "posterior": {
+            "contamination": 0.04347826086956521,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-039",
+          "policy": "random",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 3.0,
+          "actions": [
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.9130434782608695
+          }
+        },
+        {
+          "scenario_id": "contamination-009",
+          "policy": "random",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.0,
+          "actions": [
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-009",
+          "policy": "random",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.0,
+          "actions": [
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        }
+      ]
+    },
+    "cheapest_first": {
+      "accuracy": 1.0,
+      "mean_cost": 3.45,
+      "mean_actions": 2.65,
+      "mean_cost_when_correct": 3.45,
+      "runs": [
+        {
+          "scenario_id": "sensor_fault-031",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-035",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-027",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-005",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-035",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-035",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-037",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-011",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-029",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-035",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-039",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-013",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-039",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-029",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-033",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-039",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-027",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-035",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-033",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-019",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-017",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-027",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-035",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-031",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-021",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-033",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-011",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-031",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-037",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-003",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-001",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-005",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-025",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-027",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-039",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-001",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-029",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-039",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-003",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-033",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-005",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-019",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-019",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-021",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-027",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-039",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-019",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-001",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-033",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-031",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-023",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-029",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-015",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-027",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-033",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-001",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-007",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-033",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-039",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-015",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-019",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-023",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-035",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-037",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-011",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-031",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-037",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-027",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-035",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-013",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-007",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-035",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-003",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-037",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-031",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-005",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-025",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-001",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-029",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-033",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-033",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-021",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-011",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-003",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "leak-021",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-023",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-005",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        },
+        {
+          "scenario_id": "contamination-017",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "contamination-013",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "leak-013",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "leak-027",
+          "policy": "cheapest_first",
+          "prediction": "leak",
+          "truth": "leak",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.043478260869565216,
+            "leak": 0.9130434782608695,
+            "sensor_fault": 0.04347826086956521
+          }
+        },
+        {
+          "scenario_id": "contamination-005",
+          "policy": "cheapest_first",
+          "prediction": "contamination",
+          "truth": "contamination",
+          "correct": true,
+          "cost": 1.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab"
+          ],
+          "posterior": {
+            "contamination": 0.9130434782608695,
+            "leak": 0.043478260869565216,
+            "sensor_fault": 0.043478260869565216
+          }
+        },
+        {
+          "scenario_id": "sensor_fault-015",
+          "policy": "cheapest_first",
+          "prediction": "sensor_fault",
+          "truth": "sensor_fault",
+          "correct": true,
+          "cost": 4.5,
+          "actions": [
+            "wait",
+            "field_chlorine_grab",
+            "portable_pressure_reading"
+          ],
+          "posterior": {
+            "contamination": 0.0021598272138228943,
+            "leak": 0.045356371490280774,
+            "sensor_fault": 0.9524838012958964
+          }
+        }
+      ]
+    }
+  }
+}

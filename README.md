@@ -59,6 +59,15 @@ Run an L-Town timing smoke check:
 .venv/bin/python -m water_investigation.probe --network ltown --classes sensor_fault
 ```
 
+Build the first reproducible Net3 ensemble and evaluate it:
+
+```bash
+.venv/bin/python -m water_investigation.ensemble --per-class 40 --seed 20260911
+.venv/bin/python -m water_investigation.evaluation --episodes 100 --seed 20260911
+```
+
+The ensemble command stores local compressed traces in `artifacts/net3-ensemble.npz`; the evaluation command trains empirical action likelihoods on an even-indexed stratified subset and evaluates policies on odd-indexed held-out scenarios. Its report is written to `artifacts/net3-evaluation.json`.
+
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
 ## Architecture
@@ -94,4 +103,4 @@ The two paths must stay distinct until the simulator path can estimate likelihoo
 
 The spike deliberately excludes persistent workflow state, a UI, LLM processing, human approval gates, interventions such as hydrant flushes, scenario-ensemble storage, and benchmark claims. Do not report policy quality, cost savings, or calibration results from the current code.
 
-The next technical gate is to generate a reproducible multi-scenario ensemble, estimate action-conditioned likelihoods from its traces, and connect those likelihoods to the already-tested inference core. See [FINDINGS.md](FINDINGS.md) for the current evidence and blockers.
+The ensemble and first held-out evaluation now exist, but their events remain deliberately easy to separate and begin from a uniform anomaly-conditioned prior. The next technical gate is an episode generator with genuinely ambiguous initial telemetry and noisy action results. See [FINDINGS.md](FINDINGS.md) for the current evidence and blockers.
