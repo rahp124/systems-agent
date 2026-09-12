@@ -19,8 +19,8 @@ empirical distributions from the project's simulated network; do not treat a
 - Parameterize each channel by a named instrument and deployment range; do not
   call these values generic "water sensor noise."
 - Keep **instrument error**, **sampling/handling error**, and **simulator/model
-  discrepancy** as separate terms. The sources above quantify only the first
-  (and the AutoCAT method-performance result), not transport or sampling delay.
+  discrepancy** as separate terms. The sources above quantify only instrument/
+  method performance, not transport or sampling delay.
 - Preserve a seeded measurement draw and its parameters in every episode trace.
   For bounded `±` specifications, a truncated distribution or interval likelihood
   is more faithful than silently interpreting the bound as one standard deviation.
