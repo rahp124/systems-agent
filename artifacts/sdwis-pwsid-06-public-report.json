@@ -15,45 +15,56 @@
     "1991-01-01",
     "2025-11-01"
   ],
+  "violation_code_reference": "EPA SDWA_REF_CODE_VALUES.csv",
   "top_violation_codes": [
     {
       "code": "03",
+      "description": "Monitoring, Regular",
       "count": 1280
     },
     {
       "code": "23",
+      "description": "Monitoring, Routine Major (TCR)",
       "count": 857
     },
     {
       "code": "45",
+      "description": "Failure To Address Deficiency",
       "count": 461
     },
     {
       "code": "22",
+      "description": "Maximum Contaminant Level Violation, Monthly (TCR)",
       "count": 408
     },
     {
       "code": "27",
+      "description": "Monitoring and Reporting (DBP)",
       "count": 367
     },
     {
       "code": "24",
+      "description": "Monitoring, Routine Minor (TCR)",
       "count": 287
     },
     {
       "code": "41",
+      "description": "Treatment Technique (SWTR and GWR)",
       "count": 287
     },
     {
       "code": "71",
+      "description": "Consumer Confidence Report Complete Failure to Report",
       "count": 270
     },
     {
       "code": "02",
+      "description": "Maximum Contaminant Level Violation, Average",
       "count": 251
     },
     {
       "code": "25",
+      "description": "Monitoring, Repeat Major (TCR)",
       "count": 218
     }
   ],

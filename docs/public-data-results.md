@@ -15,9 +15,9 @@ The analysis streamed `SDWA_VIOLATIONS_ENFORCEMENT.csv` and selected public-wate
 - 5,695 public compliance violation records.
 - 132 distinct public water systems with matching records.
 - Compliance-period start dates from 1991-01-01 through 2025-11-01.
-- The most frequent reported violation codes were `03` (1,280 records), `23` (857), and `45` (461).
+- The most frequent reported violations were Monitoring, Regular (`03`, 1,280 records), Monitoring, Routine Major (TCR) (`23`, 857), and Failure To Address Deficiency (`45`, 461), using EPA's `SDWA_REF_CODE_VALUES.csv` descriptions.
 
-These are public compliance-record statistics. The report intentionally retains the EPA codes rather than assigning meanings without applying the corresponding official reference-table mapping. They are not estimates of real-time water conditions, incident frequency, utility performance, or agent decision quality.
+These are public compliance-record statistics. They are not estimates of real-time water conditions, incident frequency, utility performance, or agent decision quality.
 
 ## Reproduction
 

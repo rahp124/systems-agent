@@ -17,7 +17,7 @@ Download the official SDWIS data through EPA, retain the source date and file ch
   --output artifacts/sdwis-public-report.json
 ```
 
-The adapter accepts the violations CSV directly or a ZIP containing either `SDWA_VIOLATIONS.csv` or the current `SDWA_VIOLATIONS_ENFORCEMENT.csv`. It streams the input, reports record count, public-water-system count, covered date range, and the most common violation codes for the selected PWSID prefix. The tracked example is a schema fixture, not official data.
+The adapter accepts the violations CSV directly or a ZIP containing either `SDWA_VIOLATIONS.csv` or the current `SDWA_VIOLATIONS_ENFORCEMENT.csv`. For official archives it joins the EPA `SDWA_REF_CODE_VALUES.csv` reference table, so the report includes the documented meaning of each common violation code. It streams the input and reports record count, public-water-system count, covered date range, and common violations for the selected PWSID prefix. The tracked example is a schema fixture, not official data.
 
 ## Interpretation boundary
 

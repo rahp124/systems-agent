@@ -27,8 +27,24 @@ def _rows(path: Path):
             yield from csv.DictReader(input_file)
 
 
+def violation_descriptions(path: Path) -> dict[str, str]:
+    """Load EPA's official violation-code descriptions when present in an archive."""
+    if path.suffix != ".zip":
+        return {}
+    with zipfile.ZipFile(path) as archive:
+        names = [name for name in archive.namelist()
+                 if Path(name).name.upper() == "SDWA_REF_CODE_VALUES.CSV"]
+        if len(names) != 1:
+            return {}
+        with archive.open(names[0]) as input_file:
+            return {row["VALUE_CODE"]: row["VALUE_DESCRIPTION"]
+                    for row in csv.DictReader(line.decode("utf-8-sig") for line in input_file)
+                    if row["VALUE_TYPE"] == "VIOLATION_CODE"}
+
+
 def analyze_violations(path: Path, pwsid_prefix: str | None = None,
-                       provenance: dict[str, str] | None = None) -> dict[str, object]:
+                       provenance: dict[str, str] | None = None,
+                       descriptions: dict[str, str] | None = None) -> dict[str, object]:
     record_count = 0
     systems, codes = set(), Counter()
     first_date, last_date = None, None
@@ -51,12 +67,14 @@ def analyze_violations(path: Path, pwsid_prefix: str | None = None,
             last_date = max(last_date, parsed_date) if last_date else parsed_date
     if not header_checked:
         raise ValueError("SDWIS violations input requires PWSID, VIOLATION_CODE, and COMPL_PER_BEGIN_DATE")
+    descriptions = descriptions if descriptions is not None else violation_descriptions(path)
     return {"source": "EPA SDWIS public compliance export", "source_url": EPA_SDWIS_DOWNLOAD,
             "provenance": provenance or {},
             "scope": {"pwsid_prefix": pwsid_prefix or "all", "input": str(path)},
             "violation_records": record_count, "public_water_systems": len(systems),
             "date_range": [first_date.isoformat(), last_date.isoformat()] if first_date else None,
-            "top_violation_codes": [{"code": code, "count": count}
+            "violation_code_reference": "EPA SDWA_REF_CODE_VALUES.csv" if descriptions else None,
+            "top_violation_codes": [{"code": code, "description": descriptions.get(code), "count": count}
                                     for code, count in codes.most_common(10)],
             "interpretation_limit": "Compliance records are public context, not SCADA telemetry, incident resolution, or recommendation validation."}
 
