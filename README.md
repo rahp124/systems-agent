@@ -115,6 +115,8 @@ The replay writes advisory-only audit records to `artifacts/offline-replay.jsonl
 
 For utilities, laboratories, and research partners, [utility-pilot-brief.md](docs/utility-pilot-brief.md) defines the requested de-identified data, read-only safety posture, deliverables, and offline-replay evaluation gates.
 
+The reusable contact template, qualification checklist, and scoping-call agenda are in [partner-outreach.md](docs/partner-outreach.md). It supports outreach preparation only; no external contact is made from this repository.
+
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
 ## Architecture
