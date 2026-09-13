@@ -17,15 +17,15 @@
     },
     {
       "risk_lambda": 0.02,
-      "accuracy": 0.83,
+      "accuracy": 0.92,
       "accuracy_95_ci": [
-        0.75,
-        0.9
+        0.86,
+        0.97
       ],
-      "mean_cost": 1.0,
+      "mean_cost": 2.15,
       "cost_95_ci": [
-        1.0,
-        1.0
+        1.75,
+        2.55
       ]
     },
     {

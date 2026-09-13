@@ -1,6 +1,7 @@
 from random import Random
 
 from water_investigation.evaluation import (TraceScenario, empirical_actions,
+                                            conditional_assay_actions,
                                             empirical_initial_telemetry, is_ambiguous,
                                             run_episode, split_scenarios, _assay_band,
                                             _choose)
@@ -21,7 +22,7 @@ def test_split_is_stratified_and_disjoint() -> None:
     assert {item.spec.scenario_id for item in training}.isdisjoint(item.spec.scenario_id for item in held_out)
 
 
-def test_selecting_field_assay_excludes_correlated_lab_assay() -> None:
+def test_second_assay_uses_first_assay_band_as_a_condition() -> None:
     outcomes = {
         "field_chlorine_grab": "trace", "lab_chlorine_assay": "trace",
         "portable_pressure_reading": "stable", "wait": "steady",
@@ -31,8 +32,35 @@ def test_selecting_field_assay_excludes_correlated_lab_assay() -> None:
         _scenario("leak", 0, {**outcomes, "field_chlorine_grab": "below_range", "lab_chlorine_assay": "below_sensitivity"}),
         _scenario("sensor_fault", 0, {**outcomes, "field_chlorine_grab": "below_range", "lab_chlorine_assay": "below_sensitivity", "portable_pressure_reading": "higher"}),
     ]
-    run = run_episode(training[0], empirical_actions(training), empirical_initial_telemetry(training), "eig_per_cost", Random(1).randrange(2**31))
-    assert not ({"field_chlorine_grab", "lab_chlorine_assay"} <= set(run["actions"]))
+    conditioned_lab = conditional_assay_actions(training)[("field_chlorine_grab", "trace")]
+    assert conditioned_lab.likelihood["contamination"]["trace"] > conditioned_lab.likelihood["contamination"]["below_sensitivity"]
+
+
+def test_second_assay_replaces_its_marginal_likelihood_after_a_field_result() -> None:
+    scenario = _scenario("contamination", 0, {
+        "field_chlorine_grab": "trace", "lab_chlorine_assay": "trace",
+    })
+    telemetry = Action("initial_telemetry", 0.0, 0, {
+        event_class: {"unresolved": 1.0}
+        for event_class in ("contamination", "leak", "sensor_fault")
+    })
+    field = Action("field_chlorine_grab", 1.0, 0, {
+        "contamination": {"trace": 0.7, "below_range": 0.3},
+        "leak": {"trace": 0.3, "below_range": 0.7},
+        "sensor_fault": {"trace": 0.3, "below_range": 0.7},
+    })
+    marginal_lab = Action("lab_chlorine_assay", 5.0, 0, {
+        event_class: {"trace": 0.5, "below_sensitivity": 0.5}
+        for event_class in ("contamination", "leak", "sensor_fault")
+    })
+    conditioned_lab = Action("lab_chlorine_assay", 5.0, 0, {
+        "contamination": {"trace": 0.9, "below_sensitivity": 0.1},
+        "leak": {"trace": 0.1, "below_sensitivity": 0.9},
+        "sensor_fault": {"trace": 0.1, "below_sensitivity": 0.9},
+    })
+    run = run_episode(scenario, (field, marginal_lab), telemetry, "eig_per_cost", 0,
+                      assay_followups={("field_chlorine_grab", "trace"): conditioned_lab})
+    assert run["actions"] == ["field_chlorine_grab", "lab_chlorine_assay"]
 
 
 def test_ambiguity_gate_requires_two_plausible_classes() -> None:

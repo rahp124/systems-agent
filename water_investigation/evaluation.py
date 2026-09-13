@@ -120,6 +120,36 @@ def empirical_actions(training: list[TraceScenario]) -> tuple[Action, ...]:
     return tuple(actions)
 
 
+def conditional_assay_actions(training: list[TraceScenario]) -> dict[tuple[str, str], Action]:
+    """Estimate the second assay conditional on the first assay's observed band.
+
+    Field and lab samples are separately perturbed readings of the same simulated
+    event. Their marginal outcomes are correlated through event magnitude, so a
+    second assay must use P(second | class, first), not a second marginal
+    likelihood. Laplace smoothing keeps sparse conditional cells usable.
+    """
+    followups = {}
+    pairs = (("field_chlorine_grab", "lab_chlorine_assay"),
+             ("lab_chlorine_assay", "field_chlorine_grab"))
+    for first_name, second_name in pairs:
+        for first_outcome in OUTCOME_SPACES[first_name]:
+            likelihood = {}
+            for hypothesis in HYPOTHESES:
+                matching = [scenario for scenario in training
+                            if scenario.spec.event_class == hypothesis
+                            and scenario.outcomes[first_name] == first_outcome]
+                likelihood[hypothesis] = {
+                    outcome: (1 + sum(scenario.outcomes[second_name] == outcome for scenario in matching)) /
+                    (len(OUTCOME_SPACES[second_name]) + len(matching))
+                    for outcome in OUTCOME_SPACES[second_name]
+                }
+            definition = next(item for item in (("field_chlorine_grab", 1.0, 1),
+                                                 ("lab_chlorine_assay", 5.0, 8))
+                              if item[0] == second_name)
+            followups[(first_name, first_outcome)] = Action(*definition, likelihood)
+    return followups
+
+
 def empirical_initial_telemetry(training: list[TraceScenario]) -> Action:
     likelihood = {}
     for hypothesis in HYPOTHESES:
@@ -161,7 +191,7 @@ def _choose(policy: str, belief, available: list[Action], rng: Random, risk_lamb
     raise ValueError(f"unknown policy: {policy}")
 
 
-def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], telemetry: Action, policy: str, seed: int, risk_lambda: float = 0.05) -> dict[str, object]:
+def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], telemetry: Action, policy: str, seed: int, risk_lambda: float = 0.05, assay_followups: dict[tuple[str, str], Action] | None = None) -> dict[str, object]:
     belief = initial_posterior(scenario, telemetry)
     remaining = list(actions)
     rng = Random(seed)
@@ -175,12 +205,13 @@ def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], telemetry:
         total_cost += action.cost
         belief = posterior_after(belief, action, scenario.outcomes[action.name])
         remaining.remove(action)
-        # Field and lab assays observe the same physical sample in this first
-        # harness. Treating their outcomes as conditionally independent would
-        # double-count evidence, so selecting either excludes the other.
         if action.name in {"field_chlorine_grab", "lab_chlorine_assay"}:
-            remaining = [candidate for candidate in remaining
-                         if candidate.name not in {"field_chlorine_grab", "lab_chlorine_assay"}]
+            # Preserve the second, separately sampled assay, but replace its
+            # marginal model with the likelihood conditioned on this result.
+            followup = (assay_followups or {}).get((action.name, scenario.outcomes[action.name]))
+            if followup:
+                remaining = [followup if candidate.name == followup.name else candidate
+                             for candidate in remaining]
         if max(belief.values()) >= CONCLUSION_THRESHOLD:
             break
     prediction = max(belief, key=belief.get)
@@ -205,6 +236,7 @@ def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260
     if not held_out:
         raise ValueError("ensemble does not contain held-out scenarios")
     actions = empirical_actions(training)
+    assay_followups = conditional_assay_actions(training)
     telemetry = empirical_initial_telemetry(training)
     eligible = [scenario for scenario in held_out if is_ambiguous(initial_posterior(scenario, telemetry))]
     if not eligible:
@@ -231,7 +263,7 @@ def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260
     episode_scenarios = [rng.choice(eligible) for _ in range(episodes)]
     episode_seeds = [rng.randrange(2**31) for _ in range(episodes)]
     for policy in ("eig_per_cost", "risk_aware", "expected_accuracy", "random", "cheapest_first"):
-        runs = [run_episode(scenario, actions, telemetry, policy, episode_seed, risk_lambda)
+        runs = [run_episode(scenario, actions, telemetry, policy, episode_seed, risk_lambda, assay_followups)
                 for scenario, episode_seed in zip(episode_scenarios, episode_seeds)]
         correct = [run for run in runs if run["correct"]]
         report["policies"][policy] = {

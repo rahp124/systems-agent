@@ -22,10 +22,10 @@
   "risk_lambda": 0.05,
   "policies": {
     "eig_per_cost": {
-      "accuracy": 0.85,
-      "mean_cost": 3.455,
-      "mean_actions": 2.06,
-      "mean_cost_when_correct": 3.276470588235294,
+      "accuracy": 0.94,
+      "mean_cost": 3.98,
+      "mean_actions": 1.8,
+      "mean_cost_when_correct": 3.872340425531915,
       "runs": [
         {
           "scenario_id": "leak-037",
@@ -88,14 +88,13 @@
         {
           "scenario_id": "contamination-001",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "contamination",
-          "correct": true,
-          "cost": 4.5,
+          "correct": false,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -110,9 +109,9 @@
             "portable_pressure_delta_psi": -0.05232869471712609
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -150,11 +149,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 4.5,
+          "cost": 9.0,
           "actions": [
             "field_chlorine_grab",
             "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -169,9 +168,9 @@
             "portable_pressure_delta_psi": -0.1853073392086555
           },
           "posterior": {
-            "contamination": 0.6768994627782041,
-            "leak": 0.3223330775134306,
-            "sensor_fault": 0.0007674597083653109
+            "contamination": 0.770221591529309,
+            "leak": 0.22923261652658009,
+            "sensor_fault": 0.0005457919441109049
           }
         },
         {
@@ -292,14 +291,13 @@
         {
           "scenario_id": "leak-023",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -314,9 +312,9 @@
             "portable_pressure_delta_psi": -0.19805616412162325
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -325,11 +323,10 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 4.5,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -344,9 +341,9 @@
             "portable_pressure_delta_psi": 0.20373513807999916
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.8906560636182903,
+            "leak": 0.09567594433399601,
+            "sensor_fault": 0.013667992047713717
           }
         },
         {
@@ -355,11 +352,10 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 4.5,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -374,9 +370,9 @@
             "portable_pressure_delta_psi": 0.10609338457481698
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.8906560636182903,
+            "leak": 0.09567594433399601,
+            "sensor_fault": 0.013667992047713717
           }
         },
         {
@@ -414,11 +410,10 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 4.5,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -433,9 +428,9 @@
             "portable_pressure_delta_psi": 0.2035851483977712
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.8906560636182903,
+            "leak": 0.09567594433399601,
+            "sensor_fault": 0.013667992047713717
           }
         },
         {
@@ -473,11 +468,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 4.5,
+          "cost": 9.0,
           "actions": [
             "field_chlorine_grab",
             "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -492,9 +487,9 @@
             "portable_pressure_delta_psi": -0.1853073392086555
           },
           "posterior": {
-            "contamination": 0.6768994627782041,
-            "leak": 0.3223330775134306,
-            "sensor_fault": 0.0007674597083653109
+            "contamination": 0.770221591529309,
+            "leak": 0.22923261652658009,
+            "sensor_fault": 0.0005457919441109049
           }
         },
         {
@@ -586,14 +581,13 @@
         {
           "scenario_id": "leak-035",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -608,9 +602,9 @@
             "portable_pressure_delta_psi": -0.03773361914005097
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -674,14 +668,13 @@
         {
           "scenario_id": "leak-023",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -696,22 +689,21 @@
             "portable_pressure_delta_psi": -0.19805616412162325
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
           "scenario_id": "leak-039",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -726,9 +718,9 @@
             "portable_pressure_delta_psi": -0.10739539115069618
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -850,14 +842,13 @@
         {
           "scenario_id": "contamination-007",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "contamination",
-          "correct": true,
-          "cost": 4.5,
+          "correct": false,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -872,9 +863,9 @@
             "portable_pressure_delta_psi": -0.06360685924070764
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -969,11 +960,10 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 4.5,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -988,22 +978,21 @@
             "portable_pressure_delta_psi": 0.10609338457481698
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.8906560636182903,
+            "leak": 0.09567594433399601,
+            "sensor_fault": 0.013667992047713717
           }
         },
         {
           "scenario_id": "leak-035",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -1018,9 +1007,9 @@
             "portable_pressure_delta_psi": -0.03773361914005097
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -1086,11 +1075,10 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 4.5,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -1105,22 +1093,21 @@
             "portable_pressure_delta_psi": 0.2035851483977712
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.8906560636182903,
+            "leak": 0.09567594433399601,
+            "sensor_fault": 0.013667992047713717
           }
         },
         {
           "scenario_id": "contamination-007",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "contamination",
-          "correct": true,
-          "cost": 4.5,
+          "correct": false,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -1135,9 +1122,9 @@
             "portable_pressure_delta_psi": -0.06360685924070764
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -1313,14 +1300,13 @@
         {
           "scenario_id": "leak-039",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -1335,9 +1321,9 @@
             "portable_pressure_delta_psi": -0.10739539115069618
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -1719,11 +1705,10 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 4.5,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -1738,9 +1723,9 @@
             "portable_pressure_delta_psi": 0.20373513807999916
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.8906560636182903,
+            "leak": 0.09567594433399601,
+            "sensor_fault": 0.013667992047713717
           }
         },
         {
@@ -1860,14 +1845,13 @@
         {
           "scenario_id": "leak-035",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -1882,22 +1866,21 @@
             "portable_pressure_delta_psi": -0.03773361914005097
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
           "scenario_id": "leak-003",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -1912,9 +1895,9 @@
             "portable_pressure_delta_psi": -0.057213847268736184
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -1977,14 +1960,13 @@
         {
           "scenario_id": "leak-023",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -1999,9 +1981,9 @@
             "portable_pressure_delta_psi": -0.19805616412162325
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -2125,11 +2107,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 4.5,
+          "cost": 9.0,
           "actions": [
             "field_chlorine_grab",
             "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -2144,9 +2126,9 @@
             "portable_pressure_delta_psi": -0.1853073392086555
           },
           "posterior": {
-            "contamination": 0.6768994627782041,
-            "leak": 0.3223330775134306,
-            "sensor_fault": 0.0007674597083653109
+            "contamination": 0.770221591529309,
+            "leak": 0.22923261652658009,
+            "sensor_fault": 0.0005457919441109049
           }
         },
         {
@@ -2323,14 +2305,13 @@
         {
           "scenario_id": "leak-003",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -2345,22 +2326,21 @@
             "portable_pressure_delta_psi": -0.057213847268736184
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
           "scenario_id": "leak-035",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -2375,9 +2355,9 @@
             "portable_pressure_delta_psi": -0.03773361914005097
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -2584,14 +2564,13 @@
         {
           "scenario_id": "contamination-007",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "contamination",
-          "correct": true,
-          "cost": 4.5,
+          "correct": false,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -2606,9 +2585,9 @@
             "portable_pressure_delta_psi": -0.06360685924070764
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -2671,14 +2650,13 @@
         {
           "scenario_id": "leak-003",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -2693,9 +2671,9 @@
             "portable_pressure_delta_psi": -0.057213847268736184
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -2704,11 +2682,10 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 4.5,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -2723,9 +2700,9 @@
             "portable_pressure_delta_psi": 0.20373513807999916
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.8906560636182903,
+            "leak": 0.09567594433399601,
+            "sensor_fault": 0.013667992047713717
           }
         },
         {
@@ -2760,14 +2737,13 @@
         {
           "scenario_id": "contamination-001",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "contamination",
-          "correct": true,
-          "cost": 4.5,
+          "correct": false,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -2782,9 +2758,9 @@
             "portable_pressure_delta_psi": -0.05232869471712609
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -2876,14 +2852,13 @@
         {
           "scenario_id": "leak-003",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -2898,22 +2873,21 @@
             "portable_pressure_delta_psi": -0.057213847268736184
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
           "scenario_id": "leak-039",
           "policy": "eig_per_cost",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -2928,9 +2902,9 @@
             "portable_pressure_delta_psi": -0.10739539115069618
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         }
       ]
@@ -5745,9 +5719,9 @@
     },
     "expected_accuracy": {
       "accuracy": 0.88,
-      "mean_cost": 5.56,
+      "mean_cost": 5.24,
       "mean_actions": 1.32,
-      "mean_cost_when_correct": 5.3977272727272725,
+      "mean_cost_when_correct": 5.170454545454546,
       "runs": [
         {
           "scenario_id": "leak-037",
@@ -5783,11 +5757,11 @@
           "prediction": "contamination",
           "truth": "leak",
           "correct": false,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -5802,9 +5776,9 @@
             "portable_pressure_delta_psi": 0.2101330442110933
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.4998016660055533,
+            "leak": 0.4950416501388337,
+            "sensor_fault": 0.005156683855612853
           }
         },
         {
@@ -5869,11 +5843,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -5888,9 +5862,9 @@
             "portable_pressure_delta_psi": -0.1853073392086555
           },
           "posterior": {
-            "contamination": 0.6768994627782041,
-            "leak": 0.3223330775134306,
-            "sensor_fault": 0.0007674597083653109
+            "contamination": 0.7533632286995515,
+            "leak": 0.23542600896860985,
+            "sensor_fault": 0.011210762331838564
           }
         },
         {
@@ -6039,11 +6013,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -6058,9 +6032,9 @@
             "portable_pressure_delta_psi": 0.20373513807999916
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.9054163298302345,
+            "leak": 0.08407437348423605,
+            "sensor_fault": 0.010509296685529508
           }
         },
         {
@@ -6069,11 +6043,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -6088,9 +6062,9 @@
             "portable_pressure_delta_psi": 0.10609338457481698
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.9054163298302345,
+            "leak": 0.08407437348423605,
+            "sensor_fault": 0.010509296685529508
           }
         },
         {
@@ -6127,11 +6101,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -6146,9 +6120,9 @@
             "portable_pressure_delta_psi": 0.2035851483977712
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.9054163298302345,
+            "leak": 0.08407437348423605,
+            "sensor_fault": 0.010509296685529508
           }
         },
         {
@@ -6185,11 +6159,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -6204,9 +6178,9 @@
             "portable_pressure_delta_psi": -0.1853073392086555
           },
           "posterior": {
-            "contamination": 0.6768994627782041,
-            "leak": 0.3223330775134306,
-            "sensor_fault": 0.0007674597083653109
+            "contamination": 0.7533632286995515,
+            "leak": 0.23542600896860985,
+            "sensor_fault": 0.011210762331838564
           }
         },
         {
@@ -6243,11 +6217,11 @@
           "prediction": "contamination",
           "truth": "leak",
           "correct": false,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -6262,9 +6236,9 @@
             "portable_pressure_delta_psi": -0.11429774757255956
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.4998016660055533,
+            "leak": 0.4950416501388337,
+            "sensor_fault": 0.005156683855612853
           }
         },
         {
@@ -6665,11 +6639,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -6684,9 +6658,9 @@
             "portable_pressure_delta_psi": 0.10609338457481698
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.9054163298302345,
+            "leak": 0.08407437348423605,
+            "sensor_fault": 0.010509296685529508
           }
         },
         {
@@ -6723,11 +6697,11 @@
           "prediction": "contamination",
           "truth": "leak",
           "correct": false,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -6742,9 +6716,9 @@
             "portable_pressure_delta_psi": -0.11429774757255956
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.4998016660055533,
+            "leak": 0.4950416501388337,
+            "sensor_fault": 0.005156683855612853
           }
         },
         {
@@ -6781,11 +6755,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -6800,9 +6774,9 @@
             "portable_pressure_delta_psi": 0.2035851483977712
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.9054163298302345,
+            "leak": 0.08407437348423605,
+            "sensor_fault": 0.010509296685529508
           }
         },
         {
@@ -7343,11 +7317,11 @@
           "prediction": "contamination",
           "truth": "leak",
           "correct": false,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -7362,9 +7336,9 @@
             "portable_pressure_delta_psi": 0.2101330442110933
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.4998016660055533,
+            "leak": 0.4950416501388337,
+            "sensor_fault": 0.005156683855612853
           }
         },
         {
@@ -7401,11 +7375,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -7420,9 +7394,9 @@
             "portable_pressure_delta_psi": 0.20373513807999916
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.9054163298302345,
+            "leak": 0.08407437348423605,
+            "sensor_fault": 0.010509296685529508
           }
         },
         {
@@ -7599,11 +7573,11 @@
           "prediction": "contamination",
           "truth": "leak",
           "correct": false,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -7618,9 +7592,9 @@
             "portable_pressure_delta_psi": 0.2101330442110933
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.4998016660055533,
+            "leak": 0.4950416501388337,
+            "sensor_fault": 0.005156683855612853
           }
         },
         {
@@ -7797,11 +7771,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -7816,9 +7790,9 @@
             "portable_pressure_delta_psi": -0.1853073392086555
           },
           "posterior": {
-            "contamination": 0.6768994627782041,
-            "leak": 0.3223330775134306,
-            "sensor_fault": 0.0007674597083653109
+            "contamination": 0.7533632286995515,
+            "leak": 0.23542600896860985,
+            "sensor_fault": 0.011210762331838564
           }
         },
         {
@@ -8135,11 +8109,11 @@
           "prediction": "contamination",
           "truth": "leak",
           "correct": false,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -8154,9 +8128,9 @@
             "portable_pressure_delta_psi": 0.2101330442110933
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.4998016660055533,
+            "leak": 0.4950416501388337,
+            "sensor_fault": 0.005156683855612853
           }
         },
         {
@@ -8361,11 +8335,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
             "wait",
-            "portable_pressure_reading"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -8380,9 +8354,9 @@
             "portable_pressure_delta_psi": 0.20373513807999916
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.9054163298302345,
+            "leak": 0.08407437348423605,
+            "sensor_fault": 0.010509296685529508
           }
         },
         {
@@ -8584,10 +8558,10 @@
       ]
     },
     "random": {
-      "accuracy": 0.88,
-      "mean_cost": 5.28,
-      "mean_actions": 2.18,
-      "mean_cost_when_correct": 5.244318181818182,
+      "accuracy": 0.9,
+      "mean_cost": 5.54,
+      "mean_actions": 2.09,
+      "mean_cost_when_correct": 5.516666666666667,
       "runs": [
         {
           "scenario_id": "leak-037",
@@ -8595,10 +8569,9 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.5,
+          "cost": 4.0,
           "actions": [
             "field_chlorine_grab",
-            "wait",
             "portable_pressure_reading"
           ],
           "initial_outcome": "unresolved",
@@ -8625,11 +8598,11 @@
           "prediction": "contamination",
           "truth": "leak",
           "correct": false,
-          "cost": 8.5,
+          "cost": 6.5,
           "actions": [
             "lab_chlorine_assay",
-            "portable_pressure_reading",
-            "wait"
+            "wait",
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -8644,9 +8617,9 @@
             "portable_pressure_delta_psi": 0.2101330442110933
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.4998016660055533,
+            "leak": 0.4950416501388337,
+            "sensor_fault": 0.005156683855612853
           }
         },
         {
@@ -8683,10 +8656,11 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.0,
+          "cost": 6.5,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading"
+            "wait",
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -8701,9 +8675,9 @@
             "portable_pressure_delta_psi": -0.0396831088011485
           },
           "posterior": {
-            "contamination": 0.2355265968810083,
-            "leak": 0.7626575518051699,
-            "sensor_fault": 0.001815851313821833
+            "contamination": 0.12964029961313686,
+            "leak": 0.8227837682113754,
+            "sensor_fault": 0.04757593217548769
           }
         },
         {
@@ -8712,11 +8686,10 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 4.5,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -8731,9 +8704,9 @@
             "portable_pressure_delta_psi": -0.1853073392086555
           },
           "posterior": {
-            "contamination": 0.6768994627782041,
-            "leak": 0.3223330775134306,
-            "sensor_fault": 0.0007674597083653109
+            "contamination": 0.7533632286995515,
+            "leak": 0.23542600896860985,
+            "sensor_fault": 0.011210762331838564
           }
         },
         {
@@ -8801,11 +8774,11 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.5,
+          "cost": 6.5,
           "actions": [
             "wait",
             "field_chlorine_grab",
-            "portable_pressure_reading"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -8820,9 +8793,9 @@
             "portable_pressure_delta_psi": -0.04915505164831546
           },
           "posterior": {
-            "contamination": 0.2355265968810083,
-            "leak": 0.7626575518051699,
-            "sensor_fault": 0.001815851313821833
+            "contamination": 0.12964029961313686,
+            "leak": 0.8227837682113754,
+            "sensor_fault": 0.04757593217548769
           }
         },
         {
@@ -8857,14 +8830,14 @@
         {
           "scenario_id": "leak-023",
           "policy": "random",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.5,
           "actions": [
             "wait",
             "field_chlorine_grab",
-            "portable_pressure_reading"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -8879,9 +8852,9 @@
             "portable_pressure_delta_psi": -0.19805616412162325
           },
           "posterior": {
-            "contamination": 0.6263092490679921,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489293,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.02265238879736409
           }
         },
         {
@@ -8893,8 +8866,8 @@
           "cost": 4.5,
           "actions": [
             "field_chlorine_grab",
-            "wait",
-            "portable_pressure_reading"
+            "portable_pressure_reading",
+            "wait"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -8923,8 +8896,8 @@
           "cost": 4.5,
           "actions": [
             "field_chlorine_grab",
-            "wait",
-            "portable_pressure_reading"
+            "portable_pressure_reading",
+            "wait"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -8978,11 +8951,10 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 8.5,
+          "cost": 6.0,
           "actions": [
             "lab_chlorine_assay",
-            "portable_pressure_reading",
-            "wait"
+            "field_chlorine_grab"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -8997,9 +8969,9 @@
             "portable_pressure_delta_psi": 0.2035851483977712
           },
           "posterior": {
-            "contamination": 0.723781388478582,
-            "leak": 0.275726243229936,
-            "sensor_fault": 0.0004923682914820286
+            "contamination": 0.9054163298302345,
+            "leak": 0.08407437348423603,
+            "sensor_fault": 0.010509296685529506
           }
         },
         {
@@ -9068,10 +9040,11 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.0,
+          "cost": 6.5,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading"
+            "wait",
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -9086,9 +9059,9 @@
             "portable_pressure_delta_psi": 0.22786642237513627
           },
           "posterior": {
-            "contamination": 0.2355265968810083,
-            "leak": 0.7626575518051699,
-            "sensor_fault": 0.001815851313821833
+            "contamination": 0.12964029961313686,
+            "leak": 0.8227837682113754,
+            "sensor_fault": 0.04757593217548769
           }
         },
         {
@@ -9153,14 +9126,13 @@
         {
           "scenario_id": "leak-035",
           "policy": "random",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -9175,9 +9147,9 @@
             "portable_pressure_delta_psi": -0.03773361914005097
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -9389,10 +9361,9 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.5,
+          "cost": 4.0,
           "actions": [
             "field_chlorine_grab",
-            "wait",
             "portable_pressure_reading"
           ],
           "initial_outcome": "unresolved",
@@ -9534,11 +9505,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 4.5,
+          "cost": 6.5,
           "actions": [
             "wait",
             "field_chlorine_grab",
-            "portable_pressure_reading"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -9553,9 +9524,9 @@
             "portable_pressure_delta_psi": 0.10609338457481698
           },
           "posterior": {
-            "contamination": 0.6263092490679921,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.8906560636182903,
+            "leak": 0.09567594433399602,
+            "sensor_fault": 0.01366799204771372
           }
         },
         {
@@ -9594,10 +9565,9 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.5,
+          "cost": 4.0,
           "actions": [
             "field_chlorine_grab",
-            "wait",
             "portable_pressure_reading"
           ],
           "initial_outcome": "unresolved",
@@ -9770,11 +9740,11 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.5,
+          "cost": 6.5,
           "actions": [
             "wait",
             "field_chlorine_grab",
-            "portable_pressure_reading"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -9789,9 +9759,9 @@
             "portable_pressure_delta_psi": -0.2193523984777518
           },
           "posterior": {
-            "contamination": 0.2355265968810083,
-            "leak": 0.7626575518051699,
-            "sensor_fault": 0.001815851313821833
+            "contamination": 0.12964029961313686,
+            "leak": 0.8227837682113754,
+            "sensor_fault": 0.04757593217548769
           }
         },
         {
@@ -10083,10 +10053,9 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.5,
+          "cost": 4.0,
           "actions": [
             "field_chlorine_grab",
-            "wait",
             "portable_pressure_reading"
           ],
           "initial_outcome": "unresolved",
@@ -10143,10 +10112,11 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.0,
+          "cost": 6.5,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading"
+            "wait",
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -10161,9 +10131,9 @@
             "portable_pressure_delta_psi": -0.006772659581594731
           },
           "posterior": {
-            "contamination": 0.2355265968810083,
-            "leak": 0.7626575518051699,
-            "sensor_fault": 0.001815851313821833
+            "contamination": 0.12964029961313686,
+            "leak": 0.8227837682113754,
+            "sensor_fault": 0.04757593217548769
           }
         },
         {
@@ -10228,11 +10198,11 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.5,
+          "cost": 6.5,
           "actions": [
             "wait",
             "field_chlorine_grab",
-            "portable_pressure_reading"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -10247,9 +10217,9 @@
             "portable_pressure_delta_psi": 0.2101330442110933
           },
           "posterior": {
-            "contamination": 0.2355265968810083,
-            "leak": 0.7626575518051699,
-            "sensor_fault": 0.001815851313821833
+            "contamination": 0.35274356103023513,
+            "leak": 0.6396416573348265,
+            "sensor_fault": 0.00761478163493841
           }
         },
         {
@@ -10492,10 +10462,9 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.5,
+          "cost": 4.0,
           "actions": [
             "field_chlorine_grab",
-            "wait",
             "portable_pressure_reading"
           ],
           "initial_outcome": "unresolved",
@@ -10668,10 +10637,9 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.5,
+          "cost": 4.0,
           "actions": [
             "field_chlorine_grab",
-            "wait",
             "portable_pressure_reading"
           ],
           "initial_outcome": "unresolved",
@@ -10698,11 +10666,11 @@
           "prediction": "contamination",
           "truth": "contamination",
           "correct": true,
-          "cost": 4.5,
+          "cost": 9.0,
           "actions": [
             "field_chlorine_grab",
-            "wait",
-            "portable_pressure_reading"
+            "portable_pressure_reading",
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -10717,9 +10685,9 @@
             "portable_pressure_delta_psi": -0.1853073392086555
           },
           "posterior": {
-            "contamination": 0.6768994627782041,
-            "leak": 0.3223330775134306,
-            "sensor_fault": 0.0007674597083653109
+            "contamination": 0.770221591529309,
+            "leak": 0.22923261652658009,
+            "sensor_fault": 0.0005457919441109049
           }
         },
         {
@@ -10728,10 +10696,10 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.0,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -10746,9 +10714,9 @@
             "portable_pressure_delta_psi": -0.11513925887714083
           },
           "posterior": {
-            "contamination": 0.2355265968810083,
-            "leak": 0.7626575518051699,
-            "sensor_fault": 0.001815851313821833
+            "contamination": 0.12964029961313686,
+            "leak": 0.8227837682113754,
+            "sensor_fault": 0.04757593217548769
           }
         },
         {
@@ -10898,14 +10866,13 @@
         {
           "scenario_id": "leak-003",
           "policy": "random",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "leak",
-          "correct": false,
-          "cost": 4.5,
+          "correct": true,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -10920,9 +10887,9 @@
             "portable_pressure_delta_psi": -0.057213847268736184
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -11046,10 +11013,9 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.5,
+          "cost": 4.0,
           "actions": [
             "field_chlorine_grab",
-            "wait",
             "portable_pressure_reading"
           ],
           "initial_outcome": "unresolved",
@@ -11159,14 +11125,14 @@
         {
           "scenario_id": "contamination-007",
           "policy": "random",
-          "prediction": "contamination",
+          "prediction": "leak",
           "truth": "contamination",
-          "correct": true,
-          "cost": 4.5,
+          "correct": false,
+          "cost": 6.5,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading",
-            "wait"
+            "wait",
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -11181,9 +11147,9 @@
             "portable_pressure_delta_psi": -0.06360685924070764
           },
           "posterior": {
-            "contamination": 0.6263092490679922,
-            "leak": 0.37280312444523345,
-            "sensor_fault": 0.0008876264867743654
+            "contamination": 0.18451400329489295,
+            "leak": 0.792833607907743,
+            "sensor_fault": 0.022652388797364087
           }
         },
         {
@@ -11220,11 +11186,11 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.5,
+          "cost": 6.5,
           "actions": [
             "wait",
             "field_chlorine_grab",
-            "portable_pressure_reading"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -11239,9 +11205,9 @@
             "portable_pressure_delta_psi": -0.18642270383994697
           },
           "posterior": {
-            "contamination": 0.2355265968810083,
-            "leak": 0.7626575518051699,
-            "sensor_fault": 0.001815851313821833
+            "contamination": 0.12964029961313686,
+            "leak": 0.8227837682113754,
+            "sensor_fault": 0.04757593217548769
           }
         },
         {
@@ -11282,8 +11248,8 @@
           "cost": 8.5,
           "actions": [
             "lab_chlorine_assay",
-            "wait",
-            "portable_pressure_reading"
+            "portable_pressure_reading",
+            "wait"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -11368,10 +11334,9 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.5,
+          "cost": 4.0,
           "actions": [
             "field_chlorine_grab",
-            "wait",
             "portable_pressure_reading"
           ],
           "initial_outcome": "unresolved",
@@ -11426,10 +11391,10 @@
           "prediction": "leak",
           "truth": "leak",
           "correct": true,
-          "cost": 4.0,
+          "cost": 6.0,
           "actions": [
             "field_chlorine_grab",
-            "portable_pressure_reading"
+            "lab_chlorine_assay"
           ],
           "initial_outcome": "unresolved",
           "initial_posterior": {
@@ -11444,9 +11409,9 @@
             "portable_pressure_delta_psi": -0.025326690087283943
           },
           "posterior": {
-            "contamination": 0.2355265968810083,
-            "leak": 0.7626575518051699,
-            "sensor_fault": 0.001815851313821833
+            "contamination": 0.12964029961313686,
+            "leak": 0.8227837682113754,
+            "sensor_fault": 0.04757593217548769
           }
         },
         {
