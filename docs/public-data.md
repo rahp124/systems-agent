@@ -11,11 +11,13 @@ Download the official SDWIS data through EPA, retain the source date and file ch
 ```bash
 .venv/bin/python -m water_investigation.public_data \
   --input path/to/SDWA_VIOLATIONS.csv \
-  --state CA \
+  --pwsid-prefix 06 \
+  --source-sha256 <downloaded-file-sha256> \
+  --source-retrieved-at 2026-09-13T13:45:00Z \
   --output artifacts/sdwis-public-report.json
 ```
 
-The adapter accepts the violations CSV directly or a ZIP containing `SDWA_VIOLATIONS.csv`. It reports record count, public-water-system count, covered date range, and the most common violation codes for the selected primacy agency. The tracked example is a schema fixture, not official data.
+The adapter accepts the violations CSV directly or a ZIP containing either `SDWA_VIOLATIONS.csv` or the current `SDWA_VIOLATIONS_ENFORCEMENT.csv`. It streams the input, reports record count, public-water-system count, covered date range, and the most common violation codes for the selected PWSID prefix. The tracked example is a schema fixture, not official data.
 
 ## Interpretation boundary
 

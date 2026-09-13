@@ -1,0 +1,61 @@
+{
+  "source": "EPA SDWIS public compliance export",
+  "source_url": "https://echo.epa.gov/tools/data-downloads/sdwa-download-summary",
+  "provenance": {
+    "sha256": "a18a20f9091c2e0466c91c83d0bac5651473441642331d09504e447a6e2ac7a4",
+    "retrieved_at": "2026-09-13T13:45:00Z"
+  },
+  "scope": {
+    "pwsid_prefix": "06",
+    "input": ".cache/sdwa/SDWA_latest_downloads.zip"
+  },
+  "violation_records": 5695,
+  "public_water_systems": 132,
+  "date_range": [
+    "1991-01-01",
+    "2025-11-01"
+  ],
+  "top_violation_codes": [
+    {
+      "code": "03",
+      "count": 1280
+    },
+    {
+      "code": "23",
+      "count": 857
+    },
+    {
+      "code": "45",
+      "count": 461
+    },
+    {
+      "code": "22",
+      "count": 408
+    },
+    {
+      "code": "27",
+      "count": 367
+    },
+    {
+      "code": "24",
+      "count": 287
+    },
+    {
+      "code": "41",
+      "count": 287
+    },
+    {
+      "code": "71",
+      "count": 270
+    },
+    {
+      "code": "02",
+      "count": 251
+    },
+    {
+      "code": "25",
+      "count": 218
+    }
+  ],
+  "interpretation_limit": "Compliance records are public context, not SCADA telemetry, incident resolution, or recommendation validation."
+}

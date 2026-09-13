@@ -8,6 +8,7 @@
 
 ## Confirmed
 
+- The public-data path processed EPA's July 2026 SDWIS export for PWSID prefix `06`: 5,695 compliance violation records across 132 systems, with compliance-period starts from 1991 through 2025. This is public compliance context, not operational telemetry or an agent-performance result; provenance and limitations are in `docs/public-data-results.md`.
 - The analytic harness has exact Bayesian-update and EIG tests; the full suite has 15 passing tests.
 - Net3 can run 48-hour contamination, leak, and sensor-fault scenarios through a common pressure/flow/quality observation shape (`49 × 4`, `49 × 1`, and `49 × 2`) using its bundled hourly cadence.
 - A seeded categorical episode keeps its hidden class evaluator-only, schedules delayed evidence, and replays deterministically.

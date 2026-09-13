@@ -122,11 +122,13 @@ Analyze an official EPA SDWIS public compliance export locally:
 ```bash
 .venv/bin/python -m water_investigation.public_data \
   --input docs/examples/sdwis-violations.csv \
-  --state CA \
+  --pwsid-prefix CA \
   --output artifacts/sdwis-public-report.json
 ```
 
 The command accepts the SDWIS violations CSV or ZIP download and reports public compliance context. It does not infer operational incidents or validate agent recommendations; see [public-data.md](docs/public-data.md).
+
+The first sourced public-data result is recorded in [public-data-results.md](docs/public-data-results.md).
 
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
