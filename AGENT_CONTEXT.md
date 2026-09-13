@@ -14,7 +14,7 @@ The active event classes are contamination, leak, and sensor fault. The agent is
 - Field and delayed lab confirmation are modeled as correlated evidence; the second assay uses a conditional likelihood rather than double-counting a marginal likelihood.
 - Paired evaluation compares EIG-per-cost, risk-aware, expected-accuracy, random, and cheapest-first policies.
 - A 600-scenario Net3 ensemble and five fixed episode seeds provide a tracked synthetic benchmark report.
-- A read-only telemetry seam, synthetic SCADA adapter, shadow records, and JSONL audit ledger support offline and shadow-mode integration work.
+- A read-only telemetry seam, synthetic SCADA adapter, de-identified historian CSV adapter, shadow records, and JSONL audit ledger support offline and shadow-mode integration work.
 
 ## Evidence discipline
 

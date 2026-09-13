@@ -2,7 +2,7 @@ import json
 
 import pytest
 
-from water_investigation.operations import (Advisory, InvestigationAction,
+from water_investigation.operations import (Advisory, HistorianCsvAdapter, InvestigationAction,
                                             JsonlAuditLedger, ShadowMode,
                                             SyntheticScadaAdapter,
                                             TelemetrySnapshot)
@@ -36,3 +36,9 @@ def test_jsonl_ledger_appends_serialized_shadow_records(tmp_path) -> None:
     ledger_path = tmp_path / "shadow.jsonl"
     JsonlAuditLedger(ledger_path).append(records)
     assert json.loads(ledger_path.read_text())["mode"] == "shadow"
+
+
+def test_historian_csv_adapter_requires_and_reads_deidentified_telemetry(tmp_path) -> None:
+    export = tmp_path / "telemetry.csv"
+    export.write_text("snapshot_id,captured_at,source,pressure_delta_psi\na,2026-09-13T12:00:00Z,historian,0.2\n")
+    assert HistorianCsvAdapter(export).read()[0].values == {"pressure_delta_psi": 0.2}

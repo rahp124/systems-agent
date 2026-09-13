@@ -103,6 +103,16 @@ Exercise the synthetic, advisory-only workflow locally:
 
 This appends two synthetic records to `artifacts/shadow-demo.jsonl`, which is ignored by Git. It is a contract demonstration, not a SCADA connection or operational recommendation.
 
+Replay a de-identified historian export with separate reviewer outcomes:
+
+```bash
+.venv/bin/python -m water_investigation.replay \
+  --telemetry docs/examples/historian-replay.csv \
+  --reviews docs/examples/historian-reviews.jsonl
+```
+
+The replay writes advisory-only audit records to `artifacts/offline-replay.jsonl` and reports review coverage and operator-action agreement. It does not treat missing reviews as negative evidence or establish operational performance.
+
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
 ## Architecture

@@ -1,0 +1,3 @@
+snapshot_id,captured_at,source,quality_delta_mg_l,pressure_delta_psi
+replay-001,2026-09-13T12:00:00Z,deidentified-historian,0.04,0.01
+replay-002,2026-09-13T12:05:00Z,deidentified-historian,0.00,0.31

@@ -7,6 +7,7 @@ read-only historian adapter can replace it during a shadow pilot.
 from __future__ import annotations
 
 import json
+import csv
 from dataclasses import asdict, dataclass
 from enum import StrEnum
 from pathlib import Path
@@ -51,6 +52,35 @@ class SyntheticScadaAdapter:
             if snapshot.snapshot_id == cursor:
                 return self._snapshots[index + 1:]
         raise ValueError(f"unknown telemetry cursor: {cursor}")
+
+
+class HistorianCsvAdapter(SyntheticScadaAdapter):
+    """Read a de-identified historian export through the telemetry seam.
+
+    Required columns are ``snapshot_id``, ``captured_at``, and ``source``;
+    every remaining column must be a numeric telemetry value. The adapter never
+    writes to the export or opens a network connection.
+    """
+
+    REQUIRED_COLUMNS = frozenset({"snapshot_id", "captured_at", "source"})
+
+    def __init__(self, path: Path) -> None:
+        with path.open(newline="", encoding="utf-8") as input_file:
+            reader = csv.DictReader(input_file)
+            if reader.fieldnames is None or not self.REQUIRED_COLUMNS <= set(reader.fieldnames):
+                raise ValueError("historian CSV requires snapshot_id, captured_at, and source columns")
+            value_columns = [column for column in reader.fieldnames if column not in self.REQUIRED_COLUMNS]
+            if not value_columns:
+                raise ValueError("historian CSV requires at least one numeric telemetry column")
+            snapshots = []
+            for row in reader:
+                try:
+                    values = {column: float(row[column]) for column in value_columns}
+                except (TypeError, ValueError) as error:
+                    raise ValueError("historian telemetry values must be numeric") from error
+                snapshots.append(TelemetrySnapshot(row["snapshot_id"], row["captured_at"],
+                                                   row["source"], values))
+        super().__init__(tuple(snapshots))
 
 
 @dataclass(frozen=True)
