@@ -6,6 +6,7 @@ from water_investigation.evaluation import (TraceScenario, empirical_actions,
                                             run_episode, split_scenarios, _assay_band,
                                             _choose)
 from water_investigation.analytic import Action
+from water_investigation.benchmark import paired_differences
 from water_investigation.ensemble import ScenarioSpec
 from water_investigation.measurement import (FIELD_SIGMA_MG_L, PRESSURE_HALF_WIDTH_PSI,
                                              chlorine, pressure_delta)
@@ -99,3 +100,16 @@ def test_risk_aware_policy_stops_when_no_action_improves_risk_adjusted_accuracy(
         {"contamination": {"same": 1.0}, "leak": {"same": 1.0}},
     )
     assert _choose("risk_aware", belief, [uninformative], Random(0), risk_lambda=0.05) is None
+
+
+def test_paired_differences_rejects_different_scenario_sequences() -> None:
+    report = {"policies": {
+        "eig_per_cost": {"runs": [{"scenario_id": "a", "correct": True, "cost": 1.0}]},
+        "random": {"runs": [{"scenario_id": "b", "correct": False, "cost": 2.0}]},
+    }}
+    try:
+        paired_differences(report, "eig_per_cost", "random")
+    except ValueError as error:
+        assert "different scenarios" in str(error)
+    else:
+        raise AssertionError("expected paired-sequence validation to fail")

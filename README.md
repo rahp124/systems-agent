@@ -11,7 +11,7 @@ The current milestone proves two foundations independently:
 1. An exact, discrete Bayesian harness validates posterior updates, entropy, expected information gain (EIG), action scoring, seeded replay, and delayed evidence handling.
 2. An EPyT-Flow probe runs Net3 and L-Town water-network simulations and normalizes pressure, flow, and quality output shapes for contamination, leak, and sensor-fault scenarios.
 
-The analytic harness is the correctness oracle. The simulator probe is intentionally separate: it has not yet produced the seeded scenario ensemble or calibrated likelihood model needed for simulator-derived policy decisions.
+The analytic harness remains the correctness oracle. The simulator path now produces a seeded Net3 ensemble and empirical held-out policy evaluation, but it remains a synthetic integration benchmark rather than a deployment claim.
 
 ## Prerequisites
 
@@ -84,6 +84,15 @@ Generate the paired risk-aware frontier with bootstrap intervals:
 
 This writes `artifacts/net3-risk-frontier.json`. It sweeps the cost penalty in expected reduction of classification risk; it does not tune a penalty against the held-out result.
 
+Run the larger paired benchmark used for the current finding:
+
+```bash
+.venv/bin/python -m water_investigation.ensemble --per-class 200 --seed 20260911 --output artifacts/net3-benchmark-ensemble.npz
+.venv/bin/python -m water_investigation.benchmark --ensemble artifacts/net3-benchmark-ensemble.npz --episodes 100 --seeds 20260911,20260912,20260913,20260914,20260915
+```
+
+The benchmark stores a compact, tracked report at `artifacts/net3-multiseed-benchmark.json`. It compares EIG-per-cost with each policy on identical episodes and reports deterministic bootstrap intervals for paired accuracy and cost differences. The five seeds resample episodes from one fixed, 600-scenario Net3 ensemble; they are not independent simulator-network replications.
+
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
 ## Architecture
@@ -117,6 +126,6 @@ The two paths must stay distinct until the simulator path can estimate likelihoo
 
 ## Current boundaries
 
-The spike deliberately excludes persistent workflow state, a UI, LLM processing, human approval gates, interventions such as hydrant flushes, scenario-ensemble storage, and benchmark claims. Do not report policy quality, cost savings, or calibration results from the current code.
+The spike deliberately excludes persistent workflow state, a UI, LLM processing, human approval gates, interventions such as hydrant flushes, field-data calibration, and independent network replications. It stores reproducible local scenario ensembles and a synthetic benchmark report, but does not support deployment, safety, or real-world cost-savings claims.
 
-The evaluation now admits only held-out episodes whose instrument-perturbed, simulator-derived initial telemetry leaves at least two plausible classes. The next technical gate is a policy improvement: EIG-per-cost currently saves cost but trails random on accuracy under the new model. See [FINDINGS.md](FINDINGS.md) for the current evidence and blockers.
+The evaluation admits only held-out episodes whose instrument-perturbed, simulator-derived initial telemetry leaves at least two plausible classes. The next technical gate is external validity: repeat the benchmark across independently generated ensembles, sensor layouts, and source-calibrated sampling/transport assumptions. See [FINDINGS.md](FINDINGS.md) for the current evidence and blockers.

@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_OUTPUT = ROOT / "artifacts" / "net3-ensemble.npz"
 CACHE = ROOT / ".cache" / "networks"
 HYPOTHESES = ("contamination", "leak", "sensor_fault")
+ENSEMBLE_SCHEMA_VERSION = 1
 
 
 @dataclass(frozen=True)
@@ -98,7 +99,9 @@ def build_ensemble(per_class: int = 40, seed: int = 20260911, output: Path = DEF
     traces = [simulate(spec) for spec in specs]
     np.savez_compressed(
         output,
-        metadata=np.array(json.dumps({"network": "net3", "seed": seed, "scenarios": [asdict(spec) for spec in specs]})),
+        metadata=np.array(json.dumps({"schema_version": ENSEMBLE_SCHEMA_VERSION,
+                                      "network": "net3", "seed": seed,
+                                      "scenarios": [asdict(spec) for spec in specs]})),
         pressure=np.stack([trace[0] for trace in traces]),
         flow=np.stack([trace[1] for trace in traces]),
         quality=np.stack([trace[2] for trace in traces]),

@@ -128,3 +128,11 @@ The assay actions no longer collapse every valid concentration into a single `de
 The `risk_aware` policy scores an action as expected increase in MAP classification accuracy minus `λ × action cost`; it stops when no available action has positive value. `water_investigation.frontier` evaluates λ values from 0 through 0.20 on the same episodes and uses 1,000 deterministic bootstrap resamples for 95% intervals.
 
 Conditional lab confirmation creates a nontrivial intermediate frontier point: λ=0.02 reaches 92% accuracy at mean cost 2.15 (bootstrap 95% accuracy interval 86–97%), compared with λ=0 at 88%/5.00 and λ≥0.05 at 83%/1.00. The confidence intervals overlap and the ensemble is small, so this is not evidence that λ=0.02 is generally superior. It is evidence that correlated evidence can be handled without discarding confirmation actions; larger ensembles and a source-calibrated sampling/transport model are the next validation gate.
+
+## Multi-seed paired benchmark
+
+`water_investigation.benchmark` evaluates all policies on identical episode sequences for each fixed episode seed, then pools paired per-episode differences against EIG-per-cost. It reports deterministic 1,000-resample percentile intervals for the mean accuracy and cost difference. The runner rejects reports whose matched policies do not share the same scenario sequence, preventing an accidental unpaired comparison.
+
+The first expanded benchmark uses one schema-versioned, 600-scenario Net3 ensemble (200 scenarios per event class) and five fixed episode seeds of 100 episodes each. On its 500 paired episode draws, EIG-per-cost exceeds random by 3.2 percentage points in accuracy (95% interval 1.0–5.8) and costs 2.45 fewer units (−2.71 to −2.21). It exceeds cheapest-first accuracy by 7.0 points (3.4–10.2), while the cost difference is unresolved (0.01, −0.06 to 0.10).
+
+Those episode seeds resample from the same generated ensemble, so their intervals quantify episode-draw uncertainty—not independent simulator, topology, or sensor-placement uncertainty. The benchmark is a stronger synthetic integration result, not a general performance claim. Independent ensembles, alternative sensor configurations, and a source-calibrated sampling/transport model are required before treating it as a policy recommendation.
