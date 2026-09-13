@@ -117,6 +117,17 @@ For utilities, laboratories, and research partners, [utility-pilot-brief.md](doc
 
 The reusable contact template, qualification checklist, and scoping-call agenda are in [partner-outreach.md](docs/partner-outreach.md). It supports outreach preparation only; no external contact is made from this repository.
 
+Analyze an official EPA SDWIS public compliance export locally:
+
+```bash
+.venv/bin/python -m water_investigation.public_data \
+  --input docs/examples/sdwis-violations.csv \
+  --state CA \
+  --output artifacts/sdwis-public-report.json
+```
+
+The command accepts the SDWIS violations CSV or ZIP download and reports public compliance context. It does not infer operational incidents or validate agent recommendations; see [public-data.md](docs/public-data.md).
+
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
 ## Architecture
