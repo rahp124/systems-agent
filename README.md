@@ -95,6 +95,14 @@ The benchmark stores a compact, tracked report at `artifacts/net3-multiseed-benc
 
 The operational-readiness foundation adds a read-only telemetry seam, synthetic SCADA adapter, shadow-mode advisory records, and append-only JSONL audit ledger. It deliberately exposes no actuator/control interface. See [operational-readiness.md](docs/operational-readiness.md) for the utility shadow-mode protocol, acceptance gates, and validation roadmap.
 
+Exercise the synthetic, advisory-only workflow locally:
+
+```bash
+.venv/bin/python -m water_investigation.shadow_demo
+```
+
+This appends two synthetic records to `artifacts/shadow-demo.jsonl`, which is ignored by Git. It is a contract demonstration, not a SCADA connection or operational recommendation.
+
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
 ## Architecture

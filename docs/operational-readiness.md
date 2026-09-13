@@ -8,6 +8,8 @@ The production seam is `TelemetryReader` in `water_investigation.operations`. It
 
 This design gives callers a small interface while containing cursor handling, serialization, and audit shape in one deep module. A later utility adapter is a replacement at the telemetry seam, not a reason to spread SCADA-specific logic through policy code.
 
+Run `.venv/bin/python -m water_investigation.shadow_demo` to exercise the contract. It writes two synthetic, advisory-only JSONL records. The output is intentionally Git-ignored because it is regenerated demonstration output.
+
 ## Shadow-mode protocol
 
 1. A utility names an operational owner, security owner, incident commander, and technical product owner; they approve the intended use, data sources, retention, and escalation path.

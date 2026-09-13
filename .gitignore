@@ -4,6 +4,7 @@ __pycache__/
 .pytest_cache/
 artifacts/*.log
 artifacts/demo-*.txt
+artifacts/shadow-demo.jsonl
 artifacts/*-smoke.*
 artifacts/*.npz
 *.egg-info/
