@@ -1,4 +1,4 @@
-"""Exact categorical Bayes and EIG calculations used as the spike's oracle."""
+"""Exact categorical Bayes and EIG calculations used as the agent's oracle."""
 from __future__ import annotations
 
 from dataclasses import dataclass

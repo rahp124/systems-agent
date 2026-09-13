@@ -1,8 +1,8 @@
-# Cost-aware water-network investigation
+# Water Investigation Agent
 
-This repository starts with a deliberately small **feasibility spike** for a future investigation system for simulated water-distribution events. The intended system will maintain competing explanations, select the next observation based on expected information and operational cost, update its belief when evidence returns, and evaluate the decision policy against baselines.
+The Water Investigation Agent is a cost-aware, auditable decision-support system for simulated water-distribution events. It maintains competing explanations, selects the next observation based on expected information and operational cost, updates its belief when evidence returns, and evaluates its decision policy against baselines.
 
-This is not an LLM wrapper, and it does not claim that Bayesian inference or expected information gain is novel. The project framing, prior-art constraints, and planned milestones are in [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md), [RESEARCH-REPORT.md](RESEARCH-REPORT.md), and [VERIFICATION-REPORT.md](VERIFICATION-REPORT.md).
+This is not an LLM wrapper, and it does not claim that Bayesian inference or expected information gain is novel. Its scope, prior-art constraints, and validation record are in [AGENT_CONTEXT.md](AGENT_CONTEXT.md), [PRIOR_ART_REPORT.md](PRIOR_ART_REPORT.md), and [VERIFICATION-REPORT.md](VERIFICATION-REPORT.md).
 
 ## What works today
 
@@ -29,7 +29,7 @@ python3 -m venv .venv
 .venv/bin/python -m pip install -e '.[dev]'
 ```
 
-The project pins EPyT-Flow to `0.17.2`. The local `.venv/` and downloaded network cache are ignored by Git.
+The agent pins EPyT-Flow to `0.17.2`. The local `.venv/` and downloaded network cache are ignored by Git.
 
 ## Run and verify
 
@@ -122,7 +122,7 @@ cost-and-latency action score               JSON feasibility findings
 seeded delayed-evidence episode
 ```
 
-The two paths must stay distinct until the simulator path can estimate likelihoods from a reproducible scenario ensemble. More detail is in [docs/spike-architecture.md](docs/spike-architecture.md).
+The two paths must stay distinct until the simulator path can estimate likelihoods from a reproducible scenario ensemble. More detail is in [docs/agent-architecture.md](docs/agent-architecture.md).
 
 ## Repository map
 
@@ -136,6 +136,6 @@ The two paths must stay distinct until the simulator path can estimate likelihoo
 
 ## Current boundaries
 
-The spike deliberately excludes persistent workflow state, a UI, LLM processing, human approval gates, interventions such as hydrant flushes, field-data calibration, and independent network replications. It stores reproducible local scenario ensembles and a synthetic benchmark report, but does not support deployment, safety, or real-world cost-savings claims.
+The current agent excludes persistent workflow state, a UI, LLM processing, human approval gates, interventions such as hydrant flushes, field-data calibration, and independent network replications. It stores reproducible local scenario ensembles and a synthetic benchmark report, but does not support deployment, safety, or real-world cost-savings claims.
 
 The evaluation admits only held-out episodes whose instrument-perturbed, simulator-derived initial telemetry leaves at least two plausible classes. The next technical gate is external validity: repeat the benchmark across independently generated ensembles, sensor layouts, and source-calibrated sampling/transport assumptions. See [FINDINGS.md](FINDINGS.md) for the current evidence and blockers.

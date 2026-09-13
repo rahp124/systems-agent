@@ -8,7 +8,7 @@ from .world import default_actions, new_episode
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Run the throwaway sequential-investigation oracle.")
+    parser = argparse.ArgumentParser(description="Run the sequential-investigation oracle.")
     parser.add_argument("--seed", type=int, default=7)
     args = parser.parse_args()
     episode = new_episode(args.seed)

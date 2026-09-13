@@ -1,8 +1,8 @@
-# Feasibility spike architecture
+# Water Investigation Agent architecture
 
 ## Purpose
 
-The spike answers two narrow questions before application work begins:
+The agent architecture establishes two foundations before operational integration begins:
 
 1. Are the Bayesian update and expected-information-gain calculations correct?
 2. Can the chosen simulator express contamination, leaks, and sensor faults through a common observation interface?
@@ -31,13 +31,13 @@ For each possible action, EIG is the prior entropy minus expected posterior entr
 EIG(a) = H(p) - Σo p(o | a) H(p(H | o, a))
 ```
 
-The spike chooses the affordable action with the highest score:
+The agent chooses the affordable action with the highest score:
 
 ```text
 score(a) = EIG(a) / (cost(a) + 0.25 × latency_steps(a))
 ```
 
-The `0.25` latency penalty is only a transparent harness parameter. It is not a final operational-cost model and must be replaced with a documented, evaluated objective before any project claim.
+The `0.25` latency penalty is only a transparent harness parameter. It is not a final operational-cost model and must be replaced with a documented, evaluated objective before any operational claim.
 
 ## Episode state and timing
 
@@ -105,7 +105,7 @@ Every channel has a deterministic, scenario-seeded categorical noise rate. Curre
 
 The likelihood model built from training scenarios updates the initial uniform prior. A held-out scenario is eligible only if its largest initial posterior is at most 0.70 and its second-largest posterior is at least 0.15. The evaluation report records both the eligible and rejected counts, the gate values, and noise rates.
 
-These noise rates are deliberate harness controls, not calibrated sensor-error estimates. The benchmark now tests action selection from ambiguous initial state, but no resume-quality claim is valid until noise and thresholds are estimated or validated against a more realistic measurement model.
+These noise rates are deliberate harness controls, not calibrated sensor-error estimates. The benchmark now tests action selection from ambiguous initial state, but no operational claim is valid until noise and thresholds are estimated or validated against a more realistic measurement model.
 
 ## Instrument-level measurement model
 

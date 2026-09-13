@@ -64,7 +64,7 @@ def simulate(spec: ScenarioSpec) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
         # Every scenario uses the same chemical-quality channel. Without this,
         # non-contamination traces contain water age and are not comparable to
         # contamination concentration traces.
-        simulator.enable_chemical_analysis("spike")
+        simulator.enable_chemical_analysis("water_investigation")
         if spec.event_class == "contamination":
             start_step = spec.event_start_seconds // 3600
             pattern = np.array([0.0] * start_step + [1.0] * 2 + [0.0] * (49 - start_step - 2))

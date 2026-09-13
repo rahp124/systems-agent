@@ -1,8 +1,8 @@
 # Measurement-model source notes
 
-**Purpose.** Primary-source specifications suitable for replacing the spike's
+**Purpose.** Primary-source specifications suitable for replacing the agent's
 configured measurement noise. These are product performance limits, not
-empirical distributions from the project's simulated network; do not treat a
+empirical distributions from the agent's simulated network; do not treat a
 `±` limit as a standard deviation without an explicitly chosen distribution.
 
 ## Candidate channels

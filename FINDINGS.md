@@ -1,4 +1,4 @@
-# Feasibility spike findings
+# Water Investigation Agent findings
 
 ## Environment
 
@@ -30,4 +30,4 @@
 - The expanded result resamples 500 episodes from one fixed 600-scenario synthetic Net3 ensemble. It is not an independent simulator, network-topology, sensor-placement, or real-data replication.
 - The λ=0.02 frontier point and EIG-per-cost result warrant replication across independently generated ensembles, sensor layouts, and source-calibrated sampling/transport assumptions before policy selection.
 - The Phase-0 100-scenario parallel timing and frozen-sensor serialized-storage measurements remain to be added. No performance claim is justified yet.
-- The analytic runner remains a correctness oracle. The new evaluation path is simulator-derived, but is an integration result rather than a resume-quality benchmark.
+- The analytic runner remains a correctness oracle. The evaluation path is simulator-derived and remains an integration result rather than an operational validation result.

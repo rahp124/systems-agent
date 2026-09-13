@@ -45,7 +45,7 @@ def _simulate(kind: str, network: str) -> dict[str, object]:
         if kind == "leak":
             simulator.add_leakage(AbruptLeakage(link_id=None, node_id=event_node, diameter=0.005, start_time=4 * 3600, end_time=48 * 3600))
         elif kind == "contamination":
-            simulator.enable_chemical_analysis("spike")
+            simulator.enable_chemical_analysis("water_investigation")
             simulator.add_quality_source(
                 node_id=event_node, source_type=EpanetConstants.EN_MASS,
                 pattern=np.array([0.0] * 16 + [1.0] * 8 + [0.0] * 168), source_strength=1.0,

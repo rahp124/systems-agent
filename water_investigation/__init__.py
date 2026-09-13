@@ -1,2 +1,1 @@
-"""Throwaway feasibility spike; not production investigation infrastructure."""
-
+"""Cost-aware, auditable investigation agent for water-distribution events."""

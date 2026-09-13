@@ -2,7 +2,7 @@
 
 ## Scope and safety posture
 
-This repository is currently a synthetic, read-only decision-support prototype. It must not issue pump, valve, dosing, flushing, or other control commands. Its first operational use case is narrower: rank investigative observations for a trained operator during a suspected distribution-system event. The operator remains responsible for decisions and incident-response actions.
+This repository currently contains a synthetic, read-only decision-support agent. It must not issue pump, valve, dosing, flushing, or other control commands. Its first operational use case is narrower: rank investigative observations for a trained operator during a suspected distribution-system event. The operator remains responsible for decisions and incident-response actions.
 
 The production seam is `TelemetryReader` in `water_investigation.operations`. Its interface reads immutable, source-attributed telemetry snapshots after an optional cursor. `SyntheticScadaAdapter` is the current adapter; a utility-owned historian adapter may replace it only when it meets the same read-only, stable-order, source-attribution, and access-control requirements. `ShadowMode` turns snapshots and an advisory policy into `ShadowAuditRecord` values. `JsonlAuditLedger` persists supplied records but does not transmit commands or connect to operational technology.
 
@@ -19,7 +19,7 @@ Run `.venv/bin/python -m water_investigation.shadow_demo` to exercise the contra
 5. A reviewer reconciles every alert against incident tickets, laboratory results, maintenance records, and eventual resolution. Unknown outcomes remain unknown; they are not relabeled to improve metrics.
 6. The pilot ends with a written go/no-go decision against the acceptance gates below.
 
-EPA's [distribution-system contamination incident checklist](https://www.epa.gov/waterutilityresponse/incident-action-checklists-water-utilities) is a useful reference for fitting this workflow into existing response procedures. EPA also provides water-sector [cybersecurity planning resources](https://www.epa.gov/cyberwater/cybersecurity-planning); utility security requirements take precedence over this prototype's assumptions.
+EPA's [distribution-system contamination incident checklist](https://www.epa.gov/waterutilityresponse/incident-action-checklists-water-utilities) is a useful reference for fitting this workflow into existing response procedures. EPA also provides water-sector [cybersecurity planning resources](https://www.epa.gov/cyberwater/cybersecurity-planning); utility security requirements take precedence over this agent's assumptions.
 
 ## Acceptance gates
 

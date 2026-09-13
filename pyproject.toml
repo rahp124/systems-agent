@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "water-investigation-spike"
+name = "water-investigation-agent"
 version = "0.1.0"
-description = "Throwaway correctness and simulator feasibility spike for water-network investigation."
+description = "Cost-aware, auditable investigation agent for water-distribution events."
 requires-python = ">=3.12"
 dependencies = [
   "epyt-flow==0.17.2",
