@@ -9,3 +9,7 @@ Keep commits focused: do not mix unrelated changes or rewrite existing user comm
 ## Documentation
 
 Treat documentation as part of every change. When behavior, public interfaces, commands, configuration, validation, or measured findings change, update the relevant README, `docs/`, and/or `FINDINGS.md` in the same increment. Verify documented commands before committing, and keep documentation claims limited to measured results.
+
+## Operational readiness
+
+When changing telemetry adapters, advisory records, shadow evaluation, or integration controls, update `docs/operational-readiness.md` in the same increment. Keep the telemetry interface read-only and recommendations advisory until a utility-approved validation gate authorizes a broader scope.

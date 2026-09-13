@@ -93,6 +93,8 @@ Run the larger paired benchmark used for the current finding:
 
 The benchmark stores a compact, tracked report at `artifacts/net3-multiseed-benchmark.json`. It compares EIG-per-cost with each policy on identical episodes and reports deterministic bootstrap intervals for paired accuracy and cost differences. The five seeds resample episodes from one fixed, 600-scenario Net3 ensemble; they are not independent simulator-network replications.
 
+The operational-readiness foundation adds a read-only telemetry seam, synthetic SCADA adapter, shadow-mode advisory records, and append-only JSONL audit ledger. It deliberately exposes no actuator/control interface. See [operational-readiness.md](docs/operational-readiness.md) for the utility shadow-mode protocol, acceptance gates, and validation roadmap.
+
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
 ## Architecture
