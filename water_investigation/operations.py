@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import csv
+from datetime import datetime
 from dataclasses import asdict, dataclass
 from enum import StrEnum
 from pathlib import Path
@@ -73,11 +74,16 @@ class HistorianCsvAdapter(SyntheticScadaAdapter):
             if not value_columns:
                 raise ValueError("historian CSV requires at least one numeric telemetry column")
             snapshots = []
+            previous_time = None
             for row in reader:
                 try:
                     values = {column: float(row[column]) for column in value_columns}
+                    captured_at = datetime.fromisoformat(row["captured_at"].replace("Z", "+00:00"))
                 except (TypeError, ValueError) as error:
-                    raise ValueError("historian telemetry values must be numeric") from error
+                    raise ValueError("historian rows require numeric values and ISO-8601 timestamps") from error
+                if previous_time and captured_at <= previous_time:
+                    raise ValueError("historian timestamps must be strictly increasing")
+                previous_time = captured_at
                 snapshots.append(TelemetrySnapshot(row["snapshot_id"], row["captured_at"],
                                                    row["source"], values))
         super().__init__(tuple(snapshots))
@@ -103,6 +109,8 @@ class ShadowAuditRecord:
     source: str
     telemetry: dict[str, float]
     advisory: Advisory
+    policy_version: str = "unversioned"
+    configuration_version: str = "unversioned"
     mode: str = "shadow"
 
     def as_dict(self) -> dict[str, object]:
@@ -115,14 +123,19 @@ class ShadowMode:
     """Create audit records from any read-only telemetry adapter and advisory policy."""
 
     def __init__(self, reader: TelemetryReader,
-                 policy: Callable[[TelemetrySnapshot], Advisory]) -> None:
+                 policy: Callable[[TelemetrySnapshot], Advisory],
+                 policy_version: str = "unversioned",
+                 configuration_version: str = "unversioned") -> None:
         self._reader = reader
         self._policy = policy
+        self._policy_version = policy_version
+        self._configuration_version = configuration_version
 
     def run(self, cursor: str | None = None) -> tuple[ShadowAuditRecord, ...]:
         return tuple(
             ShadowAuditRecord(snapshot.snapshot_id, snapshot.captured_at, snapshot.source,
-                              snapshot.values, self._policy(snapshot))
+                              snapshot.values, self._policy(snapshot), self._policy_version,
+                              self._configuration_version)
             for snapshot in self._reader.read(cursor)
         )
 

@@ -52,10 +52,15 @@ def reconcile(records: tuple[ShadowAuditRecord, ...], outcomes: dict[str, Review
     action_reviews = [record for record in reviewed if outcomes[record.snapshot_id].operator_action]
     agreements = [record.advisory.action == outcomes[record.snapshot_id].operator_action
                   for record in action_reviews]
+    channels = sorted({channel for record in records for channel in record.telemetry})
     return {"snapshots": len(records), "reviewed_snapshots": len(reviewed),
             "review_coverage": len(reviewed) / len(records) if records else 0.0,
             "action_reviews": len(action_reviews),
             "operator_action_agreement": mean(agreements) if agreements else None,
+            "data_quality": {"timestamp_ordered": True, "telemetry_channels": channels,
+                             "sources": sorted({record.source for record in records})},
+            "versions": sorted({(record.policy_version, record.configuration_version)
+                                for record in records}),
             "resolved_event_classes": sorted({outcomes[record.snapshot_id].event_class
                                                 for record in reviewed
                                                 if outcomes[record.snapshot_id].event_class})}
@@ -74,8 +79,11 @@ def main() -> None:
     parser.add_argument("--telemetry", type=Path, required=True)
     parser.add_argument("--reviews", type=Path, required=True)
     parser.add_argument("--audit-output", type=Path, default=DEFAULT_AUDIT)
+    parser.add_argument("--policy-version", default="replay-threshold-v1")
+    parser.add_argument("--configuration-version", default="offline-replay-v1")
     args = parser.parse_args()
-    records = ShadowMode(HistorianCsvAdapter(args.telemetry), conservative_policy).run()
+    records = ShadowMode(HistorianCsvAdapter(args.telemetry), conservative_policy,
+                         args.policy_version, args.configuration_version).run()
     JsonlAuditLedger(args.audit_output).append(records)
     print(json.dumps(reconcile(records, load_outcomes(args.reviews)), indent=2))
 

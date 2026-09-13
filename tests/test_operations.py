@@ -42,3 +42,10 @@ def test_historian_csv_adapter_requires_and_reads_deidentified_telemetry(tmp_pat
     export = tmp_path / "telemetry.csv"
     export.write_text("snapshot_id,captured_at,source,pressure_delta_psi\na,2026-09-13T12:00:00Z,historian,0.2\n")
     assert HistorianCsvAdapter(export).read()[0].values == {"pressure_delta_psi": 0.2}
+
+
+def test_historian_csv_adapter_rejects_unordered_timestamps(tmp_path) -> None:
+    export = tmp_path / "telemetry.csv"
+    export.write_text("snapshot_id,captured_at,source,pressure_delta_psi\na,2026-09-13T12:01:00Z,historian,0.2\nb,2026-09-13T12:00:00Z,historian,0.3\n")
+    with pytest.raises(ValueError, match="strictly increasing"):
+        HistorianCsvAdapter(export)

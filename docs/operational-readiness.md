@@ -10,7 +10,7 @@ This design gives callers a small interface while containing cursor handling, se
 
 Run `.venv/bin/python -m water_investigation.shadow_demo` to exercise the contract. It writes two synthetic, advisory-only JSONL records. The output is intentionally Git-ignored because it is regenerated demonstration output.
 
-`HistorianCsvAdapter` is the second adapter at the telemetry seam. It reads a de-identified CSV with required `snapshot_id`, `captured_at`, and `source` columns; all remaining columns are numeric telemetry values. `water_investigation.replay` joins its advisory records with separate JSONL reviewer outcomes and reports review coverage and operator-action agreement. The examples in `docs/examples/` are synthetic schema examples, not utility data or evidence of decision quality.
+`HistorianCsvAdapter` is the second adapter at the telemetry seam. It reads a de-identified CSV with required `snapshot_id`, `captured_at`, and `source` columns; all remaining columns are numeric telemetry values, and timestamps must be strictly increasing. `water_investigation.replay` joins its advisory records with separate JSONL reviewer outcomes and reports review coverage, operator-action agreement, channels, sources, and policy/configuration versions. The examples in `docs/examples/` are synthetic schema examples, not utility data or evidence of decision quality.
 
 ## Shadow-mode protocol
 

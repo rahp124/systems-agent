@@ -19,6 +19,7 @@ def test_reconcile_reports_operator_action_agreement() -> None:
     report = reconcile(records, outcomes)
     assert report["review_coverage"] == 0.5
     assert report["operator_action_agreement"] == 1.0
+    assert report["data_quality"]["timestamp_ordered"] is True
 
 
 def test_reconcile_rejects_reviews_without_matching_snapshots() -> None:
