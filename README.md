@@ -113,6 +113,8 @@ Replay a de-identified historian export with separate reviewer outcomes:
 
 The replay writes advisory-only audit records to `artifacts/offline-replay.jsonl` and reports review coverage and operator-action agreement. It does not treat missing reviews as negative evidence or establish operational performance.
 
+For utilities, laboratories, and research partners, [utility-pilot-brief.md](docs/utility-pilot-brief.md) defines the requested de-identified data, read-only safety posture, deliverables, and offline-replay evaluation gates.
+
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
 ## Architecture

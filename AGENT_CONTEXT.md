@@ -21,6 +21,7 @@ The active event classes are contamination, leak, and sensor fault. The agent is
 The agent does not claim that Bayesian updates or expected-information selection are novel. It reports only measured outcomes with their scope and uncertainty. The current benchmark is synthetic Net3 evidence; it is not a utility deployment, real-world cost-savings result, or independent topology replication.
 
 Read [PRIOR_ART_REPORT.md](PRIOR_ART_REPORT.md) before changing the decision model or making external claims. Read [docs/operational-readiness.md](docs/operational-readiness.md) before changing telemetry, audit, shadow-mode, or integration behavior.
+Use [docs/utility-pilot-brief.md](docs/utility-pilot-brief.md) for partner outreach and keep it aligned with the operational-readiness documentation.
 
 ## Development sequence
 
