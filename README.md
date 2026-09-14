@@ -68,6 +68,15 @@ Build the first reproducible Net3 ensemble and evaluate it:
 
 The ensemble command stores local compressed traces in `artifacts/net3-ensemble.npz`; the evaluation command trains empirical action likelihoods on an even-indexed stratified subset and evaluates policies on odd-indexed held-out scenarios. Its report is written to `artifacts/net3-evaluation.json`.
 
+The same ensemble/evaluation path can make network topology and sensor layout explicit:
+
+```bash
+.venv/bin/python -m water_investigation.ensemble --network net3 --sensor-layout alternate --per-class 40 --seed 20260914
+.venv/bin/python -m water_investigation.ensemble --network ltown --sensor-layout primary --per-class 40 --seed 20260915
+```
+
+Each ensemble records its network and sensor layout in metadata, and evaluation carries that metadata into its report. Network cadence is derived from returned traces for sensor-fault timing. These runs are separate synthetic replications, not a pooled benchmark or a claim of cross-network policy generalization.
+
 The evaluation now uses a seeded instrument-level measurement model rather than categorical outcome-flip rates. Its assumptions, bounds, source links, and limitations are documented in [measurement-model-sources.md](docs/research/measurement-model-sources.md).
 
 The report compares five policies: EIG-per-cost, risk-aware expected classification accuracy, cost-insensitive expected classification accuracy, random, and cheapest-first. The expected-accuracy policy is intentionally a diagnostic baseline; it exposes the accuracy/cost tradeoff rather than replacing the cost-aware policy.

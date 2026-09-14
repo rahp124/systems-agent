@@ -9,7 +9,7 @@ from random import Random
 from statistics import mean
 
 from .analytic import Action, expected_classification_accuracy, posterior_after, score_action
-from .ensemble import DEFAULT_OUTPUT, HYPOTHESES, ScenarioSpec, load_ensemble
+from .ensemble import DEFAULT_OUTPUT, HYPOTHESES, ScenarioSpec, ensemble_metadata, load_ensemble
 from .measurement import (FIELD_LOWER_RANGE_MG_L, LAB_SENSITIVITY_MG_L,
                           PRESSURE_HALF_WIDTH_PSI, chlorine, pressure_delta)
 
@@ -247,7 +247,7 @@ def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260
     except ValueError:
         ensemble_name = str(path)
     report: dict[str, object] = {
-        "ensemble": ensemble_name, "episodes": episodes,
+        "ensemble": ensemble_name, "ensemble_metadata": ensemble_metadata(path), "episodes": episodes,
         "training_scenarios": len(training), "held_out_scenarios": len(held_out),
         "eligible_held_out_scenarios": len(eligible), "rejected_held_out_scenarios": len(held_out) - len(eligible),
         "ambiguity_gate": {"max_initial_posterior": MAX_INITIAL_POSTERIOR, "min_second_initial_posterior": MIN_SECOND_INITIAL_POSTERIOR},

@@ -10,6 +10,7 @@ The active event classes are contamination, leak, and sensor fault. The agent is
 
 - An exact categorical Bayesian harness verifies belief updates, information gain, expected classification accuracy, and policy scoring.
 - A seeded Net3 simulation ensemble supplies contamination, leak, and sensor-fault traces.
+- The ensemble builder supports explicit Net3 or L-Town network selection and primary or alternate sensor layouts; each artifact carries these settings as evaluation provenance.
 - Instrument-derived pressure and chlorine observation models yield four ordered assay bands.
 - Field and delayed lab confirmation are modeled as correlated evidence; the second assay uses a conditional likelihood rather than double-counting a marginal likelihood.
 - Paired evaluation compares EIG-per-cost, risk-aware, expected-accuracy, random, and cheapest-first policies.
