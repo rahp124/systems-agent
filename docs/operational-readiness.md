@@ -50,3 +50,5 @@ Use a utility-specific risk register to prioritize the gates. NIST's AI Risk Man
 No step automatically authorizes the next. The utility's documented go/no-go decision, legal obligations, and applicable jurisdictional requirements control progression.
 
 Before any data transfer, apply the repository's [offline replay validation protocol](validation-protocol.md) and [data-handling and security review](data-handling-security.md). Utility requirements override these preparation materials.
+
+The synthetic operator-review mockup in `showcase/operator-review.html` is a presentation aid. Its accept/reject controls do not persist data, connect to telemetry, or authorize an action.

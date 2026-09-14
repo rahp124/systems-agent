@@ -29,3 +29,9 @@ def test_reconcile_rejects_reviews_without_matching_snapshots() -> None:
     with pytest.raises(ValueError, match="unknown snapshots"):
         reconcile((_record("one", InvestigationAction.WAIT),),
                   {"missing": ReviewOutcome("missing", OperatorDisposition.NO_ACTION)})
+
+
+def test_reconcile_leaves_timing_unavailable_without_event_ids() -> None:
+    report = reconcile((_record("one", InvestigationAction.WAIT),),
+                       {"one": ReviewOutcome("one", OperatorDisposition.NO_ACTION)})
+    assert report["event_timing"]["labeled_events"] == 0

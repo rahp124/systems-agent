@@ -1,6 +1,7 @@
 # Water Investigation Agent
 
 For a shareable executive and research overview, open [showcase/index.html](showcase/index.html) locally in a browser.
+The synthetic operator-review mockup is at [showcase/operator-review.html](showcase/operator-review.html).
 
 The Water Investigation Agent is a cost-aware, auditable decision-support system for simulated water-distribution events. It maintains competing explanations, selects the next observation based on expected information and operational cost, updates its belief when evidence returns, and evaluates its decision policy against baselines.
 
@@ -39,6 +40,12 @@ Run the correctness suite:
 
 ```bash
 .venv/bin/python -m pytest -q
+```
+
+Run the complete synthetic, fail-closed operational demonstration with one command:
+
+```bash
+make demo
 ```
 
 Verify that every tracked public-data or replication report retains its required provenance and schema fields:

@@ -62,3 +62,12 @@ def test_telemetry_assessment_fails_closed_for_missing_channels() -> None:
     assessment = assess_telemetry((_snapshot("one"),), frozenset({"quality_delta_mg_l"}), 900)
     assert not assessment.safe_to_advise
     assert "missing required channels" in assessment.reasons[0]
+
+
+def test_historian_csv_adapter_rejects_blank_measurements_and_incomplete_maps(tmp_path) -> None:
+    export = tmp_path / "telemetry.csv"
+    export.write_text("snapshot_id,captured_at,source,p,q\na,2026-09-13T12:00:00Z,historian,,0.01\n")
+    with pytest.raises(ValueError, match="channel map"):
+        HistorianCsvAdapter(export, {"p": "pressure_delta_psi"})
+    with pytest.raises(ValueError, match="nonmissing numeric"):
+        HistorianCsvAdapter(export, {"p": "pressure_delta_psi", "q": "quality_delta_mg_l"})
