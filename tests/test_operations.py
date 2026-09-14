@@ -5,7 +5,7 @@ import pytest
 from water_investigation.operations import (Advisory, HistorianCsvAdapter, InvestigationAction,
                                             JsonlAuditLedger, ShadowMode,
                                             SyntheticScadaAdapter,
-                                            TelemetrySnapshot)
+                                            TelemetrySnapshot, assess_telemetry)
 
 
 def _snapshot(snapshot_id: str) -> TelemetrySnapshot:
@@ -56,3 +56,9 @@ def test_historian_csv_adapter_maps_complete_source_channels(tmp_path) -> None:
     export.write_text("snapshot_id,captured_at,source,p_delta,q_delta\na,2026-09-13T12:00:00Z,historian,0.2,0.01\n")
     adapter = HistorianCsvAdapter(export, {"p_delta": "pressure_delta_psi", "q_delta": "quality_delta_mg_l"})
     assert adapter.read()[0].values == {"pressure_delta_psi": 0.2, "quality_delta_mg_l": 0.01}
+
+
+def test_telemetry_assessment_fails_closed_for_missing_channels() -> None:
+    assessment = assess_telemetry((_snapshot("one"),), frozenset({"quality_delta_mg_l"}), 900)
+    assert not assessment.safe_to_advise
+    assert "missing required channels" in assessment.reasons[0]

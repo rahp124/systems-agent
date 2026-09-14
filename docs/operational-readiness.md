@@ -12,6 +12,8 @@ Run `.venv/bin/python -m water_investigation.shadow_demo` to exercise the contra
 
 `HistorianCsvAdapter` is the second adapter at the telemetry seam. It reads a de-identified CSV with required `snapshot_id`, `captured_at`, and `source` columns; all remaining columns must be nonmissing numeric telemetry values, and timestamps must be strictly increasing. An optional JSON channel map must cover each source telemetry column exactly once and map to unique canonical names; it prevents undocumented column guessing. `water_investigation.replay` joins its advisory records with separate JSONL reviewer outcomes and reports review coverage, disposition counts, resolved-event-label coverage, operator-action agreement with a Wilson interval, event-grouped time to first non-wait advisory, channels, sources, and policy/configuration versions. `event_id` is optional in reviewer JSONL; timing is reported only for snapshots carrying it. The examples in `docs/examples/` are synthetic schema examples, not utility data or evidence of decision quality.
 
+`assess_telemetry` is the local safety gate used by `water_investigation.synthetic_pilot`. It fails closed for an empty feed, missing approved channels, or a gap above a configured maximum, and emits reasons rather than advisories when unsafe. It validates an offline export only; a utility must separately define source-specific latency, freshness, and failover rules before any shadow mode.
+
 ## Shadow-mode protocol
 
 1. A utility names an operational owner, security owner, incident commander, and technical product owner; they approve the intended use, data sources, retention, and escalation path.

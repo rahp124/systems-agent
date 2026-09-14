@@ -38,6 +38,37 @@ class TelemetryReader(Protocol):
     def read(self, cursor: str | None = None) -> tuple[TelemetrySnapshot, ...]: ...
 
 
+@dataclass(frozen=True)
+class TelemetrySafetyAssessment:
+    """A deterministic stop/advisory decision based only on feed quality."""
+
+    safe_to_advise: bool
+    reasons: tuple[str, ...]
+    snapshot_count: int
+    maximum_gap_seconds: float | None
+
+
+def assess_telemetry(snapshots: tuple[TelemetrySnapshot, ...], required_channels: frozenset[str],
+                     maximum_gap_seconds: float) -> TelemetrySafetyAssessment:
+    """Fail closed when an offline feed lacks required channels or has a large gap."""
+    if maximum_gap_seconds <= 0:
+        raise ValueError("maximum_gap_seconds must be positive")
+    reasons = []
+    times = []
+    for snapshot in snapshots:
+        missing = sorted(required_channels - set(snapshot.values))
+        if missing:
+            reasons.append(f"{snapshot.snapshot_id}: missing required channels {missing}")
+        times.append(datetime.fromisoformat(snapshot.captured_at.replace("Z", "+00:00")))
+    gaps = [(later - earlier).total_seconds() for earlier, later in zip(times, times[1:])]
+    maximum_gap = max(gaps) if gaps else None
+    if maximum_gap is not None and maximum_gap > maximum_gap_seconds:
+        reasons.append(f"telemetry gap {maximum_gap:.0f}s exceeds {maximum_gap_seconds:.0f}s limit")
+    if not snapshots:
+        reasons.append("no telemetry snapshots supplied")
+    return TelemetrySafetyAssessment(not reasons, tuple(reasons), len(snapshots), maximum_gap)
+
+
 class SyntheticScadaAdapter:
     """In-memory read-only adapter for exercising shadow-mode workflows."""
 

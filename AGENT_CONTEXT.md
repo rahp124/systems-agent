@@ -17,6 +17,7 @@ The active event classes are contamination, leak, and sensor fault. The agent is
 - A 600-scenario Net3 ensemble and five fixed episode seeds provide a tracked synthetic benchmark report.
 - A read-only telemetry seam, synthetic SCADA adapter, de-identified historian CSV adapter with timestamp, nonmissing-value, and explicit channel-map validation, versioned shadow records, and JSONL audit ledger support offline and shadow-mode integration work.
 - Offline replay reports review and resolved-label coverage, dispositions, action-agreement uncertainty, and event-grouped first-advisory timing when reviewer records include an event ID; it does not fabricate unavailable false-negative or calibration metrics.
+- A local synthetic-pilot safety gate fails closed on missing approved channels, empty feeds, or excessive telemetry gaps; it remains offline and advisory-only.
 - A public SDWIS adapter reports reproducible compliance context while preserving the distinction between public records and operational validation.
 - A read-only Water Quality Portal adapter downloads bounded public monitoring-result CSVs to ignored local storage and retains query and checksum provenance in compact reports.
 - A read-only CDC NORS adapter summarizes bounded, historical drinking-water outbreak records and reported health-outcome fields without treating them as utility event logs or operational validation.

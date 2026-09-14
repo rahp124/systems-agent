@@ -140,6 +140,17 @@ Replay a de-identified historian export with separate reviewer outcomes:
 
 The replay writes advisory-only audit records to `artifacts/offline-replay.jsonl` and reports review coverage, dispositions, resolved-label coverage, operator-action agreement with a Wilson interval, and event-grouped time to first non-wait advisory when reviewers provide an optional `event_id`. It does not treat missing reviews as negative evidence or establish operational performance.
 
+Run the local synthetic operational-pilot safety gate:
+
+```bash
+.venv/bin/python -m water_investigation.synthetic_pilot \
+  --telemetry docs/examples/historian-replay.csv \
+  --channel-map docs/examples/historian-channel-map.json \
+  --required-channel pressure_delta_psi --required-channel quality_delta_mg_l
+```
+
+It fails closed when required channels are absent or telemetry gaps exceed the configured limit. It is strictly a local readiness check, not a live SCADA connector or shadow-mode authorization.
+
 For utilities, laboratories, and research partners, [utility-pilot-brief.md](docs/utility-pilot-brief.md) defines the requested de-identified data, read-only safety posture, deliverables, and offline-replay evaluation gates.
 
 Before accepting any collaborator export, use the frozen [offline replay validation protocol](docs/validation-protocol.md) and [data-handling and security review](docs/data-handling-security.md).
