@@ -16,6 +16,7 @@ The active event classes are contamination, leak, and sensor fault. The agent is
 - A 600-scenario Net3 ensemble and five fixed episode seeds provide a tracked synthetic benchmark report.
 - A read-only telemetry seam, synthetic SCADA adapter, de-identified historian CSV adapter with timestamp validation, versioned shadow records, and JSONL audit ledger support offline and shadow-mode integration work.
 - A public SDWIS adapter reports reproducible compliance context while preserving the distinction between public records and operational validation.
+- A read-only Water Quality Portal adapter downloads bounded public monitoring-result CSVs to ignored local storage and retains query and checksum provenance in compact reports.
 
 ## Evidence discipline
 

@@ -1,0 +1,72 @@
+{
+  "source": "Water Quality Portal public monitoring results",
+  "source_url": "https://www.waterqualitydata.us/data/Result/search",
+  "provenance": {
+    "query_url": "https://www.waterqualitydata.us/data/Result/search?statecode=US%3A55&characteristicName=Nitrate&sampleMedia=Water&mimeType=csv&zip=no&countycode=US%3A55%3A017",
+    "sha256": "5964d36d714843d6ea6c26bf8a191d084b44afa01d6c1f3107241dee219fc680",
+    "retrieved_at": "2026-09-13T22:15:45.070499-07:00"
+  },
+  "scope": {
+    "input": ".cache/wqp/wisconsin-017-nitrate.csv"
+  },
+  "result_records": 134,
+  "monitoring_locations": 39,
+  "date_range": [
+    "1961-02-02",
+    "2023-06-13"
+  ],
+  "characteristics": [
+    {
+      "name": "Nitrate",
+      "count": 134
+    }
+  ],
+  "providers": [
+    {
+      "name": "NWIS",
+      "count": 126
+    },
+    {
+      "name": "STORET",
+      "count": 8
+    }
+  ],
+  "numeric_results_by_unit": [
+    {
+      "unit": "mg N/l*^*^*^",
+      "count": 3,
+      "minimum": 0.48,
+      "median": 2.64,
+      "maximum": 3.32
+    },
+    {
+      "unit": "mg/L",
+      "count": 4,
+      "minimum": 0.14206,
+      "median": 0.989435,
+      "maximum": 3.11
+    },
+    {
+      "unit": "mg/l as N",
+      "count": 60,
+      "minimum": 0.0,
+      "median": 2.0,
+      "maximum": 13.0
+    },
+    {
+      "unit": "mg/l asNO3",
+      "count": 60,
+      "minimum": 0.0,
+      "median": 8.75,
+      "maximum": 58.0
+    },
+    {
+      "unit": "ueq/L",
+      "count": 1,
+      "minimum": 8.3,
+      "median": 8.3,
+      "maximum": 8.3
+    }
+  ],
+  "interpretation_limit": "Public monitoring results provide historical context, not operational telemetry, incident resolution, or recommendation validation."
+}

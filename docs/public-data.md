@@ -24,3 +24,18 @@ The adapter accepts the violations CSV directly or a ZIP containing either `SDWA
 SDWIS compliance records are not high-frequency SCADA telemetry, incident tickets, laboratory turnaround records, or operator actions. They can support real-world context and reproducible public-data statistics, but they cannot establish that the agent improves investigation decisions. That claim requires resolved historical investigations from a partner or another dataset that contains the necessary operational outcomes.
 
 Water Quality Portal data is a complementary public source for monitoring results; EPA describes it as a cooperative EPA/USGS/National Water Quality Monitoring Council service with results from many public providers. [EPA Water Quality Data](https://www.epa.gov/waterdata/water-quality-data-download)
+
+## Water Quality Portal monitoring results
+
+The read-only WQP adapter builds one explicit, bounded query and writes its CSV only to a local ignored path. It records the exact query URL, retrieval timestamp, and SHA-256 in the compact report. WQP's result-search documentation defines state and county filters using FIPS codes, and its date filters use `MM-DD-YYYY`; the adapter accepts ISO dates and performs that conversion. [WQP web-service documentation](https://www.waterqualitydata.us/webservices_documentation/)
+
+```bash
+.venv/bin/python -m water_investigation.wqp_data \
+  --download-to .cache/wqp/wisconsin-017-nitrate.csv \
+  --state-fips 55 --county-fips 017 --characteristic Nitrate \
+  --output artifacts/wqp-public-report.json
+```
+
+Every download must include either `--county-fips` or both `--start-date` and `--end-date`; `--provider` can be repeated to limit it to named WQP providers. The report counts results and monitoring locations, records date coverage, and reports numeric minimum/median/maximum only within the same reported unit. Nondetect or nonnumeric result strings are counted in coverage but excluded from numeric summaries.
+
+As with SDWIS, WQP data does not include the contemporaneous telemetry, incident resolution, action trace, or local calibration needed to measure investigation quality. It must not be used as evidence that a recommendation is operationally correct.

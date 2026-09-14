@@ -31,3 +31,26 @@ These are public compliance-record statistics. They are not estimates of real-ti
 ```
 
 EPA documents the national SDWIS download and table definitions at [SDWA Data Download Summary](https://echo.epa.gov/tools/data-downloads/sdwa-download-summary).
+
+## Public WQP result: Wisconsin FIPS 55, county FIPS 017, nitrate
+
+The agent downloaded a bounded Water Quality Portal result query on 2026-09-13. The query selected water samples with the exact WQP characteristic `Nitrate`, state FIPS `55`, and county FIPS `017`; it did not request a date range. The compact output is [wqp-wi-017-nitrate-public-report.json](../artifacts/wqp-wi-017-nitrate-public-report.json). Its local CSV is deliberately ignored by Git.
+
+## Result
+
+- 134 historical result records from 39 monitoring locations, dated 1961-02-02 through 2023-06-13.
+- Providers recorded 126 results from NWIS and 8 from STORET.
+- The report retains separate numeric summaries for five reported units; it does not combine or convert `mg/l as N`, `mg/l asNO3`, and other units.
+
+The recorded query URL and downloaded-file SHA-256 are in the report. These figures describe only the returned public monitoring records. They are not a current condition assessment, a regional prevalence estimate, or a validation of investigation recommendations.
+
+## Reproduction
+
+```bash
+.venv/bin/python -m water_investigation.wqp_data \
+  --download-to .cache/wqp/wisconsin-017-nitrate.csv \
+  --state-fips 55 --county-fips 017 --characteristic Nitrate \
+  --output artifacts/wqp-wi-017-nitrate-public-report.json
+```
+
+Water Quality Portal documents result-download filters and formats in its [web-service documentation](https://www.waterqualitydata.us/webservices_documentation/).

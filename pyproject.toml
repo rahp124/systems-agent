@@ -8,6 +8,7 @@ version = "0.1.0"
 description = "Cost-aware, auditable investigation agent for water-distribution events."
 requires-python = ">=3.12"
 dependencies = [
+  "certifi>=2026.0",
   "epyt-flow==0.17.2",
   "numpy>=2.0",
 ]

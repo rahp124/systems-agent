@@ -130,6 +130,17 @@ The command accepts the SDWIS violations CSV or ZIP download and reports public 
 
 The first sourced public-data result is recorded in [public-data-results.md](docs/public-data-results.md).
 
+Download a bounded Water Quality Portal monitoring-results query and create a compact report:
+
+```bash
+.venv/bin/python -m water_investigation.wqp_data \
+  --download-to .cache/wqp/wisconsin-017-nitrate.csv \
+  --state-fips 55 --county-fips 017 --characteristic Nitrate \
+  --output artifacts/wqp-public-report.json
+```
+
+The CSV stays local under `.cache/`; the report preserves the exact query URL and checksum. WQP results are historical public monitoring context, not operational telemetry or validation of agent recommendations. See [public-data.md](docs/public-data.md).
+
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
 ## Architecture
