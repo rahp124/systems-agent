@@ -20,6 +20,7 @@
 - Forty of 60 held-out scenarios pass the ambiguity gate under the instrument-level model; 20 are rejected as too certain at the initial telemetry stage.
 - The paired risk-aware frontier gains an intermediate point once delayed lab confirmation is conditioned on the field band: λ=0.02 reaches 92% accuracy at mean cost 2.15 (bootstrap 95% accuracy interval 86–97%), between λ=0 at 88%/5.00 and λ≥0.05 at 83%/1.00. These intervals overlap; this is a decision-frontier signal, not a policy-superiority claim.
 - On a larger 600-scenario Net3 ensemble, five fixed episode seeds produce 500 paired episodes. EIG-per-cost exceeds random accuracy by 3.2 percentage points (paired bootstrap 95% CI 1.0–5.8) while reducing mean cost by 2.45 units (CI −2.71 to −2.21). It exceeds cheapest-first accuracy by 7.0 points (CI 3.4–10.2) with no resolved cost difference (0.01, CI −0.06 to 0.10).
+- Separate 36-scenario smoke replications now run on Net3 with an alternate sensor layout and L-Town with the primary layout. Their compact report is tracked as `artifacts/multi-network-replication.json`; neither artifact is pooled with the Net3 benchmark or sufficient for cross-network performance claims.
 
 ## Integration details found empirically
 
@@ -32,6 +33,7 @@
 - The observation model now uses published instrument/method performance with explicit distributional assumptions. It still excludes sampling/handling, installation, drift, hydraulic-model, and site-specific error; see `docs/research/measurement-model-sources.md`.
 - Initial telemetry gates the benchmark to scenarios with top posterior ≤0.70 and second posterior ≥0.15.
 - The expanded result resamples 500 episodes from one fixed 600-scenario synthetic Net3 ensemble. It is not an independent simulator, network-topology, sensor-placement, or real-data replication.
+- The new Net3 alternate-layout and L-Town primary-layout artifacts have only 12 scenarios per class. They establish executable replication paths, not stable cross-network or sensor-placement estimates; larger independent ensembles and source-calibrated transport assumptions remain required.
 - The λ=0.02 frontier point and EIG-per-cost result warrant replication across independently generated ensembles, sensor layouts, and source-calibrated sampling/transport assumptions before policy selection.
 - The Phase-0 100-scenario parallel timing and frozen-sensor serialized-storage measurements remain to be added. No performance claim is justified yet.
 - The analytic runner remains a correctness oracle. The evaluation path is simulator-derived and remains an integration result rather than an operational validation result.

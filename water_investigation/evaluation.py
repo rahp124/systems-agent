@@ -56,7 +56,10 @@ def _outcomes(spec: ScenarioSpec, pressure, flow, quality, baseline) -> tuple[st
     quality_peak = float((quality - baseline_quality).max())
     pressure_trace_delta = pressure[:, 0] - baseline_pressure[:, 0]
     flow_change = float(abs(flow - baseline_flow).max())
-    initial_pressure = pressure[:13, 0] - baseline_pressure[:13, 0]
+    # Use the same 12-hour observation window for hourly Net3 and five-minute
+    # L-Town traces rather than silently comparing different durations.
+    initial_samples = round(12 * (len(pressure) - 1) / 48) + 1
+    initial_pressure = pressure[:initial_samples, 0] - baseline_pressure[:initial_samples, 0]
     initial_reading = pressure_delta(spec, "fixed_pressure", float(initial_pressure.max()))
     field_reading = chlorine(spec, "field_chlorine_grab", quality_peak, lab=False)
     lab_reading = chlorine(spec, "lab_chlorine_assay", quality_peak, lab=True)

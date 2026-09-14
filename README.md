@@ -77,6 +77,15 @@ The same ensemble/evaluation path can make network topology and sensor layout ex
 
 Each ensemble records its network and sensor layout in metadata, and evaluation carries that metadata into its report. Network cadence is derived from returned traces for sensor-fault timing. These runs are separate synthetic replications, not a pooled benchmark or a claim of cross-network policy generalization.
 
+Create a compact, non-pooled summary after generating separate artifacts:
+
+```bash
+.venv/bin/python -m water_investigation.replication \
+  --ensemble artifacts/net3-alternate-replication.npz \
+  --ensemble artifacts/ltown-primary-replication.npz \
+  --episodes 100 --seed 20260915
+```
+
 The evaluation now uses a seeded instrument-level measurement model rather than categorical outcome-flip rates. Its assumptions, bounds, source links, and limitations are documented in [measurement-model-sources.md](docs/research/measurement-model-sources.md).
 
 The report compares five policies: EIG-per-cost, risk-aware expected classification accuracy, cost-insensitive expected classification accuracy, random, and cheapest-first. The expected-accuracy policy is intentionally a diagnostic baseline; it exposes the accuracy/cost tradeoff rather than replacing the cost-aware policy.

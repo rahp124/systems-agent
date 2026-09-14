@@ -1,0 +1,86 @@
+{
+  "episodes_per_replication": 100,
+  "replications": [
+    {
+      "ensemble": "artifacts/net3-alternate-replication.npz",
+      "ensemble_metadata": {
+        "schema_version": 1,
+        "network": "net3",
+        "sensor_layout": "alternate",
+        "seed": 20260914
+      },
+      "scenario_count": 36,
+      "training_scenarios": 18,
+      "held_out_scenarios": 18,
+      "eligible_held_out_scenarios": 12,
+      "policies": {
+        "eig_per_cost": {
+          "accuracy": 0.48,
+          "mean_cost": 9.0,
+          "mean_actions": 3
+        },
+        "risk_aware": {
+          "accuracy": 0.57,
+          "mean_cost": 0.0,
+          "mean_actions": 0
+        },
+        "expected_accuracy": {
+          "accuracy": 0.48,
+          "mean_cost": 6.5,
+          "mean_actions": 3
+        },
+        "random": {
+          "accuracy": 0.54,
+          "mean_cost": 7.05,
+          "mean_actions": 3
+        },
+        "cheapest_first": {
+          "accuracy": 0.57,
+          "mean_cost": 4.5,
+          "mean_actions": 3
+        }
+      }
+    },
+    {
+      "ensemble": "artifacts/ltown-primary-replication.npz",
+      "ensemble_metadata": {
+        "schema_version": 1,
+        "network": "ltown",
+        "sensor_layout": "primary",
+        "seed": 20260915
+      },
+      "scenario_count": 36,
+      "training_scenarios": 18,
+      "held_out_scenarios": 18,
+      "eligible_held_out_scenarios": 12,
+      "policies": {
+        "eig_per_cost": {
+          "accuracy": 0.89,
+          "mean_cost": 1.88,
+          "mean_actions": 1.22
+        },
+        "risk_aware": {
+          "accuracy": 0.89,
+          "mean_cost": 1.0,
+          "mean_actions": 1
+        },
+        "expected_accuracy": {
+          "accuracy": 0.89,
+          "mean_cost": 1.385,
+          "mean_actions": 1.22
+        },
+        "random": {
+          "accuracy": 0.94,
+          "mean_cost": 4.575,
+          "mean_actions": 1.75
+        },
+        "cheapest_first": {
+          "accuracy": 0.89,
+          "mean_cost": 1.83,
+          "mean_actions": 2.11
+        }
+      }
+    }
+  ],
+  "interpretation_limit": "Each network/layout is evaluated separately on synthetic traces. This report does not pool results, estimate cross-network generalization, or establish operational performance."
+}
