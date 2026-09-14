@@ -65,22 +65,26 @@ class HistorianCsvAdapter(SyntheticScadaAdapter):
 
     REQUIRED_COLUMNS = frozenset({"snapshot_id", "captured_at", "source"})
 
-    def __init__(self, path: Path) -> None:
+    def __init__(self, path: Path, channel_map: dict[str, str] | None = None) -> None:
         with path.open(newline="", encoding="utf-8") as input_file:
             reader = csv.DictReader(input_file)
             if reader.fieldnames is None or not self.REQUIRED_COLUMNS <= set(reader.fieldnames):
                 raise ValueError("historian CSV requires snapshot_id, captured_at, and source columns")
-            value_columns = [column for column in reader.fieldnames if column not in self.REQUIRED_COLUMNS]
+            source_columns = [column for column in reader.fieldnames if column not in self.REQUIRED_COLUMNS]
+            channel_map = channel_map or {column: column for column in source_columns}
+            if set(channel_map) != set(source_columns) or len(set(channel_map.values())) != len(channel_map):
+                raise ValueError("channel map must cover each telemetry column exactly once with unique output names")
+            value_columns = list(channel_map)
             if not value_columns:
                 raise ValueError("historian CSV requires at least one numeric telemetry column")
             snapshots = []
             previous_time = None
             for row in reader:
                 try:
-                    values = {column: float(row[column]) for column in value_columns}
+                    values = {channel_map[column]: float(row[column]) for column in value_columns}
                     captured_at = datetime.fromisoformat(row["captured_at"].replace("Z", "+00:00"))
                 except (TypeError, ValueError) as error:
-                    raise ValueError("historian rows require numeric values and ISO-8601 timestamps") from error
+                    raise ValueError("historian rows require nonmissing numeric values and ISO-8601 timestamps") from error
                 if previous_time and captured_at <= previous_time:
                     raise ValueError("historian timestamps must be strictly increasing")
                 previous_time = captured_at

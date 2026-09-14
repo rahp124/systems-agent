@@ -47,6 +47,14 @@ def load_outcomes(path: Path) -> dict[str, ReviewOutcome]:
     return outcomes
 
 
+def load_channel_map(path: Path) -> dict[str, str]:
+    mapping = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(mapping, dict) or not all(isinstance(source, str) and isinstance(target, str)
+                                                for source, target in mapping.items()):
+        raise ValueError("channel map must be a JSON object mapping source columns to output names")
+    return mapping
+
+
 def _wilson_interval(successes: int, total: int, z: float = 1.96) -> list[float] | None:
     if not total:
         return None
@@ -119,11 +127,13 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Replay a de-identified historian export in shadow mode.")
     parser.add_argument("--telemetry", type=Path, required=True)
     parser.add_argument("--reviews", type=Path, required=True)
+    parser.add_argument("--channel-map", type=Path, help="Optional JSON source-column to canonical-channel map")
     parser.add_argument("--audit-output", type=Path, default=DEFAULT_AUDIT)
     parser.add_argument("--policy-version", default="replay-threshold-v1")
     parser.add_argument("--configuration-version", default="offline-replay-v1")
     args = parser.parse_args()
-    records = ShadowMode(HistorianCsvAdapter(args.telemetry), conservative_policy,
+    channel_map = load_channel_map(args.channel_map) if args.channel_map else None
+    records = ShadowMode(HistorianCsvAdapter(args.telemetry, channel_map), conservative_policy,
                          args.policy_version, args.configuration_version).run()
     JsonlAuditLedger(args.audit_output).append(records)
     print(json.dumps(reconcile(records, load_outcomes(args.reviews)), indent=2))

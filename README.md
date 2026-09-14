@@ -126,7 +126,8 @@ Replay a de-identified historian export with separate reviewer outcomes:
 ```bash
 .venv/bin/python -m water_investigation.replay \
   --telemetry docs/examples/historian-replay.csv \
-  --reviews docs/examples/historian-reviews.jsonl
+  --reviews docs/examples/historian-reviews.jsonl \
+  --channel-map docs/examples/historian-channel-map.json
 ```
 
 The replay writes advisory-only audit records to `artifacts/offline-replay.jsonl` and reports review coverage, dispositions, resolved-label coverage, operator-action agreement with a Wilson interval, and event-grouped time to first non-wait advisory when reviewers provide an optional `event_id`. It does not treat missing reviews as negative evidence or establish operational performance.
