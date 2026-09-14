@@ -39,6 +39,14 @@ Run the correctness suite:
 .venv/bin/python -m pytest -q
 ```
 
+Verify that every tracked public-data or replication report retains its required provenance and schema fields:
+
+```bash
+.venv/bin/python -m water_investigation.verify_artifacts
+```
+
+GitHub Actions runs both checks on every push and pull request. Public-source reports are reproducible from their documented queries and checksums; the raw downloads remain local and ignored.
+
 Run a deterministic, analytic investigation episode:
 
 ```bash
