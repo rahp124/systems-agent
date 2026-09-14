@@ -142,6 +142,8 @@ The replay writes advisory-only audit records to `artifacts/offline-replay.jsonl
 
 For utilities, laboratories, and research partners, [utility-pilot-brief.md](docs/utility-pilot-brief.md) defines the requested de-identified data, read-only safety posture, deliverables, and offline-replay evaluation gates.
 
+Before accepting any collaborator export, use the frozen [offline replay validation protocol](docs/validation-protocol.md) and [data-handling and security review](docs/data-handling-security.md).
+
 The reusable contact template, qualification checklist, and scoping-call agenda are in [partner-outreach.md](docs/partner-outreach.md). It supports outreach preparation only; no external contact is made from this repository.
 
 Analyze an official EPA SDWIS public compliance export locally:

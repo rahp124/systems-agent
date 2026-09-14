@@ -46,3 +46,5 @@ Use a utility-specific risk register to prioritize the gates. NIST's AI Risk Man
 4. **Ongoing validation:** monitor data drift, missing telemetry, calibration, false negatives, latency, cybersecurity events, and operator overrides; revalidate after model, configuration, network, or sensor changes.
 
 No step automatically authorizes the next. The utility's documented go/no-go decision, legal obligations, and applicable jurisdictional requirements control progression.
+
+Before any data transfer, apply the repository's [offline replay validation protocol](validation-protocol.md) and [data-handling and security review](data-handling-security.md). Utility requirements override these preparation materials.

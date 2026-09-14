@@ -28,6 +28,7 @@ The agent does not claim that Bayesian updates or expected-information selection
 Read [PRIOR_ART_REPORT.md](PRIOR_ART_REPORT.md) before changing the decision model or making external claims. Read [docs/operational-readiness.md](docs/operational-readiness.md) before changing telemetry, audit, shadow-mode, or integration behavior.
 Use [docs/utility-pilot-brief.md](docs/utility-pilot-brief.md) for partner outreach and keep it aligned with the operational-readiness documentation.
 Use [docs/partner-outreach.md](docs/partner-outreach.md) to prepare outreach; do not send messages or request external data without explicit user direction.
+Use [docs/validation-protocol.md](docs/validation-protocol.md) and [docs/data-handling-security.md](docs/data-handling-security.md) before receiving any collaborator export; preserve their non-negotiable read-only and de-identification requirements.
 
 ## Development sequence
 
