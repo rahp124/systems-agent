@@ -91,7 +91,12 @@ def main() -> None:
     args = parser.parse_args()
     server = ThreadingHTTPServer(("127.0.0.1", args.port), DemoHandler)
     print(f"Water Investigation Agent: http://127.0.0.1:{args.port}")
-    server.serve_forever()
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        print("\nWater Investigation Agent stopped.")
+    finally:
+        server.server_close()
 
 
 if __name__ == "__main__":
