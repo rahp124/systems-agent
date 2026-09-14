@@ -1,0 +1,1 @@
+for (const button of document.querySelectorAll('[data-panel]')) button.addEventListener('click', () => {document.querySelectorAll('[data-panel],.panel').forEach(item => item.classList.remove('active')); button.classList.add('active'); document.getElementById(button.dataset.panel).classList.add('active')})

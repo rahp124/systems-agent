@@ -1,5 +1,7 @@
 # Water Investigation Agent
 
+For a shareable executive and research overview, open [showcase/index.html](showcase/index.html) locally in a browser.
+
 The Water Investigation Agent is a cost-aware, auditable decision-support system for simulated water-distribution events. It maintains competing explanations, selects the next observation based on expected information and operational cost, updates its belief when evidence returns, and evaluates its decision policy against baselines.
 
 This is not an LLM wrapper, and it does not claim that Bayesian inference or expected information gain is novel. Its scope, prior-art constraints, and validation record are in [AGENT_CONTEXT.md](AGENT_CONTEXT.md), [PRIOR_ART_REPORT.md](PRIOR_ART_REPORT.md), and [VERIFICATION-REPORT.md](VERIFICATION-REPORT.md).
