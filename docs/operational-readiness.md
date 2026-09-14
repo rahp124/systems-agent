@@ -10,7 +10,7 @@ This design gives callers a small interface while containing cursor handling, se
 
 Run `.venv/bin/python -m water_investigation.shadow_demo` to exercise the contract. It writes two synthetic, advisory-only JSONL records. The output is intentionally Git-ignored because it is regenerated demonstration output.
 
-`HistorianCsvAdapter` is the second adapter at the telemetry seam. It reads a de-identified CSV with required `snapshot_id`, `captured_at`, and `source` columns; all remaining columns are numeric telemetry values, and timestamps must be strictly increasing. `water_investigation.replay` joins its advisory records with separate JSONL reviewer outcomes and reports review coverage, operator-action agreement, channels, sources, and policy/configuration versions. The examples in `docs/examples/` are synthetic schema examples, not utility data or evidence of decision quality.
+`HistorianCsvAdapter` is the second adapter at the telemetry seam. It reads a de-identified CSV with required `snapshot_id`, `captured_at`, and `source` columns; all remaining columns are numeric telemetry values, and timestamps must be strictly increasing. `water_investigation.replay` joins its advisory records with separate JSONL reviewer outcomes and reports review coverage, disposition counts, resolved-event-label coverage, operator-action agreement with a Wilson interval, event-grouped time to first non-wait advisory, channels, sources, and policy/configuration versions. `event_id` is optional in reviewer JSONL; timing is reported only for snapshots carrying it. The examples in `docs/examples/` are synthetic schema examples, not utility data or evidence of decision quality.
 
 ## Shadow-mode protocol
 
@@ -31,7 +31,7 @@ Before a limited operator-facing pilot, define these values with the utility and
 | --- | --- |
 | Safety | Read-only access verified; no actuator path; documented manual fallback and incident escalation. |
 | Data quality | Completeness, latency, clock skew, missing-channel behavior, and source provenance measured on the actual feed. |
-| Decision quality | Locked historical and prospective labels; false-negative rate for high-consequence events, calibration, time-to-triage, operator agreement, and cost measured with uncertainty. |
+| Decision quality | Locked historical and prospective labels; false-negative rate for high-consequence events, calibration, time-to-triage, operator agreement, and cost measured with uncertainty. The current replay reports only coverage, dispositions, action agreement uncertainty, and first-advisory timing; it does not estimate unavailable outcome metrics. |
 | Security | Threat model, access review, audit retention, dependency review, and incident-response ownership approved. |
 | Human factors | Explanations, confidence, evidence provenance, override/disposition capture, and training reviewed with operators. |
 | Change control | Versioned policy/configuration, rollback procedure, monitoring, drift thresholds, and revalidation trigger defined. |

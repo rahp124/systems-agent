@@ -120,7 +120,7 @@ Replay a de-identified historian export with separate reviewer outcomes:
   --reviews docs/examples/historian-reviews.jsonl
 ```
 
-The replay writes advisory-only audit records to `artifacts/offline-replay.jsonl` and reports review coverage and operator-action agreement. It does not treat missing reviews as negative evidence or establish operational performance.
+The replay writes advisory-only audit records to `artifacts/offline-replay.jsonl` and reports review coverage, dispositions, resolved-label coverage, operator-action agreement with a Wilson interval, and event-grouped time to first non-wait advisory when reviewers provide an optional `event_id`. It does not treat missing reviews as negative evidence or establish operational performance.
 
 For utilities, laboratories, and research partners, [utility-pilot-brief.md](docs/utility-pilot-brief.md) defines the requested de-identified data, read-only safety posture, deliverables, and offline-replay evaluation gates.
 

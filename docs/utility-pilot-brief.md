@@ -23,7 +23,7 @@ For resolved events, a separate review file can contain an investigation/ticket 
 
 1. A reproducible offline replay using the supplied export; no production integration.
 2. An append-only advisory audit record for each replayed telemetry snapshot, including evidence, recommended action, confidence, rationale, and policy/configuration version.
-3. A validation report covering data quality, review coverage, operator-action agreement, known failure cases, and metrics agreed before analysis.
+3. A validation report covering data quality, review coverage, resolved-label coverage, reviewer dispositions, operator-action agreement with uncertainty, event-grouped first-advisory timing where event IDs are supplied, known failure cases, and metrics agreed before analysis.
 4. A closeout discussion and written recommendation: stop, refine offline evaluation, or consider a limited read-only shadow pilot.
 
 ## Safety and security posture
@@ -40,7 +40,7 @@ Before data analysis begins, the utility and team define:
 | Area | Example evidence |
 | --- | --- |
 | Data quality | Completeness, latency, timestamp order, missing channels, provenance, and export coverage. |
-| Decision quality | Recall for known high-consequence events, false-negative rate, calibration, time-to-triage, and operator-action agreement. |
+| Decision quality | Recall for known high-consequence events, false-negative rate, calibration, time-to-triage, and operator-action agreement. Current code reports only metrics supported by supplied reviewer fields; unavailable labels remain unavailable. |
 | Safety | Read-only access confirmation, manual fallback, escalation path, and no-control verification. |
 | Security | Approved transfer method, access review, audit retention, dependency review, and data-deletion procedure. |
 | Go/no-go | Written criteria for ending offline replay, refining the model, or proposing shadow mode. |

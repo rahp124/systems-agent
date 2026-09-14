@@ -1,2 +1,2 @@
-{"snapshot_id":"replay-001","disposition":"accepted","operator_action":"field_chlorine_grab","event_class":"contamination"}
-{"snapshot_id":"replay-002","disposition":"accepted","operator_action":"portable_pressure_reading","event_class":"leak"}
+{"snapshot_id":"replay-001","disposition":"accepted","operator_action":"field_chlorine_grab","event_class":"contamination","event_id":"example-contamination"}
+{"snapshot_id":"replay-002","disposition":"accepted","operator_action":"portable_pressure_reading","event_class":"leak","event_id":"example-leak"}
