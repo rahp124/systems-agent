@@ -54,3 +54,26 @@ The recorded query URL and downloaded-file SHA-256 are in the report. These figu
 ```
 
 Water Quality Portal documents result-download filters and formats in its [web-service documentation](https://www.waterqualitydata.us/webservices_documentation/).
+
+## Public NORS result: drinking-water outbreak records, 1971–2023
+
+The agent downloaded the CDC NORS records with the exact server-side filter `primary_mode = Water AND water_exposure = Drinking water`, for inclusive years 1971–2023. The compact output is [nors-drinking-water-public-report.json](../artifacts/nors-drinking-water-public-report.json); the raw CSV is ignored by Git.
+
+## Result
+
+- 1,256 reported drinking-water outbreak records from 1971 through 2023.
+- Record-level reported outcomes total 586,820 illnesses, 1,978 hospitalizations, and 325 deaths; the report also records missingness for each field.
+- The most common reported water types are Community (680 records), Other (339), and Individual/Private (112); the most common etiology is Unknown (355 records).
+
+These are voluntary public-health surveillance records. Rows are not a matched utility incident log and have no PWSID, SCADA measurements, detection time, or intervention data. The values are not unique-incident totals, causal measures of water-system performance, or evidence of agent detection performance.
+
+## Reproduction
+
+```bash
+.venv/bin/python -m water_investigation.nors_data \
+  --download-to .cache/nors/drinking-water.csv \
+  --start-year 1971 --end-year 2023 \
+  --output artifacts/nors-drinking-water-public-report.json
+```
+
+CDC documents NORS reporting, finality, and its limitations at [NORS Data](https://www.cdc.gov/nors/data/index.html).

@@ -1,0 +1,165 @@
+{
+  "source": "CDC National Outbreak Reporting System (NORS)",
+  "source_url": "https://data.cdc.gov/resource/5xkq-dg7x.csv",
+  "provenance": {
+    "query_url": "https://data.cdc.gov/resource/5xkq-dg7x.csv?%24where=primary_mode+%3D+%27Water%27+AND+water_exposure+%3D+%27Drinking+water%27+AND+year+between+1971+and+2023&%24order=year%2C+month&%24limit=50000",
+    "sha256": "a9866e1a192e33f40220da6cd91ee81ab3a3888caf764f613d943c476f066d9d",
+    "retrieved_at": "2026-09-13T22:37:41.633211-07:00"
+  },
+  "scope": {
+    "input": ".cache/nors/drinking-water.csv",
+    "primary_mode": "Water",
+    "water_exposure": "Drinking water"
+  },
+  "outbreak_records": 1256,
+  "year_range": [
+    1971,
+    2023
+  ],
+  "record_reported_outcomes": {
+    "illnesses": 586820,
+    "hospitalizations": 1978,
+    "deaths": 325
+  },
+  "outcome_field_coverage": {
+    "illnesses": {
+      "reported": 1256,
+      "missing": 0
+    },
+    "hospitalizations": {
+      "reported": 740,
+      "missing": 516
+    },
+    "deaths": {
+      "reported": 1219,
+      "missing": 37
+    }
+  },
+  "states": [
+    {
+      "name": "Pennsylvania",
+      "records": 153
+    },
+    {
+      "name": "Florida",
+      "records": 129
+    },
+    {
+      "name": "New York",
+      "records": 86
+    },
+    {
+      "name": "Colorado",
+      "records": 66
+    },
+    {
+      "name": "Ohio",
+      "records": 58
+    },
+    {
+      "name": "Illinois",
+      "records": 51
+    },
+    {
+      "name": "Maryland",
+      "records": 45
+    },
+    {
+      "name": "Wisconsin",
+      "records": 44
+    },
+    {
+      "name": "California",
+      "records": 32
+    },
+    {
+      "name": "Minnesota",
+      "records": 31
+    }
+  ],
+  "etiologies": [
+    {
+      "name": "Unknown",
+      "records": 355
+    },
+    {
+      "name": "Legionella pneumophila",
+      "records": 341
+    },
+    {
+      "name": "Giardia duodenalis",
+      "records": 131
+    },
+    {
+      "name": "Shigella sonnei",
+      "records": 35
+    },
+    {
+      "name": "Norovirus other",
+      "records": 34
+    },
+    {
+      "name": "Hepatitis A",
+      "records": 31
+    },
+    {
+      "name": "Campylobacter jejuni",
+      "records": 25
+    },
+    {
+      "name": "Copper",
+      "records": 24
+    },
+    {
+      "name": "Legionella pneumophila;Legionella pneumophila",
+      "records": 21
+    },
+    {
+      "name": "Legionella unknown",
+      "records": 19
+    }
+  ],
+  "water_types": [
+    {
+      "name": "Community",
+      "records": 680
+    },
+    {
+      "name": "Other",
+      "records": 339
+    },
+    {
+      "name": "Individual/Private",
+      "records": 112
+    },
+    {
+      "name": "Unknown",
+      "records": 63
+    },
+    {
+      "name": "Commercially-Bottled",
+      "records": 16
+    },
+    {
+      "name": "Non-Transient Non-Community",
+      "records": 14
+    },
+    {
+      "name": "Transient Noncommunity",
+      "records": 13
+    },
+    {
+      "name": "Other;Unknown",
+      "records": 7
+    },
+    {
+      "name": "Community;Other",
+      "records": 3
+    },
+    {
+      "name": "Community;Individual/Private",
+      "records": 1
+    }
+  ],
+  "interpretation_limit": "NORS is voluntarily reported public-health surveillance. Rows are not linked to utility telemetry or a unique water system, and record-level outcome totals must not be interpreted as agent performance, incident detection coverage, or water-system causality."
+}

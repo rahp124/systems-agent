@@ -141,6 +141,17 @@ Download a bounded Water Quality Portal monitoring-results query and create a co
 
 The CSV stays local under `.cache/`; the report preserves the exact query URL and checksum. WQP results are historical public monitoring context, not operational telemetry or validation of agent recommendations. See [public-data.md](docs/public-data.md).
 
+Download a bounded CDC NORS drinking-water outbreak extract and summarize its reported public-health outcomes:
+
+```bash
+.venv/bin/python -m water_investigation.nors_data \
+  --download-to .cache/nors/drinking-water.csv \
+  --start-year 1971 --end-year 2023 \
+  --output artifacts/nors-drinking-water-public-report.json
+```
+
+NORS records are reported outbreak context with illnesses, hospitalizations, and deaths—not utility telemetry, a matched water-system event log, or evidence of agent performance. See [public-data.md](docs/public-data.md).
+
 Each probe writes a structured report to `artifacts/<network>-probe.json`. A report contains successful scenario summaries and failures separately; simulator failures are evidence to investigate, not silently discarded output.
 
 ## Architecture

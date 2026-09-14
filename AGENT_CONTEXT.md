@@ -17,6 +17,7 @@ The active event classes are contamination, leak, and sensor fault. The agent is
 - A read-only telemetry seam, synthetic SCADA adapter, de-identified historian CSV adapter with timestamp validation, versioned shadow records, and JSONL audit ledger support offline and shadow-mode integration work.
 - A public SDWIS adapter reports reproducible compliance context while preserving the distinction between public records and operational validation.
 - A read-only Water Quality Portal adapter downloads bounded public monitoring-result CSVs to ignored local storage and retains query and checksum provenance in compact reports.
+- A read-only CDC NORS adapter summarizes bounded, historical drinking-water outbreak records and reported health-outcome fields without treating them as utility event logs or operational validation.
 
 ## Evidence discipline
 

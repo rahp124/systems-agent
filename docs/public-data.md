@@ -39,3 +39,16 @@ The read-only WQP adapter builds one explicit, bounded query and writes its CSV 
 Every download must include either `--county-fips` or both `--start-date` and `--end-date`; `--provider` can be repeated to limit it to named WQP providers. The report counts results and monitoring locations, records date coverage, and reports numeric minimum/median/maximum only within the same reported unit. Nondetect or nonnumeric result strings are counted in coverage but excluded from numeric summaries.
 
 As with SDWIS, WQP data does not include the contemporaneous telemetry, incident resolution, action trace, or local calibration needed to measure investigation quality. It must not be used as evidence that a recommendation is operationally correct.
+
+## CDC NORS drinking-water outbreak outcomes
+
+CDC's National Outbreak Reporting System (NORS) publishes public-health outbreak records, including reported illnesses, hospitalizations, deaths, etiology, and water type. The adapter requires an explicit inclusive year range and selects the exact NORS values `primary_mode = Water` and `water_exposure = Drinking water` server-side. [CDC NORS data documentation](https://www.cdc.gov/nors/data/index.html)
+
+```bash
+.venv/bin/python -m water_investigation.nors_data \
+  --download-to .cache/nors/drinking-water.csv \
+  --start-year 1971 --end-year 2023 \
+  --output artifacts/nors-drinking-water-public-report.json
+```
+
+The raw extract remains ignored under `.cache/`; the tracked report records its query, timestamp, checksum, record count, outcome-field missingness, and aggregate strata. Reported outcome totals are record-level values, not estimates of unique incidents or a utility's impact. NORS is voluntarily reported surveillance and has no public-water-system identifier, operational telemetry, detection timestamp, or intervention trace. It cannot be joined to SDWIS or WQP at utility level and cannot validate the agent. The source assessment is [cdc-nors-waterborne-outcomes.md](research/cdc-nors-waterborne-outcomes.md).
