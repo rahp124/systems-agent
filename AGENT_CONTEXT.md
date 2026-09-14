@@ -4,7 +4,7 @@
 
 The Water Investigation Agent is a cost-aware, auditable decision-support system for suspected water-distribution events. It maintains competing explanations, selects the next observation by expected information and operational cost, updates its belief from returned evidence, and records the recommendation path for review.
 
-`showcase/index.html` is the shareable static overview. Keep all claims aligned with tracked reports and explicit safety boundaries.
+`showcase/index.html`, served by `water_investigation.web_demo`, is the shareable single source of truth and interactive synthetic investigation lab. Keep all claims aligned with tracked reports and explicit safety boundaries.
 `showcase/operator-review.html` is a synthetic, local-only workflow mockup; it must never be described as an operational interface.
 
 The active event classes are contamination, leak, and sensor fault. The agent is read-only and advisory: operators retain authority over incident-response actions. `docs/operational-readiness.md` defines the path from synthetic evaluation to utility shadow mode.

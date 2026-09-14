@@ -1,7 +1,6 @@
 # Water Investigation Agent
 
-For a shareable executive and research overview, open [showcase/index.html](showcase/index.html) locally in a browser.
-The synthetic operator-review mockup is at [showcase/operator-review.html](showcase/operator-review.html).
+The shareable executive/research experience combines the introduction, method, measured evidence, limitations, and a live synthetic investigation lab. Start it with `make app`, then open `http://127.0.0.1:8000`. The browser lab calls the repository's actual Bayesian harness; it is not a prerecorded mock result.
 
 The Water Investigation Agent is a cost-aware, auditable decision-support system for simulated water-distribution events. It maintains competing explanations, selects the next observation based on expected information and operational cost, updates its belief when evidence returns, and evaluates its decision policy against baselines.
 
@@ -46,6 +45,12 @@ Run the complete synthetic, fail-closed operational demonstration with one comma
 
 ```bash
 make demo
+```
+
+Run the complete browser experience:
+
+```bash
+make app
 ```
 
 Verify that every tracked public-data or replication report retains its required provenance and schema fields:

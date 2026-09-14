@@ -52,3 +52,5 @@ No step automatically authorizes the next. The utility's documented go/no-go dec
 Before any data transfer, apply the repository's [offline replay validation protocol](validation-protocol.md) and [data-handling and security review](data-handling-security.md). Utility requirements override these preparation materials.
 
 The synthetic operator-review mockup in `showcase/operator-review.html` is a presentation aid. Its accept/reject controls do not persist data, connect to telemetry, or authorize an action.
+
+The browser investigation lab served by `water_investigation.web_demo` executes the analytic synthetic harness locally. Its displayed ground truth is evaluator-only until completion and must not be represented as utility evidence or a live operational workflow.

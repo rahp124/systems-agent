@@ -1,4 +1,4 @@
-.PHONY: test verify demo
+.PHONY: test verify demo app
 
 test:
 	.venv/bin/python -m pytest -q
@@ -8,3 +8,6 @@ verify:
 
 demo:
 	.venv/bin/python -m water_investigation.synthetic_pilot --telemetry docs/examples/historian-replay.csv --channel-map docs/examples/historian-channel-map.json --required-channel pressure_delta_psi --required-channel quality_delta_mg_l
+
+app:
+	.venv/bin/python -m water_investigation.web_demo
