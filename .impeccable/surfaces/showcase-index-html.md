@@ -23,11 +23,13 @@ First establish one plain-language understanding of the agent, then let utility 
 
 **STORY:** Understand uncertainty, watch one recommendation emerge from competing explanations, run the harness, then choose Utility or Research depth.
 
-**FIRST VIEWPORT:** A compact masthead frames a full-width investigation board. The left rail states the problem and action; the dominant field maps three hypotheses through a scored observation to an evidence update. “Run a synthetic case” sits inside the instrument, above the fold.
+**FIRST VIEWPORT:** A compact masthead frames a full-width horizontal evidence conveyor. A quiet opening band states the problem and action; below it, four numbered stages connect initial signal, competing hypotheses, ranked observations, and updated belief. “Run a synthetic case” sits inside the instrument, above the fold.
 
 **FORM:** Investigation instrument, first of seven grounded forms, selected directly by the user and therefore overriding seed `b11d058b`. Signature interaction: the active evidence path advances across the board while probability marks change in place.
 
 **FINISH:** unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+
+**APPROVED COMP:** `.impeccable/mocks/instrument-evidence-conveyor.png`. Carry forward its single left-to-right sequence, dense ruled evidence treatment, orange active path, and bottom audience branches. Do not literalize generated icons, dates, invented sensor readings, or text errors; implementation content comes from the actual API and tracked evidence.
 
 ## Memorable moment
 
@@ -39,4 +41,4 @@ Use only real tracked findings and clearly labeled synthetic demonstration data.
 
 ## Unresolved decisions
 
-One of three comp-first arrangements must be approved before implementation.
+None for this surface.

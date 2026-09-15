@@ -1,0 +1,91 @@
+{
+  "tool": "build-phase",
+  "version": 2,
+  "startedAt": "2026-09-15T05:57:26.481Z",
+  "comp": ".impeccable/mocks/instrument-evidence-conveyor.png",
+  "direction": "b11d058b",
+  "breakpoint": "1505x1045",
+  "artifact": null,
+  "phase": "spec",
+  "phases": {
+    "comps": {
+      "status": "closed",
+      "openedAt": "2026-09-15T05:57:26.480Z",
+      "closedAt": "2026-09-15T06:03:50.578Z",
+      "attempts": 2,
+      "notes": [],
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "3 comps, 1 approved",
+        "approved": ".impeccable/mocks/instrument-evidence-conveyor.png",
+        "at": "2026-09-15T06:03:50.577Z"
+      },
+      "forced": null
+    },
+    "spec": {
+      "status": "open",
+      "openedAt": "2026-09-15T06:03:50.589Z",
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "plates": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "hero": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "sections": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "motion": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "responsive": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    },
+    "review": {
+      "status": "pending",
+      "openedAt": null,
+      "closedAt": null,
+      "attempts": 0,
+      "notes": [],
+      "gate": null,
+      "forced": null
+    }
+  },
+  "finish": null
+}
