@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Scaffold reference: instrument-evidence-conveyor.png</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Freeman:wght@400&display=swap">
+  <link rel="stylesheet" href="layout.css">
+  <style>html,body{margin:0}body{background:#f7f7f7}.region{box-sizing:border-box}.region.text p{white-space:pre-wrap}</style>
+</head>
+<body>
+<!-- Reference only. Every region sits at its measured box inside a comp-aspect frame. Take the boxes (layout.css), keep your own semantic structure. -->
+<main class="comp-frame" style="max-width:1505px">
+  <div class="r-masthead-rule region chrome" data-region="masthead-rule"><!-- thin reservoir-blue navigation rule on a white field --></div>
+  <div class="r-brand region text" data-region="brand"><!-- Water Investigation Agent wordmark --><p style="font-size:var(--r-brand-font);line-height:1.05;margin:0">brand</p></div>
+  <div class="r-primary-navigation region control" data-region="primary-navigation"><!-- Method, Evidence, Utility, and Research navigation links: rebuild the control's chrome from the crop (comp-spec.mjs --crop primary-navigation); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-environment-status region text" data-region="environment-status"><!-- synthetic environment and advisory-only status --><p style="font-size:var(--r-environment-status-font);line-height:1.05;margin:0">environment-status</p></div>
+  <div class="r-lead-headline region text" data-region="lead-headline"><!-- Decide what to investigate next headline --><p style="font-size:var(--r-lead-headline-font);font-family:var(--r-lead-headline-family),sans-serif;font-weight:var(--r-lead-headline-weight);line-height:1.05;margin:0">lead-headline</p></div>
+  <div class="r-lead-explanation region text" data-region="lead-explanation"><!-- plain-language explanation of competing hypotheses and next evidence --><p style="font-size:var(--r-lead-explanation-font);line-height:1.05;margin:0">lead-explanation</p></div>
+  <div class="r-run-case-control region control" data-region="run-case-control"><!-- orange Run a synthetic case button: rebuild the control's chrome from the crop (comp-spec.mjs --crop run-case-control); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-seed-control region control" data-region="seed-control"><!-- three-digit synthetic seed input: rebuild the control's chrome from the crop (comp-spec.mjs --crop seed-control); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-initial-stage-heading region text" data-region="initial-stage-heading"><!-- 01 Initial signal stage heading --><p style="font-size:var(--r-initial-stage-heading-font);line-height:1.05;margin:0">initial-stage-heading</p></div>
+  <div class="r-hypotheses-stage-heading region text" data-region="hypotheses-stage-heading"><!-- 02 Competing hypotheses stage heading --><p style="font-size:var(--r-hypotheses-stage-heading-font);line-height:1.05;margin:0">hypotheses-stage-heading</p></div>
+  <div class="r-actions-stage-heading region text" data-region="actions-stage-heading"><!-- 03 Action ranking stage heading --><p style="font-size:var(--r-actions-stage-heading-font);line-height:1.05;margin:0">actions-stage-heading</p></div>
+  <div class="r-evidence-stage-heading region text" data-region="evidence-stage-heading"><!-- 04 Collected evidence and updated belief stage heading --><p style="font-size:var(--r-evidence-stage-heading-font);line-height:1.05;margin:0">evidence-stage-heading</p></div>
+  <div class="r-initial-alert region chrome" data-region="initial-alert"><!-- synthetic initial-signal alert panel with warning mark and observation --></div>
+  <div class="r-initial-details region text" data-region="initial-details"><!-- initial signal location, time, value, and expected range --><p style="font-size:var(--r-initial-details-font);line-height:1.05;margin:0">initial-details</p></div>
+  <div class="r-network-trace region chrome" data-region="network-trace"><!-- runtime-rendered countable node-and-line trace for the synthetic signal location --></div>
+  <div class="r-contamination-hypothesis region chrome" data-region="contamination-hypothesis"><!-- contamination hypothesis register with icon, explanation, and probability --></div>
+  <div class="r-leak-hypothesis region chrome" data-region="leak-hypothesis"><!-- leak hypothesis register with icon, explanation, and probability --></div>
+  <div class="r-sensor-fault-hypothesis region chrome" data-region="sensor-fault-hypothesis"><!-- sensor-fault hypothesis register with icon, explanation, and probability --></div>
+  <div class="r-stage-connectors region chrome" data-region="stage-connectors"><!-- thin directional connectors between numbered investigation stages --></div>
+  <div class="r-action-ranking region chrome" data-region="action-ranking"><!-- ranked candidate-observation ledger with EIG, relative cost, and score columns --></div>
+  <div class="r-score-explanation region text" data-region="score-explanation"><!-- plain-language EIG and score explanation --><p style="line-height:1.05;margin:0">score-explanation</p></div>
+  <div class="r-collected-evidence region chrome" data-region="collected-evidence"><!-- selected observation and returned synthetic evidence register --></div>
+  <div class="r-updated-belief region chrome" data-region="updated-belief"><!-- updated contamination, leak, and sensor-fault probabilities --></div>
+  <div class="r-belief-disclaimer region text" data-region="belief-disclaimer"><!-- synthetic model-estimate limitation --><p style="font-size:var(--r-belief-disclaimer-font);line-height:1.05;margin:0">belief-disclaimer</p></div>
+  <div class="r-case-dock region chrome" data-region="case-dock"><!-- reservoir-blue case control and audience-branch dock --></div>
+  <div class="r-dock-seed region control" data-region="dock-seed"><!-- synthetic case seed and replay controls: rebuild the control's chrome from the crop (comp-spec.mjs --crop dock-seed); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-dock-run-status region text" data-region="dock-run-status"><!-- last-run and advisory-only status --><p style="line-height:1.05;margin:0">dock-run-status</p></div>
+  <div class="r-utility-branch region control" data-region="utility-branch"><!-- Utility evaluation branch control: rebuild the control's chrome from the crop (comp-spec.mjs --crop utility-branch); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-research-branch region control" data-region="research-branch"><!-- Research evidence branch control: rebuild the control's chrome from the crop (comp-spec.mjs --crop research-branch); its ink box, border, fill, radius, and label size are the comp's --></div>
+  <div class="r-evidence-context-heading region text" data-region="evidence-context-heading"><!-- Evidence and context section heading --><p style="line-height:1.05;margin:0">evidence-context-heading</p></div>
+  <div class="r-synthetic-result-metric region chrome" data-region="synthetic-result-metric"><!-- 3.2 percentage-point synthetic benchmark result with label --></div>
+  <div class="r-sdwis-context-metric region chrome" data-region="sdwis-context-metric"><!-- 5,695-record SDWIS public-context metric with label --></div>
+  <div class="r-nors-context-metric region chrome" data-region="nors-context-metric"><!-- 1,256-record NORS public-context metric with label --></div>
+  <div class="r-public-sources region chrome" data-region="public-sources"><!-- public data source links and context limitation --></div>
+</main>
+</body>
+</html>
