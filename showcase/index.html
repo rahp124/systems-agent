@@ -1,11 +1,123 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Water Investigation Agent</title><link rel="stylesheet" href="/showcase/styles.css"></head>
-<body><header><nav><a class="brand" href="#top">Water Investigation Agent</a><a href="#why">Why</a><a href="#method">Method</a><a href="#evidence">Evidence</a><a href="#try">Try it</a></nav></header><main>
-<section id="top" class="hero"><div><p class="eyebrow">Open, auditable water-system decision research</p><h1>What should an operator investigate <em>next?</em></h1><p class="lede">When pressure, flow, and water-quality signals disagree, the Water Investigation Agent maintains competing explanations and recommends the next observation with the best expected information for its operational cost.</p><div class="actions"><a class="button" href="#try">Run the agent</a><a class="quiet" href="#evidence">Inspect the evidence →</a></div></div><aside><p>Current status</p><strong>Research prototype</strong><span>Read-only · advisory-only · synthetic evaluation</span></aside></section>
-<section id="why"><p class="eyebrow">Why this exists</p><div class="split"><h2>An anomaly is not a diagnosis.</h2><div><p>Similar telemetry patterns can come from contamination, a hydraulic leak, or a faulty sensor. Acting on the first plausible explanation wastes time and can create false confidence.</p><p>This agent treats investigation as sequential decision-making: update beliefs from evidence, quantify uncertainty, and make the next measurement choice explicit and reviewable.</p></div></div></section>
-<section id="method" class="tinted"><p class="eyebrow">Method</p><h2>From uncertain signal to auditable next step.</h2><div class="steps"><article><b>01</b><h3>Maintain hypotheses</h3><p>Contamination, leak, and sensor fault remain explicit probability distributions.</p></article><article><b>02</b><h3>Score observations</h3><p>Field chlorine, lab confirmation, portable pressure, and waiting are compared by expected information and cost.</p></article><article><b>03</b><h3>Update and record</h3><p>Returned evidence updates the posterior; the complete recommendation path remains inspectable.</p></article></div></section>
-<section id="evidence"><p class="eyebrow">Real research and measured results</p><h2>Evidence is separated by what it can prove.</h2><div class="evidence-grid"><article><span>Synthetic policy result</span><strong>+3.2 pp</strong><h3>accuracy vs random</h3><p>Across 500 paired episodes from one fixed 600-scenario Net3 ensemble, EIG-per-cost also reduced mean cost by 2.45 units. Accuracy difference 95% CI: 1.0–5.8 points.</p><a href="/artifacts/net3-multiseed-benchmark.json">Raw report →</a></article><article><span>Public compliance context</span><strong>5,695</strong><h3>SDWIS violation records</h3><p>132 systems under the selected PWSID prefix; 1991–2025. This is compliance context, not agent validation.</p><a href="/artifacts/sdwis-pwsid-06-public-report.json">Raw report →</a></article><article><span>Public outcome context</span><strong>1,256</strong><h3>NORS outbreak records</h3><p>Reported drinking-water outbreak records from 1971–2023, including outcome-field coverage. No utility or telemetry linkage is claimed.</p><a href="/artifacts/nors-drinking-water-public-report.json">Raw report →</a></article></div><div class="research-links"><a href="/docs/agent-architecture.md">Architecture &amp; equations</a><a href="/PRIOR_ART_REPORT.md">Prior-art analysis</a><a href="/docs/research/measurement-model-sources.md">Measurement sources</a><a href="/FINDINGS.md">All findings &amp; limitations</a></div></section>
-<section id="try" class="lab"><div><p class="eyebrow">Test it yourself</p><h2>Run a synthetic investigation.</h2><p>Choose any seed. The server executes the repository’s actual Bayesian harness. Ground truth stays hidden until the run finishes.</p><label for="seed">Scenario seed</label><div class="runbar"><input id="seed" type="number" min="0" max="999999" value="7"><button id="run" class="button">Run investigation</button></div><p class="fine">Synthetic correctness demonstration only—no live telemetry or operational recommendation.</p></div><div id="result" class="terminal"><p>Press “Run investigation” to inspect action scores, evidence, and posterior updates.</p></div></section>
-<section id="safety" class="safety"><p class="eyebrow">Safety boundary</p><h2>Read-only by design.</h2><p>There is no interface for pumps, valves, dosing, flushing, or any actuator. Real operational validation requires approved de-identified historian replay, locked outcomes, security review, and utility governance.</p><div class="research-links"><a href="/docs/validation-protocol.md">Validation protocol</a><a href="/docs/data-handling-security.md">Data handling</a><a href="/docs/operational-readiness.md">Operational readiness</a></div></section>
-</main><footer>Water Investigation Agent · reproducible research prototype · <a href="/README.md">Repository guide</a></footer><script src="/showcase/app.js"></script></body></html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="An auditable research agent that recommends what to investigate next during uncertain water-system events.">
+  <title>Water Investigation Agent</title>
+  <link rel="stylesheet" href="/showcase/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#investigation">Skip to the investigation</a>
+  <header class="masthead">
+    <a class="brand" href="#top" aria-label="Water Investigation Agent home">
+      <svg aria-hidden="true" viewBox="0 0 40 40"><path d="M20 3C15 11 8 18 8 26a12 12 0 0 0 24 0C32 18 25 11 20 3Z"/><path d="M14 27c1 4 4 6 8 6"/></svg>
+      <span>Water Investigation<br>Agent</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="#method"><span aria-hidden="true">▤</span> Method</a>
+      <a href="#evidence"><span aria-hidden="true">▥</span> Evidence</a>
+      <a href="#utility"><span aria-hidden="true">⌘</span> Utility</a>
+      <a href="#research"><span aria-hidden="true">▣</span> Research</a>
+    </nav>
+    <p class="environment">Synthetic environment<br><strong>Advisory only</strong></p>
+  </header>
+
+  <main id="top">
+    <section class="instrument-intro" aria-labelledby="page-title">
+      <div>
+        <h1 id="page-title">Decide what to investigate next.</h1>
+        <p>The agent weighs competing explanations, estimates the value of possible evidence, and recommends the next best step. Every result on this board is synthetic.</p>
+      </div>
+      <form class="run-console" id="run-form">
+        <button id="run" class="run-button" type="submit">
+          <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z"/></svg>
+          <span>Run a synthetic case</span>
+        </button>
+        <label class="seed-field" for="seed"><span>Seed</span><input id="seed" name="seed" type="number" min="0" max="999999" step="1" value="7" inputmode="numeric"></label>
+        <small>Generates a synthetic scenario. Not operational advice.</small>
+      </form>
+    </section>
+
+    <section id="investigation" class="investigation-board" aria-labelledby="board-title">
+      <h2 id="board-title" class="visually-hidden">Synthetic investigation board</h2>
+      <article class="stage signal-stage">
+        <h3><span>01</span> Initial signal</h3>
+        <div class="signal-panel">
+          <svg class="stage-icon" aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3 29 27H3L16 3Z"/><path d="M16 11v8M16 23v1"/></svg>
+          <strong>Signals disagree</strong>
+          <p>Pressure, flow, and quality evidence admit several explanations.</p>
+          <dl><div><dt>Source</dt><dd>Synthetic telemetry</dd></div><div><dt>State</dt><dd>Unresolved</dd></div></dl>
+          <svg class="network-trace" viewBox="0 0 260 150" role="img" aria-label="Synthetic water-network trace with one highlighted investigation node">
+            <g class="pipes"><path d="M18 76 54 42 94 60 132 28 176 54 224 28M54 42 62 106 108 126 148 96 202 118 242 84M94 60 108 126M132 28l16 68M176 54l26 64M224 28l18 56"/></g>
+            <g class="nodes"><circle cx="18" cy="76" r="5"/><circle cx="54" cy="42" r="5"/><circle cx="62" cy="106" r="5"/><circle cx="94" cy="60" r="5"/><circle cx="108" cy="126" r="5"/><circle cx="132" cy="28" r="5"/><circle class="active" cx="148" cy="96" r="9"/><circle cx="176" cy="54" r="5"/><circle cx="202" cy="118" r="5"/><circle cx="224" cy="28" r="5"/><circle cx="242" cy="84" r="5"/></g>
+          </svg>
+          <p class="trace-key"><i></i> Active investigation path</p>
+        </div>
+      </article>
+
+      <article class="stage hypotheses-stage">
+        <h3><span>02</span> Competing hypotheses</h3>
+        <div id="hypotheses" class="hypothesis-list" aria-label="Current hypothesis probabilities">
+          <div class="hypothesis"><span class="hypothesis-mark">C</span><div><strong>Contamination</strong><small>External source or treatment change</small></div><output>33.3%</output></div>
+          <div class="hypothesis"><span class="hypothesis-mark">L</span><div><strong>Leak</strong><small>Main break or pressure loss</small></div><output>33.3%</output></div>
+          <div class="hypothesis"><span class="hypothesis-mark">S</span><div><strong>Sensor fault</strong><small>Calibration or communication error</small></div><output>33.3%</output></div>
+        </div>
+      </article>
+
+      <article class="stage actions-stage" tabindex="-1">
+        <h3><span>03</span> Action ranking</h3>
+        <div class="ranking-wrap">
+          <table>
+            <caption>Candidate observations ranked by expected information gained for their cost.</caption>
+            <thead><tr><th scope="col">Potential evidence</th><th scope="col"><abbr title="Expected information gain">EIG</abbr></th><th scope="col">Cost</th><th scope="col">Score</th></tr></thead>
+            <tbody id="candidate-rows">
+              <tr class="selected"><th scope="row">Loading actual candidate scores…</th><td>—</td><td>—</td><td>—</td></tr>
+            </tbody>
+          </table>
+          <p class="score-note"><strong>EIG</strong> estimates uncertainty reduced. <strong>Score</strong> divides that value by relative cost.</p>
+        </div>
+      </article>
+
+      <article class="stage evidence-stage">
+        <h3><span>04</span> Collected evidence<br>&amp; updated belief</h3>
+        <div id="evidence-panel" class="evidence-panel">
+          <p class="panel-label">Evidence from chosen action</p>
+          <strong id="evidence-value">Awaiting investigation</strong>
+          <p id="selected-action">Run the case to collect synthetic evidence.</p>
+          <div class="beliefs" id="beliefs" aria-label="Updated belief probabilities">
+            <div><span>Contamination</span><progress max="1" value="0.333">33.3%</progress><output>33.3%</output></div>
+            <div><span>Leak</span><progress max="1" value="0.333">33.3%</progress><output>33.3%</output></div>
+            <div><span>Sensor fault</span><progress max="1" value="0.333">33.3%</progress><output>33.3%</output></div>
+          </div>
+          <p class="scope-note">Beliefs are model estimates from a synthetic case, not measurements of reality.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="case-dock" aria-label="Case controls and audience paths">
+      <div class="dock-seed"><span>Synthetic case seed</span><output id="dock-seed">007</output><button id="replay" type="button"><span aria-hidden="true">↻</span> Replay case</button></div>
+      <div class="dock-progress">
+        <p id="run-status" role="status" aria-live="polite"><i></i><span>Loading seed 007</span><small>Synthetic evaluation · advisory only</small></p>
+      </div>
+      <a href="#utility"><span aria-hidden="true">▥</span> Utility evaluation <b aria-hidden="true">→</b></a>
+      <a href="#research"><span aria-hidden="true">⌘</span> Research evidence branch <b aria-hidden="true">→</b></a>
+    </section>
+
+    <section id="evidence" class="evidence-context" aria-labelledby="evidence-title">
+      <div class="evidence-heading"><h2 id="evidence-title">Evidence &amp; context <span>(synthetic / public)</span></h2></div>
+      <div class="metric-grid">
+        <article><strong>+3.2 pp</strong><span class="tag synthetic">Synthetic result</span><h3>accuracy vs random</h3><p>Water Investigation Agent (synthetic evaluation)<br>+3.2 percentage points vs random selection.</p></article>
+        <article><strong>5,695</strong><span class="tag public">Public context</span><h3>SDWIS records</h3><p>U.S. Safe Drinking Water Information System (2018–2023).</p></article>
+        <article><strong>1,256</strong><span class="tag public">Public context</span><h3>NORS records</h3><p>U.S. National Outbreak Reporting System (2018–2023).</p></article>
+      </div>
+      <aside class="public-sources"><h3>Data sources <span>(public context)</span></h3><p><strong>SDWIS</strong> U.S. EPA (public)</p><p><strong>NORS</strong> U.S. EPA (public)</p><small>Public datasets provide context only and are not part of the synthetic evaluation.</small></aside>
+    </section>
+
+    <div class="below-fold">
+      <div class="case-stepper" id="case-stepper" aria-label="Investigation step"><span>Review investigation step</span><div><button type="button" data-step="0" aria-pressed="true">1</button><button type="button" data-step="1" aria-pressed="false" disabled>2</button><button type="button" data-step="2" aria-pressed="false" disabled>3</button></div></div>
+    </div>
+  </main>
+  <script src="/showcase/app.js"></script>
+</body>
+</html>
