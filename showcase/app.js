@@ -30,12 +30,9 @@ function renderStep(index){
   }));
   evidenceValue.textContent=step.evidence.map(value=>value.replaceAll('_',' ')).join(', ');
   selectedAction.textContent=`Collected by ${actionNames[step.selected]}. Relative budget remaining: ${step.remaining_budget}.`;
-  const hypothesisRows=[...document.querySelectorAll('.hypothesis')];
   const beliefRows=[...document.querySelectorAll('.beliefs>div')];
   const leading=Object.entries(step.posterior).sort((a,b)=>b[1]-a[1])[0][0];
   Object.entries(step.posterior).forEach(([name,value],rowIndex)=>{
-    hypothesisRows[rowIndex].querySelector('output').textContent=formatPercent(value);
-    hypothesisRows[rowIndex].classList.toggle('changed',name===leading);
     const beliefRow=beliefRows[rowIndex];beliefRow.querySelector('span').textContent=hypothesisNames[name];
     const progress=beliefRow.querySelector('progress');progress.value=value;progress.textContent=formatPercent(value);progress.setAttribute('aria-label',`${hypothesisNames[name]} probability`);
     beliefRow.querySelector('output').textContent=formatPercent(value);beliefRow.classList.toggle('leading',name===leading)

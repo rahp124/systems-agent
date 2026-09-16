@@ -1,6 +1,6 @@
 # Water Investigation Agent
 
-The unified utility/research experience opens as an investigation instrument: run a seeded synthetic case, inspect competing hypotheses, compare candidate observations by expected information gain and relative cost, and review how collected evidence changes the posterior. The same opening then branches to utility evaluation and research evidence without presenting synthetic output as field validation. Start it with `make app`, then open `http://127.0.0.1:8000`. The browser lab calls the repository's actual Bayesian harness; it is not a prerecorded mock result.
+The unified utility/research experience opens as an investigation instrument: run a seeded synthetic case, compare the neutral prior hypotheses, rank candidate observations by expected information gain and relative cost, and review the live posterior after evidence is collected. The same opening then branches to utility evaluation and research evidence without presenting synthetic output as field validation. Start it with `make app`, then open `http://127.0.0.1:8000`. The browser lab calls the repository's actual Bayesian harness; it is not a prerecorded mock result.
 
 The Water Investigation Agent is a cost-aware, auditable decision-support system for simulated water-distribution events. It maintains competing explanations, selects the next observation based on expected information and operational cost, updates its belief when evidence returns, and evaluates its decision policy against baselines.
 
