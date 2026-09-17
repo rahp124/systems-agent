@@ -1,4 +1,17 @@
 from water_investigation.web_demo import DemoHandler, run_investigation
+from water_investigation.wsgi import application
+
+
+def test_wsgi_health_endpoint() -> None:
+    captured = {}
+
+    def start_response(status, headers):
+        captured["status"] = status
+        captured["headers"] = headers
+
+    body = b"".join(application({"PATH_INFO": "/health", "REQUEST_METHOD": "GET"}, start_response))
+    assert captured["status"] == "200 OK"
+    assert b'"status":"ok"' in body
 
 
 def test_web_investigation_is_deterministic_and_uses_distinct_actions() -> None:
