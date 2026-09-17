@@ -13,6 +13,7 @@ const stepButtons=[...document.querySelectorAll('[data-step]')];
 const investigationBoard=document.querySelector('#investigation');
 let currentRun=null;
 let motionTimer;
+const apiBase=(window.WATER_AGENT_API_BASE||'').replace(/\/$/,'');
 
 function formatPercent(value){return `${(value*100).toFixed(1)}%`}
 function setStatus(message,detail,state='ready'){status.dataset.state=state;status.querySelector('span').textContent=message;status.querySelector('small').textContent=detail}
@@ -53,7 +54,7 @@ async function runInvestigation(seed,focusResults=false){
   investigationBoard.classList.add('is-running');
   investigationBoard.setAttribute('aria-busy','true');
   try{
-    const response=await fetch('/api/investigate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({seed})});
+    const response=await fetch(`${apiBase}/api/investigate`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({seed})});
     if(!response.ok){if(response.status===400)throw new Error('The seed must be a whole number from 0 to 999999.');throw new Error(`The investigation service returned ${response.status}. Try again.`)}
     currentRun=await response.json();stepButtons.forEach(button=>{button.disabled=false});renderStep(0);
     if(focusResults)document.querySelector('.actions-stage').focus({preventScroll:true})

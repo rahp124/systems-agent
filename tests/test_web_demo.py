@@ -10,4 +10,5 @@ def test_web_investigation_is_deterministic_and_uses_distinct_actions() -> None:
 
 def test_web_server_allowlist_excludes_repository_internals() -> None:
     assert "/showcase/index.html" in DemoHandler.PUBLIC_PATHS
+    assert "/showcase/config.js" in DemoHandler.PUBLIC_PATHS
     assert "/.git/config" not in DemoHandler.PUBLIC_PATHS

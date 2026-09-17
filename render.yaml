@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: water-investigation-agent
+    runtime: python
+    buildCommand: pip install .
+    startCommand: python -m water_investigation.web_demo
+    healthCheckPath: /health
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: WATER_AGENT_ALLOWED_ORIGIN
+        sync: false

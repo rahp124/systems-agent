@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from random import Random
@@ -43,7 +44,7 @@ def run_investigation(seed: int) -> dict[str, object]:
 
 class DemoHandler(SimpleHTTPRequestHandler):
     PUBLIC_PATHS = frozenset({
-        "/showcase/index.html", "/showcase/styles.css", "/showcase/app.js",
+        "/showcase/index.html", "/showcase/styles.css", "/showcase/app.js", "/showcase/config.js",
         "/artifacts/net3-multiseed-benchmark.json",
         "/artifacts/sdwis-pwsid-06-public-report.json",
         "/artifacts/nors-drinking-water-public-report.json",
@@ -56,7 +57,44 @@ class DemoHandler(SimpleHTTPRequestHandler):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
 
+    def _cors_origin(self) -> str | None:
+        allowed = os.environ.get("WATER_AGENT_ALLOWED_ORIGIN", "")
+        request_origin = self.headers.get("Origin")
+        if allowed == "*":
+            return "*"
+        if allowed and request_origin == allowed:
+            return request_origin
+        return None
+
+    def _send_json(self, body: dict[str, object], status: int = 200) -> None:
+        encoded = json.dumps(body).encode()
+        self.send_response(status)
+        origin = self._cors_origin()
+        if origin:
+            self.send_header("Access-Control-Allow-Origin", origin)
+            self.send_header("Vary", "Origin")
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(encoded)))
+        self.end_headers()
+        self.wfile.write(encoded)
+
+    def do_OPTIONS(self) -> None:
+        if self.path != "/api/investigate":
+            self.send_error(404)
+            return
+        self.send_response(204)
+        origin = self._cors_origin()
+        if origin:
+            self.send_header("Access-Control-Allow-Origin", origin)
+            self.send_header("Vary", "Origin")
+        self.send_header("Access-Control-Allow-Methods", "POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
+        self.end_headers()
+
     def do_GET(self) -> None:
+        if self.path == "/health":
+            self._send_json({"status": "ok", "service": "water-investigation-agent"})
+            return
         if self.path == "/":
             self.path = "/showcase/index.html"
         if self.path not in self.PUBLIC_PATHS:
@@ -78,18 +116,15 @@ class DemoHandler(SimpleHTTPRequestHandler):
         except (ValueError, TypeError, json.JSONDecodeError):
             self.send_error(400, "seed must be an integer from 0 to 999999")
             return
-        self.send_response(200)
-        self.send_header("Content-Type", "application/json")
-        self.send_header("Content-Length", str(len(body)))
-        self.end_headers()
-        self.wfile.write(body)
+        self._send_json(json.loads(body))
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Serve the local Water Investigation Agent experience.")
-    parser.add_argument("--port", type=int, default=8000)
+    parser.add_argument("--host", default=os.environ.get("HOST", "127.0.0.1"))
+    parser.add_argument("--port", type=int, default=int(os.environ.get("PORT", "8000")))
     args = parser.parse_args()
-    server = ThreadingHTTPServer(("127.0.0.1", args.port), DemoHandler)
+    server = ThreadingHTTPServer((args.host, args.port), DemoHandler)
     print(f"Water Investigation Agent: http://127.0.0.1:{args.port}")
     try:
         server.serve_forever()

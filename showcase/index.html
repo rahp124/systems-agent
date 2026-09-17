@@ -15,10 +15,10 @@
       <span>Water Investigation<br>Agent</span>
     </a>
     <nav aria-label="Primary navigation">
-      <a href="#method"><span aria-hidden="true">▤</span> Method</a>
-      <a href="#evidence"><span aria-hidden="true">▥</span> Evidence</a>
-      <a href="#utility"><span aria-hidden="true">⌘</span> Utility</a>
-      <a href="#research"><span aria-hidden="true">▣</span> Research</a>
+      <a href="#method"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg> Method</a>
+      <a href="#evidence"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 19h16M6 16V9m4 7V5m4 11v-4m4 4V7"/></svg> Evidence</a>
+      <a href="#utility"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M4 19h16M6 16v-5m6 5V5m6 11V8"/></svg> Utility</a>
+      <a href="#research"><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="5" r="2"/><circle cx="6" cy="18" r="2"/><circle cx="18" cy="18" r="2"/><path d="m11 7-4 9m6-9 4 9M8 18h8"/></svg> Research</a>
     </nav>
     <p class="environment">Synthetic environment<br><strong>Advisory only</strong></p>
   </header>
@@ -64,8 +64,8 @@
         <h3><span>02</span> Competing hypotheses</h3>
         <div id="hypotheses" class="hypothesis-list" aria-label="Current hypothesis probabilities">
           <div class="hypothesis"><span class="hypothesis-mark hypothesis-mark-svg"><svg aria-hidden="true" viewBox="0 0 32 32"><path d="M11 4h10M14 4v8L7 25a3 3 0 0 0 3 3h12a3 3 0 0 0 3-3l-7-13V4M10 21h12M12 24h3m3 0h2"/></svg></span><div><strong>Contamination</strong><small>Real change in water quality due to external source.</small></div><output>33%</output></div>
-          <div class="hypothesis"><span class="hypothesis-mark">L</span><div><strong>Leak</strong><small>Infiltration or main break altering water quality.</small></div><output>33%</output></div>
-          <div class="hypothesis"><span class="hypothesis-mark">S</span><div><strong>Sensor fault</strong><small>Instrument error or calibration issue.</small></div><output>33%</output></div>
+          <div class="hypothesis"><span class="hypothesis-mark hypothesis-mark-svg"><svg aria-hidden="true" viewBox="0 0 32 32"><path d="M16 3C12 10 7 16 7 22a9 9 0 0 0 18 0c0-6-5-12-9-19Z"/></svg></span><div><strong>Leak</strong><small>Infiltration or main break altering water quality.</small></div><output>33%</output></div>
+          <div class="hypothesis"><span class="hypothesis-mark hypothesis-mark-svg"><svg aria-hidden="true" viewBox="0 0 32 32"><path d="M4 17h5l3-7 5 14 4-10 3 3h4"/></svg></span><div><strong>Sensor fault</strong><small>Instrument error or calibration issue.</small></div><output>33%</output></div>
         </div>
       </article>
 
@@ -100,7 +100,7 @@
     </section>
 
     <section class="case-dock" aria-label="Case controls and audience paths">
-      <div class="dock-seed"><span>Synthetic case seed</span><output id="dock-seed">007</output><button id="replay" type="button"><span aria-hidden="true">↻</span> Replay case</button></div>
+      <div class="dock-seed"><span>Synthetic case seed</span><output id="dock-seed">007</output><button id="replay" type="button"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2 6M20 5v6h-6"/></svg> Replay case</button></div>
       <div class="dock-progress">
         <p id="run-status" role="status" aria-live="polite"><i></i><span>Loading seed 007</span><small>Synthetic evaluation · advisory only</small></p>
       </div>
@@ -197,6 +197,7 @@
       <a href="#top">Return to the instrument <span aria-hidden="true">↑</span></a>
     </footer>
   </main>
+  <script src="/showcase/config.js"></script>
   <script src="/showcase/app.js"></script>
 </body>
 </html>
