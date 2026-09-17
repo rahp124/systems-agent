@@ -1,6 +1,6 @@
 # Water Investigation Agent
 
-The unified utility/research experience opens as an investigation instrument: run a seeded synthetic case, compare the neutral prior hypotheses, rank candidate observations by expected information gain and relative cost, and review the live posterior after evidence is collected. The same opening then branches to utility evaluation and research evidence without presenting synthetic output as field validation. Start it with `make app`, then open `http://127.0.0.1:8000`. The browser lab calls the repository's actual Bayesian harness; it is not a prerecorded mock result.
+The unified utility/research experience opens as an investigation instrument: run a seeded synthetic case, compare the neutral prior hypotheses, rank candidate observations by expected information gain and relative cost, and review the live posterior after evidence is collected. Below the instrument, a shared method explanation branches into a utility evaluation path—offline replay, approval-gated shadow mode, and an explicit no-control boundary—and a research path with reproducibility commands, tracked evidence, and interpretation limits. Synthetic output and public context are never presented as field validation. Start it with `make app`, then open `http://127.0.0.1:8000`. The browser lab calls the repository's actual Bayesian harness; it is not a prerecorded mock result.
 
 The Water Investigation Agent is a cost-aware, auditable decision-support system for simulated water-distribution events. It maintains competing explanations, selects the next observation based on expected information and operational cost, updates its belief when evidence returns, and evaluates its decision policy against baselines.
 
@@ -239,6 +239,6 @@ The two paths must stay distinct until the simulator path can estimate likelihoo
 
 ## Current boundaries
 
-The current agent excludes persistent workflow state, a UI, LLM processing, human approval gates, interventions such as hydrant flushes, field-data calibration, and independent network replications. It stores reproducible local scenario ensembles and a synthetic benchmark report, but does not support deployment, safety, or real-world cost-savings claims.
+The current agent includes a local browser investigation UI, synthetic scenario ensembles, separate small network/layout replications, read-only historian replay, and an append-only advisory audit seam. It excludes live SCADA connectivity, persistent multi-user workflow state, LLM processing, implemented human-approval workflow, interventions such as hydrant flushes, and field-data calibration. It does not support deployment, safety, or real-world cost-savings claims.
 
 The evaluation admits only held-out episodes whose instrument-perturbed, simulator-derived initial telemetry leaves at least two plausible classes. The next technical gate is external validity: repeat the benchmark across independently generated ensembles, sensor layouts, and source-calibrated sampling/transport assumptions. See [FINDINGS.md](FINDINGS.md) for the current evidence and blockers.

@@ -118,9 +118,84 @@
       <aside class="public-sources"><h3>Data sources <span>(public context)</span></h3><p><strong>SDWIS</strong> U.S. EPA (public)</p><p><strong>NORS</strong> U.S. EPA (public)</p><small>Public datasets provide context only and are not part of the synthetic evaluation.</small></aside>
     </section>
 
-    <div class="below-fold">
-      <div class="case-stepper" id="case-stepper" aria-label="Investigation step"><span>Review investigation step</span><div><button type="button" data-step="0" aria-pressed="true">1</button><button type="button" data-step="1" aria-pressed="false" disabled>2</button><button type="button" data-step="2" aria-pressed="false" disabled>3</button></div></div>
-    </div>
+    <section id="method" class="method-section" aria-labelledby="method-title">
+      <div class="section-heading">
+        <h2 id="method-title">One auditable investigation loop</h2>
+        <p>The agent does not declare an incident type. It maintains uncertainty, values the evidence available next, and records how each observation changes the ranking.</p>
+      </div>
+      <ol class="method-ledger">
+        <li><span>01</span><div><h3>Hold competing explanations</h3><p>Begin with contamination, leak, and sensor-fault hypotheses rather than committing to the first plausible story.</p></div></li>
+        <li><span>02</span><div><h3>Value the next observation</h3><p>Estimate expected information gain for each available action, then divide by its relative cost.</p></div></li>
+        <li><span>03</span><div><h3>Update from returned evidence</h3><p>Apply the action likelihood to the current belief and preserve the evidence, score, and posterior for review.</p></div></li>
+        <li><span>04</span><div><h3>Repeat or stop</h3><p>Continue while evidence is useful and budget remains. The operator—not the agent—owns any operational response.</p></div></li>
+      </ol>
+      <div class="method-equation" aria-label="Decision rule: choose the action with the greatest expected information gain divided by relative cost">
+        <span>Decision rule</span>
+        <strong>next action = max</strong>
+        <span class="fraction"><i>expected information gain</i><i>relative cost</i></span>
+        <small>Implemented in the live synthetic case above.</small>
+      </div>
+      <div class="case-stepper" id="case-stepper" aria-label="Review investigation step"><span>Review returned evidence</span><div><button type="button" data-step="0" aria-pressed="true" aria-label="Review step 1">1</button><button type="button" data-step="1" aria-pressed="false" aria-label="Review step 2" disabled>2</button><button type="button" data-step="2" aria-pressed="false" aria-label="Review step 3" disabled>3</button></div></div>
+    </section>
+
+    <section class="audience-branches" aria-label="Evaluation paths">
+      <article id="utility" class="branch utility-branch" aria-labelledby="utility-title">
+        <header>
+          <svg aria-hidden="true" viewBox="0 0 40 40"><path d="M5 32h6V18H5v14Zm12 0h6V8h-6v24Zm12 0h6V13h-6v19Z"/></svg>
+          <div><h2 id="utility-title">Utility evaluation</h2><p>Evaluate decision support without placing the agent in a control path.</p></div>
+        </header>
+        <div class="branch-status"><strong>Current boundary</strong><span>Read-only · advisory · synthetic evidence</span></div>
+        <div class="evaluation-track" aria-label="Utility evaluation progression">
+          <div class="track-step available"><span>Available now</span><h3>Offline replay</h3><p>Use a de-identified historian export and separate reviewer outcomes. The adapter validates schema, channel mapping, order, and gaps before producing advisories.</p></div>
+          <div class="track-step gated"><span>Requires utility approval</span><h3>Read-only shadow mode</h3><p>Compare timestamped recommendations with normal operator work while preserving existing procedures and recording dispositions.</p></div>
+          <div class="track-step prohibited"><span>Not supported</span><h3>Operational control</h3><p>No pump, valve, dosing, flushing, treatment, or incident-response command interface exists.</p></div>
+        </div>
+        <div class="review-gates">
+          <h3>Evidence required before an operator-facing pilot</h3>
+          <ul><li>Utility-approved purpose, channels, retention, and escalation path</li><li>Data-quality thresholds and manual fallback frozen in advance</li><li>Outcome review for coverage, agreement, timing, and high-consequence misses</li></ul>
+        </div>
+        <nav class="branch-links" aria-label="Utility documents">
+          <a href="/docs/utility-pilot-brief.md">Pilot brief <span aria-hidden="true">→</span></a>
+          <a href="/docs/validation-protocol.md">Validation protocol <span aria-hidden="true">→</span></a>
+          <a href="/docs/operational-readiness.md">Operational boundaries <span aria-hidden="true">→</span></a>
+          <a href="/docs/data-handling-security.md">Data handling <span aria-hidden="true">→</span></a>
+        </nav>
+      </article>
+
+      <article id="research" class="branch research-branch" aria-labelledby="research-title">
+        <header>
+          <svg aria-hidden="true" viewBox="0 0 40 40"><circle cx="20" cy="8" r="5"/><circle cx="9" cy="29" r="5"/><circle cx="31" cy="29" r="5"/><path d="m17 12-6 12m12-12 6 12M14 29h12"/></svg>
+          <div><h2 id="research-title">Research evidence</h2><p>Inspect the method, reproduce the benchmark, and see exactly where the evidence stops.</p></div>
+        </header>
+        <div class="branch-status"><strong>Evidence level</strong><span>Synthetic benchmark · public context</span></div>
+        <dl class="result-ledger">
+          <div><dt>Policy result</dt><dd><strong>+3.2 pp</strong> accuracy vs random <small>95% interval 1.0–5.8</small></dd></div>
+          <div><dt>Matched evaluation</dt><dd><strong>500</strong> paired episode draws <small>five seeds; one fixed Net3 ensemble</small></dd></div>
+          <div><dt>Replication scope</dt><dd><strong>2</strong> additional layouts <small>small, separate Net3 and L-Town feasibility runs</small></dd></div>
+        </dl>
+        <div class="reproduce-block">
+          <h3>Reproduce the tracked evidence</h3>
+          <code>.venv/bin/python -m water_investigation.verify_artifacts</code>
+          <p>The verifier checks schema and provenance fields. Raw public downloads stay local; compact reports retain queries, timestamps, and checksums.</p>
+        </div>
+        <aside class="limits-register">
+          <h3>Interpretation limits</h3>
+          <p>The five benchmark seeds resample one generated ensemble. They do not establish cross-network generalization, field accuracy, operational impact, or avoided cost. SDWIS and NORS counts are public context only.</p>
+        </aside>
+        <nav class="branch-links" aria-label="Research documents">
+          <a href="/FINDINGS.md">Measured findings <span aria-hidden="true">→</span></a>
+          <a href="/docs/agent-architecture.md">Agent architecture <span aria-hidden="true">→</span></a>
+          <a href="/docs/research/measurement-model-sources.md">Measurement sources <span aria-hidden="true">→</span></a>
+          <a href="/artifacts/net3-multiseed-benchmark.json">Benchmark report <span aria-hidden="true">→</span></a>
+        </nav>
+      </article>
+    </section>
+
+    <footer class="site-footer">
+      <p><strong>Water Investigation Agent</strong> ranks investigative observations under uncertainty.</p>
+      <p>Synthetic evaluation only. No live utility connection, field validation, or operational authority.</p>
+      <a href="#top">Return to the instrument <span aria-hidden="true">↑</span></a>
+    </footer>
   </main>
   <script src="/showcase/app.js"></script>
 </body>
