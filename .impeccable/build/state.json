@@ -6,7 +6,7 @@
   "direction": "b11d058b",
   "breakpoint": "1505x1045",
   "artifact": null,
-  "phase": "responsive",
+  "phase": "review",
   "phases": {
     "comps": {
       "status": "closed",
@@ -520,17 +520,24 @@
       "forced": null
     },
     "responsive": {
-      "status": "open",
+      "status": "closed",
       "openedAt": "2026-09-17T02:26:20.697Z",
-      "closedAt": null,
-      "attempts": 0,
+      "closedAt": "2026-09-17T02:29:38.296Z",
+      "attempts": 3,
       "notes": [],
-      "gate": null,
+      "gate": {
+        "ok": true,
+        "reasons": [],
+        "summary": "desktop 82% (match)",
+        "score": 0.8224,
+        "sideBySide": "/Users/rahul/Desktop/systems-agent/.impeccable/review/diff/desktop/side-by-side.png",
+        "at": "2026-09-17T02:29:38.296Z"
+      },
       "forced": null
     },
     "review": {
-      "status": "pending",
-      "openedAt": null,
+      "status": "open",
+      "openedAt": "2026-09-17T02:29:38.296Z",
       "closedAt": null,
       "attempts": 0,
       "notes": [],
