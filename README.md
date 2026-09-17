@@ -67,7 +67,7 @@ Verify that every tracked public-data or replication report retains its required
 .venv/bin/python -m water_investigation.verify_artifacts
 ```
 
-GitHub Actions runs both checks on every push and pull request. Public-source reports are reproducible from their documented queries and checksums; the raw downloads remain local and ignored.
+GitHub Actions runs both checks on every push and pull request, including strict third-party dependency auditing. The local editable package is intentionally excluded from `pip-audit` resolution because it is not published to PyPI. Public-source reports are reproducible from their documented queries and checksums; the raw downloads remain local and ignored.
 
 Run a deterministic, analytic investigation episode:
 
