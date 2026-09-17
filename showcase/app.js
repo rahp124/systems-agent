@@ -10,7 +10,9 @@ const candidateRows=document.querySelector('#candidate-rows');
 const evidenceValue=document.querySelector('#evidence-value');
 const selectedAction=document.querySelector('#selected-action');
 const stepButtons=[...document.querySelectorAll('[data-step]')];
+const investigationBoard=document.querySelector('#investigation');
 let currentRun=null;
+let motionTimer;
 
 function formatPercent(value){return `${(value*100).toFixed(1)}%`}
 function setStatus(message,detail,state='ready'){status.dataset.state=state;status.querySelector('span').textContent=message;status.querySelector('small').textContent=detail}
@@ -40,17 +42,23 @@ function renderStep(index){
   stepButtons.forEach((button,buttonIndex)=>button.setAttribute('aria-pressed',String(buttonIndex===index)));
   dockSeed.textContent=String(currentRun.seed).padStart(3,'0');
   setStatus(`Last run: seed ${String(currentRun.seed).padStart(3,'0')} · step ${index+1} of ${currentRun.steps.length}`,'Synthetic evaluation · advisory only')
+  investigationBoard.classList.remove('is-updated');
+  requestAnimationFrame(()=>investigationBoard.classList.add('is-updated'));
+  window.clearTimeout(motionTimer);
+  motionTimer=window.setTimeout(()=>investigationBoard.classList.remove('is-updated'),700)
 }
 
 async function runInvestigation(seed,focusResults=false){
   runButton.disabled=true;runButton.querySelector('span').textContent='Running investigation…';setStatus('Investigation running','Scoring possible observations against current uncertainty','loading');
+  investigationBoard.classList.add('is-running');
+  investigationBoard.setAttribute('aria-busy','true');
   try{
     const response=await fetch('/api/investigate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({seed})});
     if(!response.ok){if(response.status===400)throw new Error('The seed must be a whole number from 0 to 999999.');throw new Error(`The investigation service returned ${response.status}. Try again.`)}
     currentRun=await response.json();stepButtons.forEach(button=>{button.disabled=false});renderStep(0);
     if(focusResults)document.querySelector('.actions-stage').focus({preventScroll:true})
   }catch(error){setStatus('Investigation could not run',error.message,'error')}
-  finally{runButton.disabled=false;runButton.querySelector('span').textContent='Run a synthetic case'}
+  finally{runButton.disabled=false;runButton.querySelector('span').textContent='Run a synthetic case';investigationBoard.classList.remove('is-running');investigationBoard.removeAttribute('aria-busy')}
 }
 
 form.addEventListener('submit',event=>{
