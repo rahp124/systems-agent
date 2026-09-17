@@ -45,6 +45,7 @@ def run_investigation(seed: int) -> dict[str, object]:
 class DemoHandler(SimpleHTTPRequestHandler):
     PUBLIC_PATHS = frozenset({
         "/showcase/index.html", "/showcase/styles.css", "/showcase/app.js", "/showcase/config.js",
+        "/index.html", "/styles.css", "/app.js", "/config.js",
         "/artifacts/net3-multiseed-benchmark.json",
         "/artifacts/sdwis-pwsid-06-public-report.json",
         "/artifacts/nors-drinking-water-public-report.json",

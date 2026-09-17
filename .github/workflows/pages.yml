@@ -27,12 +27,14 @@ jobs:
           set -eu
           mkdir -p site/docs site/artifacts site/showcase
           cp showcase/index.html showcase/styles.css showcase/app.js showcase/config.js site/showcase/
+          cp showcase/styles.css showcase/app.js showcase/config.js site/
           cp -R docs/. site/docs/
           cp artifacts/net3-multiseed-benchmark.json artifacts/sdwis-pwsid-06-public-report.json artifacts/nors-drinking-water-public-report.json site/artifacts/
           cp FINDINGS.md PRIOR_ART_REPORT.md README.md site/
           cp site/showcase/index.html site/index.html
           if [ -n "${RENDER_API_BASE_URL}" ]; then
             sed -i "s#window.WATER_AGENT_API_BASE = '';#window.WATER_AGENT_API_BASE = '${RENDER_API_BASE_URL%/}';#" site/showcase/config.js
+            sed -i "s#window.WATER_AGENT_API_BASE = '';#window.WATER_AGENT_API_BASE = '${RENDER_API_BASE_URL%/}';#" site/config.js
           fi
           touch site/.nojekyll
       - name: Upload Pages artifact
