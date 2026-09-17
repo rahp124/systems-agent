@@ -1,0 +1,5 @@
+# Third-party runtime and development dependencies only.
+certifi>=2026.0
+epyt-flow==0.17.2
+numpy>=2.0
+pytest>=9.0

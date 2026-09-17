@@ -17,5 +17,5 @@ jobs:
       - run: python -m pytest -q
       - run: python -m water_investigation.verify_artifacts
       - run: python -m pip install pip-audit
-      # The repository itself is installed editable; audit third-party packages only.
-      - run: pip-audit --strict --skip-editable
+      # Audit the declared third-party set; the local editable package is not a PyPI artifact.
+      - run: pip-audit --strict -r requirements-audit.txt
