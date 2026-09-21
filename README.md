@@ -1,6 +1,6 @@
 # Water Investigation Agent
 
-The unified utility/research experience opens as an investigation instrument: run a seeded synthetic case, compare the neutral prior hypotheses, rank candidate observations by expected information gain and relative cost, and review the live posterior after evidence is collected. Below the instrument, a shared method explanation branches into a utility evaluation path—offline replay, approval-gated shadow mode, and an explicit no-control boundary—and a research path with reproducibility commands, tracked evidence, and interpretation limits. Synthetic output and public context are never presented as field validation. Start it with `make app`, then open `http://127.0.0.1:8000`. The browser lab calls the repository's actual Bayesian harness; it is not a prerecorded mock result.
+The unified utility/research experience first explains what the agent is for, then lets visitors run a seeded synthetic investigation through a guided workspace. Every observation is presented in human order—recommended check, reason, returned evidence, interpretation, and before/after belief—while full EIG, cost, score, and ranking details remain available for audit. Utility and research tabs separate evaluation readiness from reproducibility material without hiding the shared safety boundaries. Synthetic output and public context are never presented as field validation. Start it with `make app`, then open `http://127.0.0.1:8000`. The browser lab calls the repository's actual Bayesian harness; it is not a prerecorded mock result.
 
 ### Hosting split
 
@@ -62,6 +62,8 @@ Run the complete browser experience:
 ```bash
 make app
 ```
+
+### Verify tracked evidence
 
 Verify that every tracked public-data or replication report retains its required provenance and schema fields:
 

@@ -1,134 +1,124 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-17T22:56:08Z",
+  "generatedAt": "2026-09-21T03:11:03Z",
   "title": "Design System: Water Investigation Agent",
   "extensions": {
     "colorMeta": {
-      "paper": { "role": "neutral", "displayName": "Plotter Paper", "canonical": "#f7f7f7", "tonalRamp": ["#202223", "#3e4142", "#606364", "#838687", "#a8aaaa", "#cccece", "#e5e6e6", "#f7f7f7"] },
-      "white": { "role": "neutral", "displayName": "Instrument White", "canonical": "#ffffff", "tonalRamp": ["#262626", "#474747", "#696969", "#8d8d8d", "#b2b2b2", "#d6d6d6", "#ededed", "#ffffff"] },
-      "ink": { "role": "neutral", "displayName": "Graphite Ink", "canonical": "#111c2f", "tonalRamp": ["#111c2f", "#27364c", "#46556c", "#66758c", "#8897ae", "#acbbd1", "#d1dfea", "#f0f5f8"] },
-      "reservoir-blue": { "role": "primary", "displayName": "Reservoir Blue", "canonical": "#12436c", "tonalRamp": ["#082039", "#0b355b", "#124f7f", "#326b9a", "#5988b0", "#83a7c7", "#b1c8dc", "#e4eef5"] },
-      "reservoir-blue-deep": { "role": "primary", "displayName": "Deep Reservoir Blue", "canonical": "#0b355b", "tonalRamp": ["#061f35", "#0b355b", "#154e7a", "#376b94", "#5d88ac", "#86a7c3", "#b3c8d9", "#e6edf3"] },
-      "reservoir-blue-soft": { "role": "primary", "displayName": "Soft Reservoir Blue", "canonical": "#dce7ef", "tonalRamp": ["#132735", "#294252", "#496071", "#6b7f8f", "#8fa0ae", "#b4c1ca", "#dce7ef", "#f1f6f9"] },
-      "rule": { "role": "neutral", "displayName": "Rule Blue-Gray", "canonical": "#b7c5d1", "tonalRamp": ["#18262f", "#32414b", "#505f69", "#707e88", "#929fa9", "#b7c5d1", "#d6e0e7", "#eef3f6"] },
-      "rule-soft": { "role": "neutral", "displayName": "Soft Rule", "canonical": "#dbe2e8", "tonalRamp": ["#20272c", "#3d464c", "#5d666d", "#7f888f", "#a2abb2", "#c4ccd2", "#dbe2e8", "#f1f4f6"] },
-      "muted": { "role": "neutral", "displayName": "Muted Slate", "canonical": "#66758a", "tonalRamp": ["#18212e", "#303c4c", "#4b596c", "#66758a", "#8695a9", "#a8b6c7", "#ccd7e1", "#edf2f6"] },
-      "signal-orange": { "role": "secondary", "displayName": "Signal Orange", "canonical": "#f05a18", "tonalRamp": ["#3d1605", "#6f2707", "#a43a09", "#d84a0d", "#f05a18", "#f58b56", "#f9b995", "#fde8d8"] },
-      "signal-orange-deep": { "role": "secondary", "displayName": "Deep Signal Orange", "canonical": "#d84a0d", "tonalRamp": ["#351204", "#612105", "#913106", "#bd4008", "#d84a0d", "#ed7c49", "#f4ad89", "#fbe1d2"] },
-      "signal-orange-soft": { "role": "secondary", "displayName": "Soft Signal Orange", "canonical": "#fff0df", "tonalRamp": ["#392317", "#63432d", "#8e6548", "#b88968", "#daad8c", "#f1cfb2", "#fff0df", "#fff8f0"] },
-      "ready-green": { "role": "tertiary", "displayName": "Ready Green", "canonical": "#52c84a", "tonalRamp": ["#102e0f", "#1c541b", "#287c26", "#36a432", "#52c84a", "#7bda74", "#aae8a5", "#ddf6da"] },
-      "focus-orange": { "role": "secondary", "displayName": "Focus Orange", "canonical": "#ff7a33", "tonalRamp": ["#421b08", "#78300d", "#ae4612", "#df5c1d", "#ff7a33", "#fda06e", "#fdc5a7", "#fee9db"] }
+      "mineral-canvas": { "role": "neutral", "displayName": "Pale Mineral Canvas", "canonical": "#f2f6f6", "tonalRamp": ["#172425", "#314041", "#4f6061", "#708182", "#93a3a4", "#b7c5c6", "#d8e2e2", "#f2f6f6"] },
+      "white-surface": { "role": "neutral", "displayName": "White Reading Surface", "canonical": "#ffffff", "tonalRamp": ["#262626", "#474747", "#696969", "#8d8d8d", "#b2b2b2", "#d6d6d6", "#ededed", "#ffffff"] },
+      "soft-teal-surface": { "role": "primary", "displayName": "Soft Teal Explanation", "canonical": "#eaf2f2", "tonalRamp": ["#172526", "#324142", "#506061", "#718182", "#94a3a4", "#b8c5c6", "#d8e3e3", "#f0f6f6"] },
+      "ink": { "role": "neutral", "displayName": "Deep Mineral Ink", "canonical": "#10262b", "tonalRamp": ["#10262b", "#294146", "#455f64", "#647e83", "#859fa4", "#a9c0c4", "#cde0e2", "#edf5f5"] },
+      "muted": { "role": "neutral", "displayName": "Muted Mineral", "canonical": "#52676d", "tonalRamp": ["#172326", "#2f3c40", "#46565b", "#52676d", "#829499", "#a8b7ba", "#ccd7d9", "#edf2f2"] },
+      "analysis-teal": { "role": "primary", "displayName": "Analysis Teal", "canonical": "#0d6264", "tonalRamp": ["#082829", "#0a4547", "#0d6264", "#277f80", "#4d9c9c", "#79b9b8", "#acd7d5", "#e1f2f1"] },
+      "deep-teal": { "role": "primary", "displayName": "Deep Trust Teal", "canonical": "#08494c", "tonalRamp": ["#06282a", "#08494c", "#14676a", "#358587", "#5ba3a4", "#84c1c0", "#b5dedd", "#e4f4f3"] },
+      "mint": { "role": "primary", "displayName": "Calm Mint", "canonical": "#d7ecea", "tonalRamp": ["#18302f", "#34504f", "#53716f", "#749391", "#97b6b3", "#b9d6d3", "#d7ecea", "#eff8f7"] },
+      "signal-orange": { "role": "secondary", "displayName": "Signal Orange", "canonical": "#c74826", "tonalRamp": ["#39140a", "#672313", "#96341b", "#c74826", "#db6b4a", "#e8957c", "#f2c2b1", "#fbeae3"] },
+      "signal-orange-deep": { "role": "secondary", "displayName": "Deep Signal Orange", "canonical": "#a73319", "tonalRamp": ["#351006", "#5f1c0c", "#892a14", "#a73319", "#cc5f42", "#df8d76", "#edbdaf", "#f9e9e1"] },
+      "warm-orange-surface": { "role": "secondary", "displayName": "Warm Recommendation", "canonical": "#fff0e9", "tonalRamp": ["#3a2118", "#634035", "#8d6254", "#b88676", "#daa99a", "#f0cfc3", "#fff0e9", "#fff8f5"] },
+      "line": { "role": "neutral", "displayName": "Mineral Divider", "canonical": "#d6e1e2", "tonalRamp": ["#1d292a", "#394748", "#586768", "#798889", "#9caaab", "#bdcacc", "#d6e1e2", "#f0f5f5"] },
+      "focus-amber": { "role": "secondary", "displayName": "Focus Amber", "canonical": "#ef9c39", "tonalRamp": ["#3a2308", "#68400d", "#965e14", "#c77e20", "#ef9c39", "#f4b866", "#f8d398", "#fceccf"] }
     },
     "typographyMeta": {
-      "display": { "displayName": "Instrument Display", "purpose": "The opening decision statement." },
-      "headline": { "displayName": "Section Headline", "purpose": "Major method and audience sections." },
-      "title": { "displayName": "Instrument Title", "purpose": "Stage headings, component headings, values, and controls." },
-      "body": { "displayName": "Evidence Body", "purpose": "Explanations, source notes, and limitations." },
-      "label": { "displayName": "Evidence Label", "purpose": "Provenance, statuses, table headers, and boundaries." }
+      "display": { "displayName": "Narrative Display", "purpose": "Large plain-language proposition set in Public Sans with tight tracking and balanced wrapping." },
+      "headline": { "displayName": "Section Headline", "purpose": "Major method, investigation, evidence, and evaluator section headings." },
+      "title": { "displayName": "Decision Title", "purpose": "Recommendations, result steps, cards, and prominent values." },
+      "body": { "displayName": "Reading Body", "purpose": "Explanations, interpretations, provenance, and operational boundaries." },
+      "label": { "displayName": "Status Label", "purpose": "Provenance chips, field labels, table headers, statuses, and scope notes." }
     },
     "shadows": [
-      { "name": "selected-inset", "value": "inset 0 0 0 1px #f05a18", "purpose": "Locks the recommended observation or leading belief to its ruled row without lifting it." }
+      { "name": "workspace", "value": "0 20px 55px rgba(15,52,57,.09)", "purpose": "Lifts the dominant investigation workspace from the mineral canvas." },
+      { "name": "hero-situation", "value": "0 28px 60px rgba(8,73,76,.2)", "purpose": "Gives the opening conflicting-signal situation one confident focal plane." },
+      { "name": "primary-action", "value": "0 8px 22px rgba(16,38,43,.12)", "purpose": "Adds restrained emphasis to the hero's primary action." },
+      { "name": "run-console", "value": "0 8px 24px rgba(18,45,53,.06)", "purpose": "Separates the compact seed-and-run control without making it float." }
     ],
     "motion": [
-      { "name": "instrument-ease", "value": "cubic-bezier(.16, 1, .3, 1)", "purpose": "Fast-settling evidence and trace updates." },
-      { "name": "trace-flow", "value": "650ms cubic-bezier(.16, 1, .3, 1)", "purpose": "Advances the dashed network trace while a synthetic case runs." },
-      { "name": "evidence-lock", "value": "560ms cubic-bezier(.16, 1, .3, 1)", "purpose": "Reveals the selected row and leading belief after evidence returns." },
-      { "name": "control-response", "value": "180ms cubic-bezier(.16, 1, .3, 1)", "purpose": "Moves the run icon on direct activation." },
-      { "name": "reduced-motion", "value": "none", "purpose": "Removes trace and evidence animation and uses a persistent orange outline instead." }
+      { "name": "control-feedback", "value": "150ms ease", "purpose": "Short hover and activation feedback on primary controls." },
+      { "name": "loading-pulse", "value": "800ms ease-in-out alternate", "purpose": "Pulses the small orange trace while a case runs." },
+      { "name": "reduced-motion", "value": "none", "purpose": "Removes smooth scrolling, control transitions, and loading animation while retaining state visibility." }
     ],
     "breakpoints": [
-      { "name": "compact-desktop", "value": "1300px" },
       { "name": "stacked", "value": "900px" },
-      { "name": "narrow", "value": "420px" }
+      { "name": "narrow", "value": "500px" }
     ]
   },
   "components": [
     {
-      "name": "Run Synthetic Case",
+      "name": "Primary Action",
       "kind": "button",
-      "refersTo": "button-primary",
-      "description": "Primary action for starting the explicitly synthetic investigation.",
-      "html": "<button class=\"ds-run\" type=\"button\"><span aria-hidden=\"true\">▶</span> Run a synthetic case</button>",
-      "css": ".ds-run{min-height:62px;padding:0 22px;border:0;border-radius:0;background:var(--orange,#f05a18);color:var(--white,#fff);font:20px 'Freeman','Arial Narrow',sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:10px;cursor:pointer}.ds-run:hover{background:#d84a0d}.ds-run:focus-visible{outline:3px solid var(--focus,#ff7a33);outline-offset:3px}.ds-run:active span{transform:translateX(3px)}"
+      "description": "Signal-orange action used to start or advance the synthetic investigation.",
+      "html": "<button class=\"ds-primary\" type=\"button\">Run the investigation</button>",
+      "css": ".ds-primary{min-height:54px;padding:0 21px;border:0;border-radius:10px;background:var(--orange,#c74826);color:#fff;font-family:var(--font,'Public Sans',system-ui,sans-serif);font-size:15px;font-weight:700;cursor:pointer;box-shadow:0 8px 22px rgba(16,38,43,.12);transition:background .15s ease,transform .15s ease}.ds-primary:hover{background:var(--orange2,#a73319);transform:translateY(-1px)}.ds-primary:focus-visible{outline:3px solid #ef9c39;outline-offset:3px}.ds-primary:active{transform:translateY(0)}"
+    },
+    {
+      "name": "Secondary Action",
+      "kind": "button",
+      "description": "Neutral bordered action for replay and supporting tasks.",
+      "html": "<button class=\"ds-secondary\" type=\"button\">Replay case</button>",
+      "css": ".ds-secondary{min-height:48px;padding:0 17px;border:1px solid var(--line,#d6e1e2);border-radius:10px;background:var(--card,#fff);color:var(--ink,#10262b);font-family:var(--font,'Public Sans',system-ui,sans-serif);font-size:15px;font-weight:700;cursor:pointer}.ds-secondary:hover{border-color:var(--teal,#0d6264);color:var(--deep,#08494c)}.ds-secondary:focus-visible{outline:3px solid #ef9c39;outline-offset:3px}.ds-secondary:active{background:var(--soft,#eaf2f2)}"
     },
     {
       "name": "Seed Field",
       "kind": "input",
-      "description": "Square numeric field for reproducible synthetic cases.",
+      "description": "Compact numeric field paired directly with the run action for reproducible synthetic cases.",
       "html": "<label class=\"ds-seed\"><span>Seed</span><input type=\"number\" value=\"7\" min=\"0\" max=\"999999\"></label>",
-      "css": ".ds-seed{display:block;padding:7px 12px;border:1px solid var(--line,#b7c5d1);background:var(--white,#fff);color:var(--muted,#66758a);font:12px 'Freeman','Arial Narrow',sans-serif;text-transform:uppercase}.ds-seed input{display:block;width:100%;border:0;padding:0;background:transparent;color:var(--blue-deep,#0b355b);font:30px/1.1 'Freeman','Arial Narrow',sans-serif;font-variant-numeric:tabular-nums}.ds-seed:focus-within{outline:3px solid var(--focus,#ff7a33);outline-offset:3px}.ds-seed input:focus{outline:0}"
+      "css": ".ds-seed{display:block;padding:7px 13px;border:1px solid var(--line,#d6e1e2);border-radius:10px;background:var(--card,#fff);color:var(--muted,#52676d);font-family:var(--font,'Public Sans',system-ui,sans-serif)}.ds-seed span{display:block;font-size:10px;font-weight:700;text-transform:uppercase}.ds-seed input{display:block;width:100%;padding:0;border:0;background:transparent;color:var(--ink,#10262b);font-size:24px;font-weight:700;font-variant-numeric:tabular-nums}.ds-seed:focus-within{outline:3px solid #ef9c39;outline-offset:3px}.ds-seed input:focus{outline:0}"
     },
     {
-      "name": "Evidence Navigation",
+      "name": "Quiet Masthead Navigation",
       "kind": "nav",
-      "description": "Ruled masthead links for Method, Evidence, Utility, and Research.",
-      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><a href=\"#method\">▤ Method</a><a href=\"#evidence\">▥ Evidence</a><a href=\"#utility\">⌘ Utility</a><a href=\"#research\">▣ Research</a></nav>",
-      "css": ".ds-nav{display:flex;align-items:center;gap:32px;border-bottom:1px solid var(--blue,#12436c);background:var(--white,#fff);padding:12px 20px}.ds-nav a{min-height:44px;display:flex;align-items:center;gap:8px;color:var(--blue-deep,#0b355b);font:20px 'Freeman','Arial Narrow',sans-serif;text-decoration:none;white-space:nowrap}.ds-nav a:hover{color:var(--orange,#f05a18)}.ds-nav a:focus-visible{outline:3px solid var(--focus,#ff7a33);outline-offset:3px}"
+      "description": "Low-emphasis sticky navigation that keeps the task and evaluation paths available without competing with the opening narrative.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Primary\"><a href=\"#method\">How it works</a><a href=\"#investigation\">Run investigation</a><a href=\"#evidence\">Evidence</a><a href=\"#evaluation\">Evaluate</a></nav>",
+      "css": ".ds-nav{display:flex;align-items:center;justify-content:center;gap:28px;padding:0 20px;border-bottom:1px solid rgba(190,205,208,.8);background:rgba(255,255,255,.92);font-family:var(--font,'Public Sans',system-ui,sans-serif)}.ds-nav a{min-height:44px;padding:14px 0;display:flex;align-items:center;color:var(--muted,#52676d);font-size:13px;font-weight:600;text-decoration:none;white-space:nowrap}.ds-nav a:hover{color:var(--teal,#0d6264)}.ds-nav a:focus-visible{outline:3px solid #ef9c39;outline-offset:3px}"
     },
     {
-      "name": "Synthetic Evidence Tag",
+      "name": "Evidence Status Chip",
       "kind": "chip",
-      "refersTo": "evidence-tag-synthetic",
-      "description": "Point-of-use label for synthetic results and demonstration evidence.",
-      "html": "<span class=\"ds-tag-synthetic\">Synthetic result</span>",
-      "css": ".ds-tag-synthetic{display:inline-block;padding:4px 6px;border:1px solid #ffc397;border-radius:0;background:var(--orange-soft,#fff0df);color:#b73a00;font:750 9px 'Public Sans',system-ui,sans-serif;text-transform:uppercase;white-space:nowrap}"
+      "description": "Textual provenance label for synthetic evidence and public context; color reinforces but never replaces the wording.",
+      "html": "<span class=\"ds-chip ds-chip-synthetic\">Synthetic benchmark</span> <span class=\"ds-chip ds-chip-public\">Public context</span>",
+      "css": ".ds-chip{display:inline-block;padding:5px 8px;border-radius:999px;font-family:var(--font,'Public Sans',system-ui,sans-serif);font-size:11px;font-weight:700;text-transform:uppercase}.ds-chip-synthetic{background:var(--warm,#fff0e9);color:var(--orange2,#a73319)}.ds-chip-public{background:var(--mint,#d7ecea);color:var(--deep,#08494c)}"
     },
     {
-      "name": "Public Context Tag",
-      "kind": "chip",
-      "refersTo": "evidence-tag-public",
-      "description": "Point-of-use label for public datasets that provide context rather than validation.",
-      "html": "<span class=\"ds-tag-public\">Public context</span>",
-      "css": ".ds-tag-public{display:inline-block;padding:4px 6px;border-radius:0;background:var(--blue-soft,#dce7ef);color:var(--blue-deep,#0b355b);font:750 9px 'Public Sans',system-ui,sans-serif;text-transform:uppercase;white-space:nowrap}"
-    },
-    {
-      "name": "Evidence Panel",
+      "name": "Recommendation Block",
       "kind": "card",
-      "refersTo": "evidence-panel",
-      "description": "Flat ruled container for one piece of evidence, its provenance, and interpretation.",
-      "html": "<article class=\"ds-evidence\"><p class=\"ds-evidence-label\">Evidence from chosen action</p><strong>Clear</strong><p>Collected by field chlorine grab. Synthetic evaluation only.</p></article>",
-      "css": ".ds-evidence{max-width:340px;padding:18px;border:1px solid var(--line,#b7c5d1);border-radius:0;background:var(--white,#fff);color:var(--ink,#111c2f);font:12px/1.45 'Public Sans',system-ui,sans-serif}.ds-evidence-label{margin:0 0 6px;color:var(--blue-deep,#0b355b);font:12px 'Freeman','Arial Narrow',sans-serif;text-transform:uppercase;letter-spacing:.04em}.ds-evidence strong{display:block;color:var(--blue-deep,#0b355b);font:23px 'Freeman','Arial Narrow',sans-serif;text-transform:capitalize}.ds-evidence p:last-child{color:var(--muted,#66758a)}"
+      "description": "Warm, rounded result surface that states the selected observation and why it won before exposing calculation details.",
+      "html": "<article class=\"ds-recommendation\"><span>Recommended next observation</span><h3>Field chlorine grab</h3><p>It offers the strongest expected information gain for its relative cost.</p></article>",
+      "css": ".ds-recommendation{padding:25px 25px 25px 31px;border:1px solid #f2c3b3;border-radius:12px;background:var(--warm,#fff0e9);color:var(--ink,#10262b);font-family:var(--font,'Public Sans',system-ui,sans-serif)}.ds-recommendation span{color:var(--orange2,#a73319);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}.ds-recommendation h3{margin:5px 0;font-size:28px;line-height:1.25;letter-spacing:-.025em}.ds-recommendation p{margin:6px 0 0;color:var(--muted,#52676d)}"
     },
     {
-      "name": "Recommended Observation Row",
+      "name": "Guided Investigation Workspace",
       "kind": "custom",
-      "description": "Ledger row that marks the next observation selected by information gained per relative cost.",
-      "html": "<div class=\"ds-ranked\"><div><small>Recommended next</small><strong>Field chlorine grab</strong></div><b>0.367</b><b>1</b><b>0.294</b></div>",
-      "css": ".ds-ranked{display:grid;grid-template-columns:1fr repeat(3,56px);align-items:center;border:1px solid var(--orange,#f05a18);background:var(--orange-soft,#fff0df);color:var(--blue-deep,#0b355b);font:13px 'Public Sans',system-ui,sans-serif;font-variant-numeric:tabular-nums}.ds-ranked>*{padding:10px}.ds-ranked b{text-align:center;font:18px 'Freeman','Arial Narrow',sans-serif}.ds-ranked small{display:block;color:var(--orange,#f05a18);font-size:10px;font-weight:750;letter-spacing:.06em;text-transform:uppercase}.ds-ranked strong{font-weight:650}"
+      "description": "The dominant application surface: stable context and history beside the current recommendation, evidence, interpretation, belief change, and next action.",
+      "html": "<section class=\"ds-workspace\" aria-label=\"Guided investigation\"><aside class=\"ds-context\"><span>Case context</span><h3>Signals disagree</h3><p>Starting assumptions and observation history remain visible.</p></aside><article class=\"ds-result\"><span>Recommended next observation</span><h3>Field chlorine grab</h3><p>Best expected information gain for its relative cost.</p><div class=\"ds-belief\"><small>Leading belief</small><strong>0.41 → 0.68</strong></div><details><summary>View ranking and calculation</summary><p>The complete technical ranking appears here.</p></details></article></section>",
+      "css": ".ds-workspace{display:grid;grid-template-columns:270px minmax(0,1fr);overflow:hidden;border:1px solid var(--line,#d6e1e2);border-radius:0 0 22px 22px;background:var(--card,#fff);color:var(--ink,#10262b);font-family:var(--font,'Public Sans',system-ui,sans-serif);box-shadow:0 20px 55px rgba(15,52,57,.09)}.ds-context{padding:24px;border-right:1px solid var(--line,#d6e1e2);background:#f7f9f9}.ds-result{padding:34px}.ds-context>span,.ds-result>span,.ds-belief small{color:var(--muted,#52676d);font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase}.ds-workspace h3{margin:5px 0;color:var(--ink,#10262b);font-size:25px;line-height:1.25;letter-spacing:-.025em}.ds-workspace p{color:var(--muted,#52676d)}.ds-belief{margin:16px 0;padding:18px;border-radius:12px;background:var(--soft,#eaf2f2)}.ds-belief strong{display:block;margin-top:4px;color:var(--teal,#0d6264);font-size:22px;font-variant-numeric:tabular-nums}.ds-workspace details{border:1px solid var(--line,#d6e1e2);border-radius:12px;overflow:hidden}.ds-workspace summary{min-height:48px;padding:0 17px;display:flex;align-items:center;color:var(--deep,#08494c);font-weight:700;cursor:pointer}.ds-workspace summary:hover{background:var(--soft,#eaf2f2)}.ds-workspace summary:focus-visible{outline:3px solid #ef9c39;outline-offset:-3px}.ds-workspace details p{padding:0 17px 12px}@media(max-width:900px){.ds-workspace{grid-template-columns:1fr}.ds-context{border-right:0;border-bottom:1px solid var(--line,#d6e1e2)}}"
+    },
+    {
+      "name": "Evaluation Tabs",
+      "kind": "custom",
+      "description": "Rounded segmented control that separates utility evaluation from research and reproducibility depth.",
+      "html": "<div class=\"ds-tabs\" role=\"tablist\"><button role=\"tab\" aria-selected=\"true\">Utility evaluation</button><button role=\"tab\" aria-selected=\"false\">Research &amp; reproducibility</button></div>",
+      "css": ".ds-tabs{width:max-content;padding:4px;display:flex;border:1px solid var(--line,#d6e1e2);border-radius:12px;background:var(--card,#fff);font-family:var(--font,'Public Sans',system-ui,sans-serif)}.ds-tabs button{min-height:45px;padding:0 18px;border:0;border-radius:8px;background:transparent;color:var(--muted,#52676d);font-weight:700;cursor:pointer}.ds-tabs button[aria-selected=true]{background:var(--teal,#0d6264);color:#fff}.ds-tabs button:hover:not([aria-selected=true]){background:var(--soft,#eaf2f2);color:var(--deep,#08494c)}.ds-tabs button:focus-visible{outline:3px solid #ef9c39;outline-offset:2px}"
     }
   ],
   "narrative": {
-    "northStar": "The Municipal Investigation Instrument",
-    "overview": "The visual system behaves like a working evidence board in a water-operations room: cool plotter-white surfaces, reservoir blues, graphite text, signal orange, ruled ledgers, network traces, stamped labels, and squared controls. It is dense because the reasoning trail stays visible, but hierarchy and repeated geometry keep the density legible.\n\nThe instrument presents uncertainty without theatricalizing it. Competing explanations remain visible beside the recommended observation and returned evidence. Public context, synthetic results, and operational boundaries are labeled at their point of use so visual confidence never outruns evidentiary confidence.",
+    "northStar": "The Calm Decision Console",
+    "overview": "The interface is a calm decision console. It helps a first-time visitor understand the problem, run an investigation, and interpret a recommendation without confronting them with a dashboard of unexplained numbers.\n\nThe experience follows one narrative: conflicting signals → useful next observation → returned evidence → changed belief → next step. Conclusions stay visible; technical calculations are progressively disclosed.",
     "keyCharacteristics": [
-      "Flat, ruled, square-edged evidence surfaces rather than floating cards.",
-      "Condensed display typography for headings, controls, sequence numbers, and measured values.",
-      "Public Sans for explanatory copy, metadata, source notes, and limitations.",
-      "Reservoir blue establishes structure; signal orange marks the action, active path, recommendation, or changed belief.",
-      "Tabular numerals and ledger alignment make probabilities, costs, scores, seeds, and evidence easy to compare.",
-      "One ordered investigation trail that reflows from a horizontal conveyor to a vertical ledger."
+      "Public Sans is the interface typeface. Large headings use weight, line-height, and spacing—not condensed display type—to create hierarchy.",
+      "Deep teal communicates trustworthy analysis. Signal orange is reserved for the primary action, active recommendation, and meaningful change.",
+      "The page uses a pale mineral canvas, white reading surfaces, soft teal explanation surfaces, generous whitespace, and restrained rounded geometry.",
+      "Shadows appear only on the hero situation and primary investigation workspace. Supporting content remains flat.",
+      "Borders group related information; they do not form a page-wide ruled grid."
     ],
-    "rules": [
-      { "name": "The One Signal Rule", "body": "Orange means action, change, recommendation, or an important boundary; do not use it as ambient decoration.", "section": "colors" },
-      { "name": "The Evidence Boundary Rule", "body": "Synthetic results use orange labeling, public context uses blue labeling, and operational limits are written explicitly. Never rely on color alone to communicate provenance or permission.", "section": "colors" },
-      { "name": "The Two-Voice Rule", "body": "Freeman names, sequences, and measures; Public Sans explains, qualifies, and cites.", "section": "typography" },
-      { "name": "The Comparable Number Rule", "body": "Use tabular numerals for probabilities, ranks, scores, seeds, counts, and benchmark values.", "section": "typography" },
-      { "name": "The Unbroken Trail Rule", "body": "Responsive layout may change direction, never investigation order or the proximity of a result to its evidence label.", "section": "layout" },
-      { "name": "The Ruled Surface Rule", "body": "Establish hierarchy with borders, background tone, and adjacency before considering shadow.", "section": "elevation" }
-    ],
+    "rules": [],
     "dos": [
-      "Do keep competing hypotheses visible when emphasizing a recommendation or leading belief.",
-      "Do attach ‘synthetic,’ ‘public context,’ ‘advisory only,’ and approval-state language directly to the evidence or action it qualifies.",
-      "Do use square edges, one-pixel rules, tabular numerals, and aligned rows to preserve the investigation-instrument character.",
-      "Do preserve keyboard focus, polite live status announcements, semantic tables, non-color labels, reduced-motion behavior, and 44px coarse-pointer targets.",
-      "Do preserve the four-stage investigation order when the layout collapses to mobile."
+      "Preserve the same conclusion, evidence, and next action at narrow widths.",
+      "Tables may scroll inside a labeled region; the page itself must not scroll horizontally.",
+      "State changes update in place and use the existing polite live region.",
+      "Motion is limited to short control feedback and a small loading trace. Reduced-motion preferences remove both."
     ],
     "donts": [
-      "Don't imply live utility connection, field validation, deployment, operational authority, or control capability.",
-      "Don't merge synthetic benchmark results and public context into one unlabeled evidence class.",
-      "Don't use orange for decoration or allow it to compete with the recommended action and changed evidence.",
-      "Don't introduce rounded floating cards, ambient shadows, glass effects, decorative gradients outside the established case-dock field, or generic AI imagery.",
-      "Don't animate for atmosphere; motion must show an active trace, returned evidence, or a direct control response."
+      "Never imply a live utility connection, field validation, deployment, or operational authority.",
+      "The interface is advisory-only and cannot control infrastructure."
     ]
   }
 }

@@ -17,23 +17,23 @@ First establish one plain-language understanding of the agent, then let utility 
 
 ## Direction contract
 
-**THESIS:** The page is an investigation instrument whose visible evidence trail proves how the agent chooses what to observe next; it refuses the generic editorial hero, feature-card stack, and terminal demo.
+**THESIS:** The page teaches the investigation before exposing its calculations: a plain-language opening establishes what the agent is for, then a guided workspace keeps each recommendation beside the evidence and belief change it caused.
 
-**OWN-WORLD:** A municipal incident-evidence board: cool plotter white, deep reservoir blue, graphite, and one signal orange; ruled ledgers, node traces, stamped statuses, squared controls, and tabular numerals.
+**OWN-WORLD:** A calm decision console: pale mineral canvas, white reading surfaces, deep teal analysis fields, and one signal orange; generous whitespace, soft grouped geometry, clear status chips, and tabular numerals.
 
-**STORY:** Understand uncertainty, watch one recommendation emerge from competing explanations, run the harness, then choose Utility or Research depth.
+**STORY:** Understand the decision problem, learn the three-part investigation loop, run the real harness, interpret each returned observation locally, then choose Utility or Research depth.
 
-**FIRST VIEWPORT:** A compact masthead frames a full-width horizontal evidence conveyor. A quiet opening band states the problem and action; below it, four numbered stages connect initial signal, competing hypotheses, ranked observations, and updated belief. “Run a synthetic case” sits inside the instrument, above the fold.
+**FIRST VIEWPORT:** A compact masthead frames a plain-language proposition: find the next best measurement when water signals disagree. A concrete incident prompt explains the uncertainty without showing unexplained probabilities. The primary action leads to the runnable guided investigation; one quiet “Synthetic demo” marker establishes context, while the complete advisory and no-control boundary lives in the footer and evaluation path.
 
-**FORM:** Investigation instrument, first of seven grounded forms, selected directly by the user and therefore overriding seed `b11d058b`. Signature interaction: the active evidence path advances across the board while probability marks change in place.
+**FORM:** Narrative decision console. Surface concept seed `79196f6d` remains recorded, while the research-backed calm-console direction supersedes its legacy visual treatment. Signature interaction: each observation resolves in one stable workspace as recommendation → reason → evidence → interpretation → before/after belief, while technical rankings remain available on demand.
 
 **FINISH:** unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
 
-**APPROVED COMP:** `.impeccable/mocks/instrument-evidence-conveyor.png`. Carry forward its single left-to-right sequence, dense ruled evidence treatment, orange active path, and bottom audience branches. Do not literalize generated icons, dates, invented sensor readings, or text errors; implementation content comes from the actual API and tracked evidence.
+**APPROVED STRUCTURE:** Confirmed by the 2026-09-20 modern decision-support research and user approval. Replace the municipal evidence-board identity with a calm, narrative-first console. The real API and tracked evidence remain the source of all case content.
 
 ## Memorable moment
 
-The visitor sees an observation win on information gained per unit cost, then watches evidence reroute confidence among contamination, leak, and sensor fault without hiding the alternatives.
+The visitor runs the real agent and receives an answer in human order: what to check, why, what came back, what changed, and what happens next. The complete calculation remains one disclosure away.
 
 ## Constraints
 

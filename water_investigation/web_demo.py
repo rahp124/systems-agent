@@ -7,6 +7,7 @@ import os
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from random import Random
+from urllib.parse import urlsplit
 
 from .analytic import expected_information_gain, score_action
 from .world import default_actions, new_episode
@@ -51,9 +52,16 @@ class DemoHandler(SimpleHTTPRequestHandler):
         "/artifacts/nors-drinking-water-public-report.json",
         "/docs/agent-architecture.md", "/docs/research/measurement-model-sources.md",
         "/docs/validation-protocol.md", "/docs/data-handling-security.md",
-        "/docs/operational-readiness.md", "/PRIOR_ART_REPORT.md", "/FINDINGS.md",
+        "/docs/operational-readiness.md", "/docs/utility-pilot-brief.md",
+        "/PRIOR_ART_REPORT.md", "/FINDINGS.md",
         "/README.md",
     })
+    ASSET_ALIASES = {
+        "/index.html": "/showcase/index.html",
+        "/styles.css": "/showcase/styles.css",
+        "/config.js": "/showcase/config.js",
+        "/app.js": "/showcase/app.js",
+    }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, directory=str(ROOT), **kwargs)
@@ -93,11 +101,15 @@ class DemoHandler(SimpleHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self) -> None:
-        if self.path == "/health":
+        request_path = urlsplit(self.path).path
+        if request_path == "/health":
             self._send_json({"status": "ok", "service": "water-investigation-agent"})
             return
-        if self.path == "/":
-            self.path = "/showcase/index.html"
+        if request_path in self.ASSET_ALIASES:
+            request_path = self.ASSET_ALIASES[request_path]
+        if request_path == "/":
+            request_path = "/showcase/index.html"
+        self.path = request_path
         if self.path not in self.PUBLIC_PATHS:
             self.send_error(404)
             return
