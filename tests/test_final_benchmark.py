@@ -23,6 +23,15 @@ def test_protocol_requires_independent_generation_seeds(tmp_path: Path) -> None:
         load_protocol(path)
 
 
+def test_checked_in_protocol_prespecifies_multiple_networks_and_layouts() -> None:
+    protocol = load_protocol(Path(__file__).parents[1] / "benchmark_protocol.json")
+    combinations = {(item["network"], item["sensor_layout"])
+                    for item in protocol["ensembles"]}
+    assert {("net3", "primary"), ("net3", "alternate"),
+            ("ltown", "primary"), ("ltown", "alternate")} <= combinations
+    assert protocol["episodes_per_ensemble"] * len(protocol["ensembles"]) == 2000
+
+
 def test_hierarchical_interval_is_deterministic_and_contains_group_mean() -> None:
     interval = hierarchical_interval([[0.0, 1.0], [1.0, 1.0]], 42, 1000, 0.95)
     assert interval == hierarchical_interval([[0.0, 1.0], [1.0, 1.0]], 42, 1000, 0.95)

@@ -1,0 +1,724 @@
+{
+  "schema_version": 1,
+  "protocol": {
+    "schema_version": 1,
+    "protocol_id": "independent-multinetwork-v1",
+    "reference_policy": "eig_per_cost",
+    "policies": [
+      "eig_per_cost",
+      "risk_aware",
+      "expected_accuracy",
+      "random",
+      "cheapest_first",
+      "operator_rule"
+    ],
+    "episodes_per_ensemble": 400,
+    "bootstrap_samples": 2000,
+    "confidence_level": 0.95,
+    "risk_lambda": 0.02,
+    "thresholds": {
+      "conclusion_posterior": 0.75,
+      "max_initial_posterior": 0.7,
+      "min_second_initial_posterior": 0.15,
+      "max_actions": 3
+    },
+    "interpretation_limit": "All results are synthetic integration evidence. Ensemble-level bootstrap intervals quantify variation across these prespecified simulator ensembles and episode draws; they do not establish field performance or cross-utility generalization.",
+    "sha256": "0a70a2b7b99c0f74e486da793f354e316fb06a6dde1bd1c6a20ae1962a483351"
+  },
+  "ensembles": [
+    {
+      "id": "net3-primary-a",
+      "artifact": "artifacts/final-net3-primary-a.npz",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "generation_seed": 20261001,
+      "evaluation_seed": 20261101,
+      "scenario_count": 180,
+      "training_scenarios": 90,
+      "held_out_scenarios": 90,
+      "eligible_held_out_scenarios": 60,
+      "policy_metrics": {
+        "eig_per_cost": {
+          "accuracy": 0.935,
+          "mean_cost": 4.3,
+          "mean_actions": 1.825,
+          "mean_cost_when_correct": 4.037433155080214
+        },
+        "risk_aware": {
+          "accuracy": 0.8475,
+          "mean_cost": 1.0,
+          "mean_actions": 1,
+          "mean_cost_when_correct": 1.0
+        },
+        "expected_accuracy": {
+          "accuracy": 0.935,
+          "mean_cost": 3.15125,
+          "mean_actions": 1.59,
+          "mean_cost_when_correct": 2.9692513368983957
+        },
+        "random": {
+          "accuracy": 0.895,
+          "mean_cost": 5.33625,
+          "mean_actions": 2.155,
+          "mean_cost_when_correct": 5.261173184357542
+        },
+        "cheapest_first": {
+          "accuracy": 0.8475,
+          "mean_cost": 2.7375,
+          "mean_actions": 2.4125,
+          "mean_cost_when_correct": 2.4469026548672566
+        },
+        "operator_rule": {
+          "accuracy": 0.935,
+          "mean_cost": 3.595,
+          "mean_actions": 1.59,
+          "mean_cost_when_correct": 3.323529411764706
+        }
+      }
+    },
+    {
+      "id": "net3-primary-b",
+      "artifact": "artifacts/final-net3-primary-b.npz",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "generation_seed": 20261002,
+      "evaluation_seed": 20261102,
+      "scenario_count": 180,
+      "training_scenarios": 90,
+      "held_out_scenarios": 90,
+      "eligible_held_out_scenarios": 60,
+      "policy_metrics": {
+        "eig_per_cost": {
+          "accuracy": 0.8925,
+          "mean_cost": 2.63,
+          "mean_actions": 1.38,
+          "mean_cost_when_correct": 2.4201680672268906
+        },
+        "risk_aware": {
+          "accuracy": 0.8925,
+          "mean_cost": 2.225,
+          "mean_actions": 1.245,
+          "mean_cost_when_correct": 2.092436974789916
+        },
+        "expected_accuracy": {
+          "accuracy": 0.8925,
+          "mean_cost": 2.63,
+          "mean_actions": 1.38,
+          "mean_cost_when_correct": 2.4201680672268906
+        },
+        "random": {
+          "accuracy": 0.845,
+          "mean_cost": 4.905,
+          "mean_actions": 1.965,
+          "mean_cost_when_correct": 4.720414201183432
+        },
+        "cheapest_first": {
+          "accuracy": 0.8325,
+          "mean_cost": 2.235,
+          "mean_actions": 2.245,
+          "mean_cost_when_correct": 1.9864864864864864
+        },
+        "operator_rule": {
+          "accuracy": 0.8925,
+          "mean_cost": 2.63,
+          "mean_actions": 1.38,
+          "mean_cost_when_correct": 2.4201680672268906
+        }
+      }
+    },
+    {
+      "id": "net3-alternate",
+      "artifact": "artifacts/final-net3-alternate.npz",
+      "network": "net3",
+      "sensor_layout": "alternate",
+      "generation_seed": 20261003,
+      "evaluation_seed": 20261103,
+      "scenario_count": 180,
+      "training_scenarios": 90,
+      "held_out_scenarios": 90,
+      "eligible_held_out_scenarios": 60,
+      "policy_metrics": {
+        "eig_per_cost": {
+          "accuracy": 0.4675,
+          "mean_cost": 9.0,
+          "mean_actions": 3,
+          "mean_cost_when_correct": 9.0
+        },
+        "risk_aware": {
+          "accuracy": 0.495,
+          "mean_cost": 1.0,
+          "mean_actions": 1,
+          "mean_cost_when_correct": 1.0
+        },
+        "expected_accuracy": {
+          "accuracy": 0.4675,
+          "mean_cost": 6.91375,
+          "mean_actions": 2.8775,
+          "mean_cost_when_correct": 6.935828877005347
+        },
+        "random": {
+          "accuracy": 0.4675,
+          "mean_cost": 7.09125,
+          "mean_actions": 2.9775,
+          "mean_cost_when_correct": 6.9411764705882355
+        },
+        "cheapest_first": {
+          "accuracy": 0.495,
+          "mean_cost": 4.5,
+          "mean_actions": 3,
+          "mean_cost_when_correct": 4.5
+        },
+        "operator_rule": {
+          "accuracy": 0.4675,
+          "mean_cost": 9.0,
+          "mean_actions": 3,
+          "mean_cost_when_correct": 9.0
+        }
+      }
+    },
+    {
+      "id": "ltown-primary",
+      "artifact": "artifacts/final-ltown-primary.npz",
+      "network": "ltown",
+      "sensor_layout": "primary",
+      "generation_seed": 20261004,
+      "evaluation_seed": 20261104,
+      "scenario_count": 180,
+      "training_scenarios": 90,
+      "held_out_scenarios": 90,
+      "eligible_held_out_scenarios": 60,
+      "policy_metrics": {
+        "eig_per_cost": {
+          "accuracy": 1.0,
+          "mean_cost": 1.0,
+          "mean_actions": 1,
+          "mean_cost_when_correct": 1.0
+        },
+        "risk_aware": {
+          "accuracy": 1.0,
+          "mean_cost": 1.0,
+          "mean_actions": 1,
+          "mean_cost_when_correct": 1.0
+        },
+        "expected_accuracy": {
+          "accuracy": 1.0,
+          "mean_cost": 1.0,
+          "mean_actions": 1,
+          "mean_cost_when_correct": 1.0
+        },
+        "random": {
+          "accuracy": 1.0,
+          "mean_cost": 4.05625,
+          "mean_actions": 1.7,
+          "mean_cost_when_correct": 4.05625
+        },
+        "cheapest_first": {
+          "accuracy": 1.0,
+          "mean_cost": 1.5,
+          "mean_actions": 2,
+          "mean_cost_when_correct": 1.5
+        },
+        "operator_rule": {
+          "accuracy": 1.0,
+          "mean_cost": 1.0,
+          "mean_actions": 1,
+          "mean_cost_when_correct": 1.0
+        }
+      }
+    },
+    {
+      "id": "ltown-alternate",
+      "artifact": "artifacts/final-ltown-alternate.npz",
+      "network": "ltown",
+      "sensor_layout": "alternate",
+      "generation_seed": 20261005,
+      "evaluation_seed": 20261105,
+      "scenario_count": 180,
+      "training_scenarios": 90,
+      "held_out_scenarios": 90,
+      "eligible_held_out_scenarios": 60,
+      "policy_metrics": {
+        "eig_per_cost": {
+          "accuracy": 1.0,
+          "mean_cost": 1.0,
+          "mean_actions": 1,
+          "mean_cost_when_correct": 1.0
+        },
+        "risk_aware": {
+          "accuracy": 1.0,
+          "mean_cost": 1.0,
+          "mean_actions": 1,
+          "mean_cost_when_correct": 1.0
+        },
+        "expected_accuracy": {
+          "accuracy": 1.0,
+          "mean_cost": 1.0,
+          "mean_actions": 1,
+          "mean_cost_when_correct": 1.0
+        },
+        "random": {
+          "accuracy": 1.0,
+          "mean_cost": 4.0725,
+          "mean_actions": 1.64,
+          "mean_cost_when_correct": 4.0725
+        },
+        "cheapest_first": {
+          "accuracy": 1.0,
+          "mean_cost": 1.5,
+          "mean_actions": 2,
+          "mean_cost_when_correct": 1.5
+        },
+        "operator_rule": {
+          "accuracy": 1.0,
+          "mean_cost": 1.0,
+          "mean_actions": 1,
+          "mean_cost_when_correct": 1.0
+        }
+      }
+    }
+  ],
+  "total_evaluated_episodes_per_policy": 2000,
+  "absolute_policy_metrics": {
+    "eig_per_cost": {
+      "accuracy": 0.859,
+      "accuracy_95_ci": [
+        0.66,
+        0.987
+      ],
+      "mean_cost": 3.586,
+      "mean_cost_95_ci": [
+        1.3435,
+        6.476
+      ],
+      "mean_actions": 1.641,
+      "mean_actions_95_ci": [
+        1.0825,
+        2.356
+      ],
+      "failure_summary": {
+        "count": 282,
+        "rate": 0.141,
+        "confusions": [
+          {
+            "truth": "contamination",
+            "prediction": "leak",
+            "count": 194
+          },
+          {
+            "truth": "leak",
+            "prediction": "contamination",
+            "count": 88
+          }
+        ],
+        "most_common_failed_action_sequences": [
+          {
+            "actions": [
+              "portable_pressure_reading",
+              "field_chlorine_grab",
+              "lab_chlorine_assay"
+            ],
+            "count": 213
+          },
+          {
+            "actions": [
+              "field_chlorine_grab"
+            ],
+            "count": 26
+          },
+          {
+            "actions": [
+              "field_chlorine_grab",
+              "portable_pressure_reading",
+              "lab_chlorine_assay"
+            ],
+            "count": 23
+          },
+          {
+            "actions": [
+              "field_chlorine_grab",
+              "lab_chlorine_assay",
+              "portable_pressure_reading"
+            ],
+            "count": 15
+          },
+          {
+            "actions": [
+              "field_chlorine_grab",
+              "lab_chlorine_assay"
+            ],
+            "count": 5
+          }
+        ]
+      }
+    },
+    "risk_aware": {
+      "accuracy": 0.847,
+      "accuracy_95_ci": [
+        0.666,
+        0.977
+      ],
+      "mean_cost": 1.245,
+      "mean_cost_95_ci": [
+        1.0,
+        1.7425
+      ],
+      "mean_actions": 1.049,
+      "mean_actions_95_ci": [
+        1.0,
+        1.1495
+      ],
+      "failure_summary": {
+        "count": 306,
+        "rate": 0.153,
+        "confusions": [
+          {
+            "truth": "contamination",
+            "prediction": "leak",
+            "count": 184
+          },
+          {
+            "truth": "leak",
+            "prediction": "contamination",
+            "count": 122
+          }
+        ],
+        "most_common_failed_action_sequences": [
+          {
+            "actions": [
+              "field_chlorine_grab"
+            ],
+            "count": 286
+          },
+          {
+            "actions": [
+              "field_chlorine_grab",
+              "lab_chlorine_assay"
+            ],
+            "count": 20
+          }
+        ]
+      }
+    },
+    "expected_accuracy": {
+      "accuracy": 0.859,
+      "accuracy_95_ci": [
+        0.6545,
+        0.9875
+      ],
+      "mean_cost": 2.939,
+      "mean_cost_95_ci": [
+        1.316,
+        4.9335
+      ],
+      "mean_actions": 1.5695,
+      "mean_actions_95_ci": [
+        1.0785,
+        2.239
+      ],
+      "failure_summary": {
+        "count": 282,
+        "rate": 0.141,
+        "confusions": [
+          {
+            "truth": "contamination",
+            "prediction": "leak",
+            "count": 194
+          },
+          {
+            "truth": "leak",
+            "prediction": "contamination",
+            "count": 88
+          }
+        ],
+        "most_common_failed_action_sequences": [
+          {
+            "actions": [
+              "field_chlorine_grab",
+              "lab_chlorine_assay",
+              "wait"
+            ],
+            "count": 153
+          },
+          {
+            "actions": [
+              "field_chlorine_grab",
+              "lab_chlorine_assay",
+              "portable_pressure_reading"
+            ],
+            "count": 56
+          },
+          {
+            "actions": [
+              "field_chlorine_grab",
+              "lab_chlorine_assay"
+            ],
+            "count": 47
+          },
+          {
+            "actions": [
+              "field_chlorine_grab"
+            ],
+            "count": 26
+          }
+        ]
+      }
+    },
+    "random": {
+      "accuracy": 0.8415,
+      "accuracy_95_ci": [
+        0.6475,
+        0.9775
+      ],
+      "mean_cost": 5.09225,
+      "mean_cost_95_ci": [
+        4.22875,
+        6.172
+      ],
+      "mean_actions": 2.0875,
+      "mean_actions_95_ci": [
+        1.729,
+        2.5395
+      ],
+      "failure_summary": {
+        "count": 317,
+        "rate": 0.1585,
+        "confusions": [
+          {
+            "truth": "contamination",
+            "prediction": "leak",
+            "count": 203
+          },
+          {
+            "truth": "leak",
+            "prediction": "contamination",
+            "count": 114
+          }
+        ],
+        "most_common_failed_action_sequences": [
+          {
+            "actions": [
+              "wait",
+              "portable_pressure_reading",
+              "lab_chlorine_assay"
+            ],
+            "count": 19
+          },
+          {
+            "actions": [
+              "portable_pressure_reading",
+              "field_chlorine_grab",
+              "wait"
+            ],
+            "count": 17
+          },
+          {
+            "actions": [
+              "lab_chlorine_assay",
+              "portable_pressure_reading",
+              "wait"
+            ],
+            "count": 17
+          },
+          {
+            "actions": [
+              "field_chlorine_grab",
+              "lab_chlorine_assay",
+              "portable_pressure_reading"
+            ],
+            "count": 15
+          },
+          {
+            "actions": [
+              "wait",
+              "field_chlorine_grab",
+              "portable_pressure_reading"
+            ],
+            "count": 15
+          }
+        ]
+      }
+    },
+    "cheapest_first": {
+      "accuracy": 0.835,
+      "accuracy_95_ci": [
+        0.6535,
+        0.9695
+      ],
+      "mean_cost": 2.4945,
+      "mean_cost_95_ci": [
+        1.647,
+        3.561
+      ],
+      "mean_actions": 2.3315,
+      "mean_actions_95_ci": [
+        2.0505,
+        2.683
+      ],
+      "failure_summary": {
+        "count": 330,
+        "rate": 0.165,
+        "confusions": [
+          {
+            "truth": "contamination",
+            "prediction": "leak",
+            "count": 169
+          },
+          {
+            "truth": "leak",
+            "prediction": "contamination",
+            "count": 161
+          }
+        ],
+        "most_common_failed_action_sequences": [
+          {
+            "actions": [
+              "wait",
+              "field_chlorine_grab",
+              "portable_pressure_reading"
+            ],
+            "count": 304
+          },
+          {
+            "actions": [
+              "wait",
+              "field_chlorine_grab"
+            ],
+            "count": 26
+          }
+        ]
+      }
+    },
+    "operator_rule": {
+      "accuracy": 0.859,
+      "accuracy_95_ci": [
+        0.658,
+        0.9865
+      ],
+      "mean_cost": 3.445,
+      "mean_cost_95_ci": [
+        1.333,
+        6.3385
+      ],
+      "mean_actions": 1.594,
+      "mean_actions_95_ci": [
+        1.0775,
+        2.32
+      ],
+      "failure_summary": {
+        "count": 282,
+        "rate": 0.141,
+        "confusions": [
+          {
+            "truth": "contamination",
+            "prediction": "leak",
+            "count": 194
+          },
+          {
+            "truth": "leak",
+            "prediction": "contamination",
+            "count": 88
+          }
+        ],
+        "most_common_failed_action_sequences": [
+          {
+            "actions": [
+              "field_chlorine_grab",
+              "portable_pressure_reading",
+              "lab_chlorine_assay"
+            ],
+            "count": 168
+          },
+          {
+            "actions": [
+              "field_chlorine_grab",
+              "lab_chlorine_assay",
+              "portable_pressure_reading"
+            ],
+            "count": 78
+          },
+          {
+            "actions": [
+              "field_chlorine_grab"
+            ],
+            "count": 26
+          },
+          {
+            "actions": [
+              "field_chlorine_grab",
+              "lab_chlorine_assay"
+            ],
+            "count": 10
+          }
+        ]
+      }
+    }
+  },
+  "paired_comparisons": {
+    "risk_aware": {
+      "reference_minus_comparator": true,
+      "mean_accuracy_difference": 0.012,
+      "accuracy_difference_95_ci": [
+        -0.0185,
+        0.053
+      ],
+      "mean_cost_difference": 2.341,
+      "cost_difference_95_ci": [
+        0.093,
+        5.476
+      ]
+    },
+    "expected_accuracy": {
+      "reference_minus_comparator": true,
+      "mean_accuracy_difference": 0.0,
+      "accuracy_difference_95_ci": [
+        0.0,
+        0.0
+      ],
+      "mean_cost_difference": 0.647,
+      "cost_difference_95_ci": [
+        0.0,
+        1.45225
+      ]
+    },
+    "random": {
+      "reference_minus_comparator": true,
+      "mean_accuracy_difference": 0.0175,
+      "accuracy_difference_95_ci": [
+        -0.002,
+        0.0395
+      ],
+      "mean_cost_difference": -1.50625,
+      "cost_difference_95_ci": [
+        -2.90275,
+        0.30675
+      ]
+    },
+    "cheapest_first": {
+      "reference_minus_comparator": true,
+      "mean_accuracy_difference": 0.024,
+      "accuracy_difference_95_ci": [
+        -0.0125,
+        0.0665
+      ],
+      "mean_cost_difference": 1.0915,
+      "cost_difference_95_ci": [
+        -0.3215,
+        2.9085
+      ]
+    },
+    "operator_rule": {
+      "reference_minus_comparator": true,
+      "mean_accuracy_difference": 0.0,
+      "accuracy_difference_95_ci": [
+        0.0,
+        0.0
+      ],
+      "mean_cost_difference": 0.141,
+      "cost_difference_95_ci": [
+        0.0,
+        0.4395
+      ]
+    }
+  },
+  "interpretation_limit": "All results are synthetic integration evidence. Ensemble-level bootstrap intervals quantify variation across these prespecified simulator ensembles and episode draws; they do not establish field performance or cross-utility generalization."
+}

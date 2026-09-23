@@ -71,6 +71,14 @@ Verify that every tracked public-data or replication report retains its required
 .venv/bin/python -m water_investigation.verify_artifacts
 ```
 
+The final synthetic benchmark is prespecified in [`benchmark_protocol.json`](benchmark_protocol.json). To build any missing independent Net3/L-Town ensembles and regenerate its summary:
+
+```bash
+.venv/bin/python -m water_investigation.final_benchmark --build
+```
+
+The tracked summary reports absolute metrics, hierarchical confidence intervals, paired baseline comparisons, and failure modes. Generated `.npz` traces remain local because they are reproducible from the frozen seeds.
+
 GitHub Actions runs both checks on every push and pull request, including strict third-party dependency auditing from [`requirements-audit.txt`](requirements-audit.txt). The local editable package is intentionally excluded because it is not published to PyPI. Public-source reports are reproducible from their documented queries and checksums; the raw downloads remain local and ignored.
 
 Run a deterministic, analytic investigation episode:

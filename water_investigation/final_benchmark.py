@@ -149,6 +149,13 @@ def run(protocol_path: Path = DEFAULT_PROTOCOL, build: bool = False,
         thresholds["max_initial_posterior"], thresholds["min_second_initial_posterior"],
         thresholds["max_actions"],
     ) for item, path in zip(protocol["ensembles"], paths)]
+    for item, report in zip(protocol["ensembles"], reports):
+        metadata = report["ensemble_metadata"]
+        expected = (item["network"], item["sensor_layout"], item["generation_seed"])
+        observed = (metadata["network"], metadata["sensor_layout"], metadata["seed"])
+        if observed != expected:
+            raise ValueError(f"ensemble artifact {item['artifact']} does not match protocol: "
+                             f"expected {expected}, observed {observed}")
     result = {
         "schema_version": 1,
         "protocol": {key: value for key, value in protocol.items() if key != "ensembles"},
