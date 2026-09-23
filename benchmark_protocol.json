@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "protocol_id": "independent-multinetwork-v1",
+  "reference_policy": "eig_per_cost",
+  "policies": [
+    "eig_per_cost",
+    "risk_aware",
+    "expected_accuracy",
+    "random",
+    "cheapest_first",
+    "operator_rule"
+  ],
+  "episodes_per_ensemble": 400,
+  "bootstrap_samples": 2000,
+  "confidence_level": 0.95,
+  "risk_lambda": 0.02,
+  "thresholds": {
+    "conclusion_posterior": 0.75,
+    "max_initial_posterior": 0.70,
+    "min_second_initial_posterior": 0.15,
+    "max_actions": 3
+  },
+  "ensembles": [
+    {
+      "id": "net3-primary-a",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "generation_seed": 20261001,
+      "evaluation_seed": 20261101,
+      "scenarios_per_class": 60,
+      "artifact": "artifacts/final-net3-primary-a.npz"
+    },
+    {
+      "id": "net3-primary-b",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "generation_seed": 20261002,
+      "evaluation_seed": 20261102,
+      "scenarios_per_class": 60,
+      "artifact": "artifacts/final-net3-primary-b.npz"
+    },
+    {
+      "id": "net3-alternate",
+      "network": "net3",
+      "sensor_layout": "alternate",
+      "generation_seed": 20261003,
+      "evaluation_seed": 20261103,
+      "scenarios_per_class": 60,
+      "artifact": "artifacts/final-net3-alternate.npz"
+    },
+    {
+      "id": "ltown-primary",
+      "network": "ltown",
+      "sensor_layout": "primary",
+      "generation_seed": 20261004,
+      "evaluation_seed": 20261104,
+      "scenarios_per_class": 60,
+      "artifact": "artifacts/final-ltown-primary.npz"
+    },
+    {
+      "id": "ltown-alternate",
+      "network": "ltown",
+      "sensor_layout": "alternate",
+      "generation_seed": 20261005,
+      "evaluation_seed": 20261105,
+      "scenarios_per_class": 60,
+      "artifact": "artifacts/final-ltown-alternate.npz"
+    }
+  ],
+  "interpretation_limit": "All results are synthetic integration evidence. Ensemble-level bootstrap intervals quantify variation across these prespecified simulator ensembles and episode draws; they do not establish field performance or cross-utility generalization."
+}
