@@ -102,6 +102,21 @@ def test_risk_aware_policy_stops_when_no_action_improves_risk_adjusted_accuracy(
     assert _choose("risk_aware", belief, [uninformative], Random(0), risk_lambda=0.05) is None
 
 
+def test_operator_rule_uses_pressure_for_non_contamination_and_chlorine_for_contamination() -> None:
+    actions = [
+        Action("field_chlorine_grab", 1.0, 1, {}),
+        Action("lab_chlorine_assay", 5.0, 8, {}),
+        Action("portable_pressure_reading", 3.0, 2, {}),
+        Action("wait", 0.5, 1, {}),
+    ]
+    pressure = _choose("operator_rule", {"contamination": 0.2, "leak": 0.5,
+                                         "sensor_fault": 0.3}, actions, Random(0))
+    chlorine = _choose("operator_rule", {"contamination": 0.5, "leak": 0.3,
+                                         "sensor_fault": 0.2}, actions, Random(0))
+    assert pressure.name == "portable_pressure_reading"
+    assert chlorine.name == "field_chlorine_grab"
+
+
 def test_paired_differences_rejects_different_scenario_sequences() -> None:
     report = {"policies": {
         "eig_per_cost": {"runs": [{"scenario_id": "a", "correct": True, "cost": 1.0}]},

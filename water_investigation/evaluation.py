@@ -1,4 +1,4 @@
-"""Evaluate three policies against held-out scenarios from a Net3 trace ensemble."""
+"""Evaluate investigation policies against held-out trace scenarios."""
 from __future__ import annotations
 
 import argparse
@@ -170,9 +170,10 @@ def initial_posterior(scenario: TraceScenario, telemetry: Action):
     return posterior_after(prior, telemetry, scenario.initial_outcome)
 
 
-def is_ambiguous(posterior) -> bool:
+def is_ambiguous(posterior, max_initial_posterior: float = MAX_INITIAL_POSTERIOR,
+                 min_second_initial_posterior: float = MIN_SECOND_INITIAL_POSTERIOR) -> bool:
     ranked = sorted(posterior.values(), reverse=True)
-    return ranked[0] <= MAX_INITIAL_POSTERIOR and ranked[1] >= MIN_SECOND_INITIAL_POSTERIOR
+    return ranked[0] <= max_initial_posterior and ranked[1] >= min_second_initial_posterior
 
 
 def _risk_adjusted_value(belief, action: Action, risk_lambda: float) -> float:
@@ -191,16 +192,36 @@ def _choose(policy: str, belief, available: list[Action], rng: Random, risk_lamb
         return min(available, key=lambda action: (action.cost, action.name))
     if policy == "random":
         return rng.choice(available)
+    if policy == "operator_rule":
+        # A transparent procedural baseline: investigate pressure when leak or
+        # sensor-fault probability dominates; otherwise screen chlorine in the
+        # field and confirm it in the lab. Waiting is a last resort.
+        names = {action.name: action for action in available}
+        non_contamination = max(belief.get("leak", 0.0), belief.get("sensor_fault", 0.0))
+        if belief.get("contamination", 0.0) >= non_contamination:
+            for name in ("field_chlorine_grab", "lab_chlorine_assay",
+                         "portable_pressure_reading", "wait"):
+                if name in names:
+                    return names[name]
+        for name in ("portable_pressure_reading", "field_chlorine_grab",
+                     "lab_chlorine_assay", "wait"):
+            if name in names:
+                return names[name]
+        return None
     raise ValueError(f"unknown policy: {policy}")
 
 
-def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], telemetry: Action, policy: str, seed: int, risk_lambda: float = 0.05, assay_followups: dict[tuple[str, str], Action] | None = None) -> dict[str, object]:
+def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], telemetry: Action,
+                policy: str, seed: int, risk_lambda: float = 0.05,
+                assay_followups: dict[tuple[str, str], Action] | None = None,
+                conclusion_threshold: float = CONCLUSION_THRESHOLD,
+                max_actions: int = 3) -> dict[str, object]:
     belief = initial_posterior(scenario, telemetry)
     remaining = list(actions)
     rng = Random(seed)
     total_cost = 0.0
     selected: list[str] = []
-    for _ in range(3):
+    for _ in range(max_actions):
         action = _choose(policy, belief, remaining, rng, risk_lambda)
         if action is None:
             break
@@ -215,7 +236,7 @@ def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], telemetry:
             if followup:
                 remaining = [followup if candidate.name == followup.name else candidate
                              for candidate in remaining]
-        if max(belief.values()) >= CONCLUSION_THRESHOLD:
+        if max(belief.values()) >= conclusion_threshold:
             break
     prediction = max(belief, key=belief.get)
     return {
@@ -233,7 +254,12 @@ def run_episode(scenario: TraceScenario, actions: tuple[Action, ...], telemetry:
     }
 
 
-def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260911, risk_lambda: float = 0.05) -> dict[str, object]:
+def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260911,
+             risk_lambda: float = 0.05,
+             conclusion_threshold: float = CONCLUSION_THRESHOLD,
+             max_initial_posterior: float = MAX_INITIAL_POSTERIOR,
+             min_second_initial_posterior: float = MIN_SECOND_INITIAL_POSTERIOR,
+             max_actions: int = 3) -> dict[str, object]:
     scenarios = scenarios_from_ensemble(path)
     training, held_out = split_scenarios(scenarios)
     if not held_out:
@@ -241,7 +267,9 @@ def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260
     actions = empirical_actions(training)
     assay_followups = conditional_assay_actions(training)
     telemetry = empirical_initial_telemetry(training)
-    eligible = [scenario for scenario in held_out if is_ambiguous(initial_posterior(scenario, telemetry))]
+    eligible = [scenario for scenario in held_out
+                if is_ambiguous(initial_posterior(scenario, telemetry),
+                                max_initial_posterior, min_second_initial_posterior)]
     if not eligible:
         raise ValueError("no held-out scenarios met the ambiguity gate")
     rng = Random(seed)
@@ -253,7 +281,10 @@ def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260
         "ensemble": ensemble_name, "ensemble_metadata": ensemble_metadata(path), "episodes": episodes,
         "training_scenarios": len(training), "held_out_scenarios": len(held_out),
         "eligible_held_out_scenarios": len(eligible), "rejected_held_out_scenarios": len(held_out) - len(eligible),
-        "ambiguity_gate": {"max_initial_posterior": MAX_INITIAL_POSTERIOR, "min_second_initial_posterior": MIN_SECOND_INITIAL_POSTERIOR},
+        "ambiguity_gate": {"max_initial_posterior": max_initial_posterior,
+                           "min_second_initial_posterior": min_second_initial_posterior},
+        "conclusion_threshold": conclusion_threshold,
+        "max_actions": max_actions,
         "measurement_model": {
             "pressure_half_width_psi": PRESSURE_HALF_WIDTH_PSI,
             "field_lower_range_mg_l": FIELD_LOWER_RANGE_MG_L,
@@ -265,8 +296,10 @@ def evaluate(path: Path = DEFAULT_OUTPUT, episodes: int = 100, seed: int = 20260
     # separately per policy confounds policy quality with scenario mix.
     episode_scenarios = [rng.choice(eligible) for _ in range(episodes)]
     episode_seeds = [rng.randrange(2**31) for _ in range(episodes)]
-    for policy in ("eig_per_cost", "risk_aware", "expected_accuracy", "random", "cheapest_first"):
-        runs = [run_episode(scenario, actions, telemetry, policy, episode_seed, risk_lambda, assay_followups)
+    for policy in ("eig_per_cost", "risk_aware", "expected_accuracy", "random",
+                   "cheapest_first", "operator_rule"):
+        runs = [run_episode(scenario, actions, telemetry, policy, episode_seed,
+                            risk_lambda, assay_followups, conclusion_threshold, max_actions)
                 for scenario, episode_seed in zip(episode_scenarios, episode_seeds)]
         correct = [run for run in runs if run["correct"]]
         report["policies"][policy] = {
