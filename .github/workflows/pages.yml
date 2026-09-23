@@ -29,7 +29,7 @@ jobs:
           cp showcase/index.html showcase/styles.css showcase/app.js showcase/config.js site/showcase/
           cp showcase/styles.css showcase/app.js showcase/config.js site/
           cp -R docs/. site/docs/
-          cp artifacts/net3-multiseed-benchmark.json artifacts/sdwis-pwsid-06-public-report.json artifacts/nors-drinking-water-public-report.json site/artifacts/
+          cp artifacts/final-independent-benchmark.json artifacts/net3-multiseed-benchmark.json artifacts/sdwis-pwsid-06-public-report.json artifacts/nors-drinking-water-public-report.json site/artifacts/
           cp FINDINGS.md PRIOR_ART_REPORT.md README.md site/
           cp site/showcase/index.html site/index.html
           if [ -n "${RENDER_API_BASE_URL}" ]; then

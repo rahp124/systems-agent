@@ -42,3 +42,8 @@ def test_showcase_leads_with_guidance_and_keeps_the_real_agent_runnable() -> Non
     assert "Review returned evidence" not in page
     assert "resultStory.setAttribute('aria-labelledby','step-title')" in script
     assert "matchMedia('(max-width: 900px)')" in script
+
+
+def test_pages_bundle_includes_the_current_benchmark() -> None:
+    workflow = (Path(__file__).parents[1] / ".github" / "workflows" / "pages.yml").read_text()
+    assert "artifacts/final-independent-benchmark.json" in workflow
