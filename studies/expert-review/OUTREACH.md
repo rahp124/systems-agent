@@ -25,7 +25,7 @@ Would you be willing to participate, or point me to someone whose work includes 
 
 Thank you,
 
-[Name] · [affiliation] · [verified demo/repository link]
+[Name] · [affiliation] · [Live demo](https://rahp124.github.io/systems-agent/) · [Source](https://github.com/rahp124/systems-agent)
 
 ## Follow-up
 

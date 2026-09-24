@@ -18,4 +18,4 @@ We are evaluating recommendation plausibility and clarity, not testing the revie
 
 The agent has a prespecified, reproducible benchmark across five independently seeded synthetic ensembles. Expert review adds domain grounding, but neither source establishes field performance. A utility-approved offline replay would still be required before any operational claim.
 
-Contact: [name/email] · Demo: [verified public URL] · Repository: [repository URL]
+Contact: [name/email] · [Live demo](https://rahp124.github.io/systems-agent/) · [Source repository](https://github.com/rahp124/systems-agent)
