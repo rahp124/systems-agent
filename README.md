@@ -79,6 +79,24 @@ The final synthetic benchmark is prespecified in [`benchmark_protocol.json`](ben
 
 The tracked summary reports absolute metrics, hierarchical confidence intervals, paired baseline comparisons, and failure modes. Generated `.npz` traces remain local because they are reproducible from the frozen seeds.
 
+### Run the expert next-observation review
+
+The frozen expert-review package in [`studies/expert-review/`](studies/expert-review/) contains a one-page brief, consent record, reviewer instructions, two-stage form guide, 30-case blinded casebook, response schema, dry-run checklist, and prespecified analysis protocol. Build it from the same frozen benchmark runs:
+
+```bash
+MPLCONFIGDIR=/tmp/water-agent-mpl XDG_CACHE_HOME=/tmp/water-agent-cache \
+  .venv/bin/python -m water_investigation.expert_review build
+```
+
+The command writes the public casebook and a locally ignored coordinator answer key. Do not commit reviewer identities, raw responses, or the answer key. After the pilot is excluded and final responses are exported using the template:
+
+```bash
+.venv/bin/python -m water_investigation.expert_review analyze \
+  studies/expert-review/responses.csv
+```
+
+No expert responses have been collected yet. The review measures agreement and perceived advisory reasonableness; it cannot establish diagnostic correctness, operational safety, or field performance.
+
 GitHub Actions runs both checks on every push and pull request, including strict third-party dependency auditing from [`requirements-audit.txt`](requirements-audit.txt). The local editable package is intentionally excluded because it is not published to PyPI. Public-source reports are reproducible from their documented queries and checksums; the raw downloads remain local and ignored.
 
 Run a deterministic, analytic investigation episode:
@@ -253,6 +271,7 @@ The two paths must stay distinct until the simulator path can estimate likelihoo
 - `water_investigation/world.py` — seeded delayed-evidence episode model and analytic action likelihoods.
 - `water_investigation/demo.py` — command-line presentation of a deterministic analytic episode.
 - `water_investigation/probe.py` — EPyT-Flow Net3/L-Town simulator feasibility probe.
+- `water_investigation/expert_review.py` — frozen casebook generation and expert-response analysis.
 - `tests/` — analytic correctness and replay tests.
 - `FINDINGS.md` — measured environment results and open risks.
 - `docs/` — operational and architectural documentation.

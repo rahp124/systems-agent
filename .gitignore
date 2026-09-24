@@ -8,4 +8,7 @@ artifacts/shadow-demo.jsonl
 artifacts/offline-replay.jsonl
 artifacts/*-smoke.*
 artifacts/*.npz
+studies/expert-review/coordinator-answer-key.json
+studies/expert-review/responses*.csv
+studies/expert-review/results.json
 *.egg-info/

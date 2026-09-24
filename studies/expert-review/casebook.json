@@ -1,0 +1,1631 @@
+{
+  "schema_version": 1,
+  "study": "expert-next-observation-review",
+  "protocol_id": "independent-multinetwork-v1",
+  "protocol_sha256": "0a70a2b7b99c0f74e486da793f354e316fb06a6dde1bd1c6a20ae1962a483351",
+  "case_count": 30,
+  "blinding": "Ground truth and final prediction are excluded. Record phase 1 before revealing phase 2.",
+  "sampling_note": "Three contamination and three leak cases were selected from each ensemble. Sensor fault remains an available explanation, but no sensor-fault episode passed the frozen ambiguity gate.",
+  "cases": [
+    {
+      "case_id": "net3-primary-a--contamination-013",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": 0.0737047795037375,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-primary-a--contamination-033",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.045368393953805264,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-primary-a--contamination-041",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": 0.24274744183705765,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-primary-a--leak-011",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.22541455883464573,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-primary-a--leak-001",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.0729327571351645,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-primary-a--leak-003",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.026663211382497443,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-primary-b--contamination-003",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": 0.03980446946340499,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-primary-b--contamination-011",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": 0.17457161043649538,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-primary-b--contamination-013",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.21799358975448907,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-primary-b--leak-017",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.13119894011603672,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-primary-b--leak-001",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": 0.07715107956158007,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-primary-b--leak-003",
+      "network": "net3",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": 0.20323942085864594,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-alternate--contamination-001",
+      "network": "net3",
+      "sensor_layout": "alternate",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.08332814051197351,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "portable_pressure_reading",
+        "agent_recommendation_label": "Portable pressure reading",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-alternate--contamination-003",
+      "network": "net3",
+      "sensor_layout": "alternate",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.02862586762506003,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "portable_pressure_reading",
+        "agent_recommendation_label": "Portable pressure reading",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-alternate--contamination-009",
+      "network": "net3",
+      "sensor_layout": "alternate",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": 0.2477848579714232,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "portable_pressure_reading",
+        "agent_recommendation_label": "Portable pressure reading",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-alternate--leak-001",
+      "network": "net3",
+      "sensor_layout": "alternate",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.10491698892401718,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "portable_pressure_reading",
+        "agent_recommendation_label": "Portable pressure reading",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-alternate--leak-005",
+      "network": "net3",
+      "sensor_layout": "alternate",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": 0.22872372736574514,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "portable_pressure_reading",
+        "agent_recommendation_label": "Portable pressure reading",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "net3-alternate--leak-009",
+      "network": "net3",
+      "sensor_layout": "alternate",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": 0.17292230357792387,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "portable_pressure_reading",
+        "agent_recommendation_label": "Portable pressure reading",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "ltown-primary--contamination-001",
+      "network": "ltown",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.17431853066860148,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "ltown-primary--contamination-003",
+      "network": "ltown",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.1707253034863258,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "ltown-primary--contamination-005",
+      "network": "ltown",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": 0.22378566007423617,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "ltown-primary--leak-001",
+      "network": "ltown",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.1508804592886362,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "ltown-primary--leak-003",
+      "network": "ltown",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.0531455138524074,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "ltown-primary--leak-005",
+      "network": "ltown",
+      "sensor_layout": "primary",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.13345778975612632,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "ltown-alternate--contamination-001",
+      "network": "ltown",
+      "sensor_layout": "alternate",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.18676574758308095,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "ltown-alternate--contamination-003",
+      "network": "ltown",
+      "sensor_layout": "alternate",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": 0.008168738412831,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "ltown-alternate--contamination-005",
+      "network": "ltown",
+      "sensor_layout": "alternate",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": 0.20073124808198572,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "ltown-alternate--leak-001",
+      "network": "ltown",
+      "sensor_layout": "alternate",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.15885646664682207,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "ltown-alternate--leak-003",
+      "network": "ltown",
+      "sensor_layout": "alternate",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.17597186392075692,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    },
+    {
+      "case_id": "ltown-alternate--leak-005",
+      "network": "ltown",
+      "sensor_layout": "alternate",
+      "scenario_statement": "Pressure, flow, and water-quality evidence do not yet establish a cause.",
+      "initial_telemetry": {
+        "category": "unresolved",
+        "fixed_pressure_delta_psi": -0.1846519847998495,
+        "other_channels": "unresolved"
+      },
+      "initial_model_beliefs": {
+        "contamination": 0.4920634920634921,
+        "leak": 0.4920634920634921,
+        "sensor_fault": 0.015873015873015872
+      },
+      "belief_note": "Model estimates derived from the initial synthetic telemetry; not field measurements or calibrated probabilities.",
+      "competing_explanations": [
+        "contamination",
+        "leak",
+        "sensor_fault"
+      ],
+      "available_actions": {
+        "field_chlorine_grab": {
+          "label": "Field chlorine grab",
+          "description": "Collect a rapid field chlorine measurement.",
+          "relative_cost": 1.0,
+          "turnaround_steps": 1
+        },
+        "lab_chlorine_assay": {
+          "label": "Lab chlorine assay",
+          "description": "Send a chlorine sample for laboratory analysis.",
+          "relative_cost": 5.0,
+          "turnaround_steps": 8
+        },
+        "portable_pressure_reading": {
+          "label": "Portable pressure reading",
+          "description": "Take an independent portable pressure measurement.",
+          "relative_cost": 3.0,
+          "turnaround_steps": 2
+        },
+        "wait": {
+          "label": "Wait for telemetry",
+          "description": "Wait for the next scheduled telemetry update.",
+          "relative_cost": 0.5,
+          "turnaround_steps": 1
+        }
+      },
+      "phase_1_instruction": "Choose the next observation before opening phase_2.",
+      "phase_2": {
+        "agent_recommendation": "field_chlorine_grab",
+        "agent_recommendation_label": "Field chlorine grab",
+        "rationale": "Highest expected uncertainty reduction per relative cost under the frozen policy."
+      }
+    }
+  ]
+}
